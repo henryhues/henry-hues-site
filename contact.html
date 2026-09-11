@@ -45,7 +45,8 @@ body {
 }
 
 a,
-button {
+button,
+input {
   font: inherit;
   color: inherit;
 }
@@ -111,6 +112,78 @@ button {
   margin-top: 42px;
   padding-top: 18px;
   border-top: 1px solid var(--line);
+}
+
+.mailing-title {
+  margin-bottom: 12px !important;
+}
+
+.hh-form {
+  width: 100%;
+  max-width: 360px;
+}
+
+.hh-form-row {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.hh-email {
+  flex: 1;
+  min-width: 0;
+  height: 32px;
+  padding: 6px 8px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-right: 0;
+  border-radius: 0;
+  outline: none;
+  color: var(--grey);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--ui);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.hh-email::placeholder {
+  color: var(--grey2);
+  opacity: 1;
+}
+
+.hh-email:focus {
+  border-color: var(--grey);
+}
+
+.hh-submit {
+  height: 32px;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--grey);
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--ui);
+}
+
+.hh-submit:hover {
+  border-color: var(--grey);
+}
+
+.hh-submit.loading {
+  opacity: .5;
+  pointer-events: none;
+}
+
+.hh-success {
+  display: none;
+  margin-top: 0;
+}
+
+.hh-success p {
+  margin: 0;
 }
 
 .square {
@@ -203,6 +276,9 @@ body.dark {
     padding: 12px 14px 14px;
   }
 
+  .hh-form {
+    max-width: 100%;
+  }
 }
 </style>
 
@@ -281,20 +357,71 @@ Contact<br>
 
 <div class="mailing">
 
-<p>
+<p class="mailing-title">
   Join the mailing list
 </p>
 
-<p>
-
-<a
-  class="square"
-  href="mailto:info.tugc@gmail.com?subject=Henry%20Hues%20Mailing%20List&amp;body=Please%20add%20me%20to%20the%20Henry%20Hues%20mailing%20list."
+<div
+  id="mlb2-45846169"
+  class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45846169"
 >
-  Subscribe
-</a>
 
-</p>
+  <div class="row-form">
+
+    <form
+      class="ml-block-form hh-form"
+      action="https://assets.mailerlite.com/jsonp/2630720/forms/198354712118953334/subscribe"
+      method="post"
+      target="_blank"
+    >
+
+      <div class="hh-form-row">
+
+        <input
+          class="hh-email"
+          aria-label="Email"
+          aria-required="true"
+          type="email"
+          name="fields[email]"
+          placeholder="Email"
+          autocomplete="email"
+          required
+        >
+
+        <button
+          class="hh-submit primary"
+          type="submit"
+        >
+          Subscribe +
+        </button>
+
+      </div>
+
+      <input
+        type="hidden"
+        name="ml-submit"
+        value="1"
+      >
+
+      <input
+        type="hidden"
+        name="anticsrf"
+        value="true"
+      >
+
+    </form>
+
+  </div>
+
+  <div class="row-success hh-success">
+
+    <p>
+      Check your inbox to confirm your subscription.
+    </p>
+
+  </div>
+
+</div>
 
 </div>
 
@@ -417,6 +544,29 @@ Contact<br>
 </div>
 
 </aside>
+
+<script>
+function ml_webform_success_45846169() {
+  document
+    .querySelector('.ml-subscribe-form-45846169 .row-success')
+    .style.display = 'block';
+
+  document
+    .querySelector('.ml-subscribe-form-45846169 .row-form')
+    .style.display = 'none';
+}
+</script>
+
+<script
+  src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"
+  type="text/javascript"
+></script>
+
+<script>
+fetch(
+  "https://assets.mailerlite.com/jsonp/2630720/forms/198354712118953334/takel"
+);
+</script>
 
 <script>
 (() => {
