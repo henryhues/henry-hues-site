@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Henry Hues — artist, producer and sound curator based in Paris." />
+  <title>Henry Hues — Artist / Producer / Sound Curator</title>
+
+  <style>
+    :root {
+      --paper: #f7f6f3;
+      --lilac: #d7ceda;
+      --blue: #bedcf2;
+      --pink: #ead1de;
+      --ink: #171717;
+      --grey: #858585;
+      --soft-grey: #b1b1ad;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      width: 100%;
+    }
+
+    /* TOP BAR */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: #111;
+      color: white;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .topbar nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 94vh;
+      background: var(--lilac);
+      padding: 30px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      color: #666;
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+    }
+
+    .hero-title {
+      margin: auto 0;
+      font-size: clamp(66px, 15vw, 190px);
+      line-height: 0.82;
+      letter-spacing: -0.07em;
+      font-weight: 400;
+      color: #eeeeeb;
+    }
+
+    .hero-title span {
+      display: block;
+      color: #f9f9f6;
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      color: #686868;
+    }
+
+    .hero-bottom p {
+      max-width: 320px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    /* EDITORIAL INTRO */
+
+    .statement {
+      padding: 90px 5vw 100px;
+      text-align: center;
+    }
+
+    .statement p {
+      max-width: 1150px;
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 4vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    /* FIELD / MOTION STUDY */
+
+    .field-section {
+      padding: 35px 5vw 120px;
+    }
+
+    .date {
+      margin-bottom: 20px;
+      color: var(--grey);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+    }
+
+    .field {
+      position: relative;
+      height: min(70vh, 720px);
+      overflow: hidden;
+      background:
+        linear-gradient(
+          120deg,
+          rgba(161,168,117,.7),
+          rgba(216,205,165,.75),
+          rgba(142,154,100,.8)
+        );
+    }
+
+    .grass {
+      position: absolute;
+      inset: -20%;
+      opacity: .6;
+      background:
+        repeating-linear-gradient(
+          82deg,
+          transparent 0 16px,
+          rgba(245,241,214,.8) 17px 19px,
+          transparent 20px 32px
+        );
+      transform-origin: bottom;
+      animation: wind 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes wind {
+      from {
+        transform: translateX(-2%) skewX(-3deg);
+      }
+      to {
+        transform: translateX(3%) skewX(5deg);
+      }
+    }
+
+    .field-label {
+      position: absolute;
+      left: 25px;
+      bottom: 22px;
+      color: white;
+      font-size: clamp(38px, 6vw, 90px);
+      font-weight: 300;
+      letter-spacing: -.04em;
+    }
+
+    .post-actions {
+      display: flex;
+      gap: 23px;
+      margin-top: 18px;
+      color: var(--grey);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+    }
+
+    .post-actions button {
+      border: 0;
+      background: none;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    /* BLUE PROFILE SECTION */
+
+    .profile {
+      min-height: 90vh;
+      background: var(--blue);
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 7vw;
+      padding: 9vw 6vw;
+    }
+
+    .portrait {
+      width: min(100%, 620px);
+      aspect-ratio: 4 / 5;
+      background:
+        linear-gradient(180deg, #202329 0 43%, #d7d1bd 43% 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portrait::before {
+      content: "";
+      position: absolute;
+      width: 38%;
+      height: 30%;
+      border-radius: 50% 50% 40% 40%;
+      left: 31%;
+      top: 13%;
+      background: #17191e;
+      filter: blur(1px);
+    }
+
+    .portrait::after {
+      content: "";
+      position: absolute;
+      width: 82%;
+      height: 62%;
+      left: 9%;
+      bottom: -15%;
+      background: #b8ae93;
+      border-radius: 40% 40% 0 0;
+    }
+
+    .profile-copy h2 {
+      margin: 0 0 50px;
+      font-size: clamp(42px, 7vw, 100px);
+      font-weight: 300;
+      letter-spacing: -.05em;
+    }
+
+    .profile-copy p {
+      max-width: 600px;
+      font-size: clamp(21px, 2.7vw, 38px);
+      line-height: 1.13;
+      margin: 0;
+    }
+
+    .profile-copy em {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    /* DRAWINGS */
+
+    .drawings {
+      padding: 120px 5vw;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 45px;
+      color: #666;
+    }
+
+    .drawing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .drawing {
+      background: #efeee9;
+      min-height: 470px;
+      display: grid;
+      place-items: center;
+      padding: 35px;
+    }
+
+    .drawing svg {
+      width: 100%;
+      height: 100%;
+      max-height: 390px;
+    }
+
+    /* PHOTO COLLAGE */
+
+    .collage {
+      background: #efefed;
+      padding: 18px;
+    }
+
+    .collage-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .photo-card {
+      background: white;
+      padding: 8px;
+      box-shadow: 0 2px 7px rgba(0,0,0,.12);
+    }
+
+    .photo {
+      min-height: 390px;
+      background: #c9c7c1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo.street {
+      background:
+        linear-gradient(
+          90deg,
+          #655c55,
+          #999084 25%,
+          #47423e 26% 55%,
+          #bbb1a4 56% 100%
+        );
+    }
+
+    .photo.pink {
+      background: linear-gradient(150deg, #f0d5df, #b48ca4);
+    }
+
+    .photo.dark {
+      background: linear-gradient(155deg, #151515, #454341);
+    }
+
+    .photo.white {
+      background: linear-gradient(150deg, #eee, #cbc5bb);
+    }
+
+    .photo span {
+      position: absolute;
+      bottom: 14px;
+      left: 13px;
+      color: white;
+      font-size: 12px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      padding: 120px 6vw;
+    }
+
+    .services-title {
+      max-width: 950px;
+      margin-bottom: 90px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 6vw, 83px);
+      line-height: .98;
+      font-weight: 400;
+    }
+
+    .service {
+      display: grid;
+      grid-template-columns: 70px 1fr auto;
+      align-items: baseline;
+      gap: 20px;
+      padding: 23px 0;
+      border-top: 1px solid #aaa;
+    }
+
+    .service:last-child {
+      border-bottom: 1px solid #aaa;
+    }
+
+    .service-number {
+      color: var(--grey);
+    }
+
+    .service-name {
+      font-size: clamp(27px, 4vw, 54px);
+      letter-spacing: -.03em;
+    }
+
+    .service-link {
+      color: var(--grey);
+    }
+
+    /* BOOKING */
+
+    .booking {
+      min-height: 75vh;
+      background: var(--pink);
+      padding: 7vw 6vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .booking h2 {
+      max-width: 1100px;
+      margin: 0;
+      color: #f7f5f3;
+      font-size: clamp(60px, 12vw, 170px);
+      line-height: .85;
+      letter-spacing: -.065em;
+      font-weight: 300;
+    }
+
+    .booking-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+    }
+
+    .booking-bottom p {
+      max-width: 370px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 19px;
+    }
+
+    .book-button {
+      display: inline-block;
+      background: var(--blue);
+      padding: 18px 26px;
+      font-size: 17px;
+      transition: transform .2s ease;
+    }
+
+    .book-button:hover {
+      transform: translateY(-3px);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 25px 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      color: var(--grey);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 800px) {
+      .topbar nav {
+        gap: 10px;
+      }
+
+      .hero {
+        min-height: 88vh;
+      }
+
+      .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile {
+        grid-template-columns: 1fr;
+      }
+
+      .drawing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collage-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .photo {
+        min-height: 260px;
+      }
+
+      .service {
+        grid-template-columns: 42px 1fr;
+      }
+
+      .service-link {
+        display: none;
+      }
+
+      .booking-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a href="#top">HH</a>
+
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#drawings">Drawings</a>
+      <a href="#services">Sound</a>
+      <a href="#book">Book</a>
+    </nav>
+
+    <span>Paris / NY</span>
+  </header>
+
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="hero-meta">
+        <span>Henry Hues</span>
+        <span>Artist archive · 2026</span>
+      </div>
+
+      <h1 class="hero-title">
+        HENRY
+        <span>HUES</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p>
+          Artist, producer and sound curator working across music,
+          image, performance and atmosphere.
+        </p>
+
+        <span>Paris, France</span>
+      </div>
+    </section>
+
+
+    <section class="statement" id="work">
+      <p>
+        Henry Hues approaches sound as atmosphere — something lived
+        rather than simply heard. His work moves between songwriting,
+        production, DJ culture, image-making and the quiet details that
+        give a room its emotional character.
+      </p>
+    </section>
+
+
+    <section class="field-section">
+      <div class="date">September 2026</div>
+
+      <div class="field">
+        <div class="grass"></div>
+        <div class="field-label">Field Study No. 01</div>
+      </div>
+
+      <div class="post-actions">
+        <button id="likeButton">♡ <span id="likes">32</span> Likes</button>
+        <button id="shareButton">↗ Share</button>
+      </div>
+    </section>
+
+
+    <section class="profile">
+      <div class="portrait"></div>
+
+      <div class="profile-copy">
+        <h2>Henry Hues</h2>
+
+        <p>
+          <em>Recording artist, producer and selector.</em><br><br>
+          Music built from memory, tenderness, rhythm and observation.
+          Based in Paris and connected to New York.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="drawings" id="drawings">
+      <div class="section-heading">
+        <span>Drawings / Notes</span>
+        <span>001—003</span>
+      </div>
+
+      <div class="drawing-grid">
+
+        <div class="drawing">
+          <svg viewBox="0 0 400 500">
+            <path d="M58 380 Q120 80 210 300 T350 120"
+              fill="none"
+              stroke="#202020"
+              stroke-width="14"
+              stroke-linecap="round"/>
+            <circle cx="280" cy="340" r="62"
+              fill="none"
+              stroke="#202020"
+              stroke-width="9"/>
+          </svg>
+        </div>
+
+        <div class="drawing">
+          <svg viewBox="0 0 400 500">
+            <path d="M90 400
+                     C70 300 160 210 125 110
+                     M145 420
+                     C210 290 180 190 250 80
+                     M230 440
+                     C260 320 345 200 300 95"
+              fill="none"
+              stroke="#202020"
+              stroke-width="11"
+              stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="drawing">
+          <svg viewBox="0 0 400 500">
+            <path d="M75 110
+                     Q270 35 320 195
+                     Q340 340 160 410
+                     Q60 370 95 260
+                     Q155 180 300 280"
+              fill="none"
+              stroke="#202020"
+              stroke-width="10"/>
+          </svg>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="collage">
+      <div class="collage-grid">
+
+        <div class="photo-card">
+          <div class="photo street">
+            <span>Paris / street study</span>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo pink">
+            <span>Portrait / studio</span>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo dark">
+            <span>After hours</span>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo white">
+            <span>Look 01</span>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo white">
+            <span>Soundcheck</span>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo dark">
+            <span>Portrait / anonymous</span>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo street">
+            <span>New York archive</span>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo pink">
+            <span>Studio fragment</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="services" id="services">
+
+      <h2 class="services-title">
+        Sound made for rooms, images, people and moments.
+      </h2>
+
+      <div class="service">
+        <span class="service-number">01</span>
+        <span class="service-name">DJ Sets</span>
+        <a class="service-link" href="#book">Inquire ↗</a>
+      </div>
+
+      <div class="service">
+        <span class="service-number">02</span>
+        <span class="service-name">Sound Curation</span>
+        <a class="service-link" href="#book">Inquire ↗</a>
+      </div>
+
+      <div class="service">
+        <span class="service-number">03</span>
+        <span class="service-name">Music Production</span>
+        <a class="service-link" href="#book">Inquire ↗</a>
+      </div>
+
+      <div class="service">
+        <span class="service-number">04</span>
+        <span class="service-name">Songwriting + Vocals</span>
+        <a class="service-link" href="#book">Inquire ↗</a>
+      </div>
+
+      <div class="service">
+        <span class="service-number">05</span>
+        <span class="service-name">Creative Sound Direction</span>
+        <a class="service-link" href="#book">Inquire ↗</a>
+      </div>
+
+    </section>
+
+
+    <section class="booking" id="book">
+
+      <h2>
+        WORK<br>
+        WITH<br>
+        HENRY.
+      </h2>
+
+      <div class="booking-bottom">
+        <p>
+          Available for selected DJ sets, creative commissions,
+          production sessions and sound-curation projects in Paris
+          and internationally.
+        </p>
+
+        <a class="book-button" href="mailto:YOUR-EMAIL-HERE">
+          Request a booking ↗
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <span>Henry Hues © 2026</span>
+    <span>Paris / New York</span>
+    <span>Artist · Producer · Sound Curator</span>
+  </footer>
+
+
+  <script>
+    const likeButton = document.getElementById("likeButton");
+    const likes = document.getElementById("likes");
+    const shareButton = document.getElementById("shareButton");
+
+    let liked = false;
+
+    likeButton.addEventListener("click", () => {
+      liked = !liked;
+      likes.textContent = liked ? "33" : "32";
+      likeButton.firstChild.textContent = liked ? "♥ " : "♡ ";
+    });
+
+    shareButton.addEventListener("click", async () => {
+      if (navigator.share) {
+        await navigator.share({
+          title: "Henry Hues",
+          url: window.location.href
+        });
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        shareButton.textContent = "Copied";
+        setTimeout(() => {
+          shareButton.textContent = "↗ Share";
+        }, 1500);
+      }
+    });
+  </script>
+
+</body>
+</html>
