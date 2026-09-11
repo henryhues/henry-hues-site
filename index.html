@@ -1,799 +1,1833 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Henry Hues — artist, producer and sound curator based in Paris." />
-  <title>Henry Hues — Artist / Producer / Sound Curator</title>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"
+  >
+
+  <meta
+    name="description"
+    content="Henry Hues — artist, producer and sound curator."
+  >
+
+  <title>Henry Hues</title>
 
   <style>
     :root {
-      --paper: #f7f6f3;
-      --lilac: #d7ceda;
-      --blue: #bedcf2;
-      --pink: #ead1de;
-      --ink: #171717;
-      --grey: #858585;
-      --soft-grey: #b1b1ad;
+      --lilac: #d8cfd9;
+      --lilac-soft: #e9e1e7;
+      --paper: #f5f3ef;
+
+      --grey: #777774;
+      --grey-soft: #aaa7a1;
+      --ink: #181817;
+
+      --blue: #b7d4df;
+      --blue-muted: #9dbdc5;
+      --earth: #b9b09d;
+      --earth-light: #d2cbc0;
+      --stone: #d8d6d1;
+
+      --line: rgba(45, 45, 42, 0.22);
+
+      --journal-size: 10.5px;
     }
+
 
     * {
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
       margin: 0;
+
       background: var(--paper);
       color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 15px;
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-weight: 400;
+
+      transition:
+        background .25s ease,
+        color .25s ease;
     }
+
+
+    body.dark {
+      --paper: #171716;
+      --ink: #eceae6;
+
+      --grey: #aaa8a2;
+      --grey-soft: #77746f;
+
+      --lilac: #463f48;
+      --lilac-soft: #302c31;
+
+      --blue: #435a61;
+      --blue-muted: #354b52;
+
+      --earth: #5d574d;
+      --earth-light: #716a5e;
+
+      --stone: #464540;
+
+      --line: rgba(240,240,235,.2);
+    }
+
+
+    body.classic-cursor,
+    body.classic-cursor a,
+    body.classic-cursor button,
+    body.classic-cursor input {
+      cursor:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='white' stroke='black' stroke-width='1.5' d='M10 2h5v9h2V7h4v5h2V9h4v11c0 6-4 10-10 10h-2c-5 0-9-4-9-9v-6h4z'/%3E%3C/svg%3E")
+        10 3,
+        pointer;
+    }
+
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-    img,
-    video {
-      display: block;
-      width: 100%;
+
+    button,
+    input {
+      font: inherit;
     }
 
-    /* TOP BAR */
 
-    .topbar {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+
+    /* NAVIGATION */
+
+    .site-nav {
       position: sticky;
       top: 0;
-      z-index: 20;
+
+      z-index: 100;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 12px 18px;
-      background: #111;
-      color: white;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      gap: 27px;
+
+      padding: 17px 5vw;
+
+      background: var(--lilac);
+
+      color: rgba(255,255,255,.9);
+
+      font-size: 11px;
+      letter-spacing: .02em;
+
+      white-space: nowrap;
+
+      transition:
+        background .25s ease,
+        color .25s ease;
     }
 
-    .topbar nav {
-      display: flex;
-      gap: 18px;
+
+    .site-nav .logo {
+      margin-right: auto;
     }
+
+
+    .site-nav a,
+    .settings-trigger {
+      border: 0;
+      padding: 0;
+
+      background: transparent;
+      color: inherit;
+
+      cursor: pointer;
+    }
+
+
+    .site-nav a:hover,
+    .settings-trigger:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
 
     /* HERO */
 
     .hero {
-      min-height: 94vh;
+      min-height: 92vh;
+
+      padding:
+        38px
+        5vw
+        52px;
+
       background: var(--lilac);
-      padding: 30px 22px;
+
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
+
 
     .hero-meta {
       display: flex;
       justify-content: space-between;
-      color: #666;
-      font-family: Georgia, "Times New Roman", serif;
+      align-items: baseline;
+
+      gap: 30px;
+
+      color: var(--grey);
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: 13px;
+      font-weight: 300;
       font-style: italic;
     }
+
 
     .hero-title {
       margin: auto 0;
-      font-size: clamp(66px, 15vw, 190px);
-      line-height: 0.82;
-      letter-spacing: -0.07em;
-      font-weight: 400;
-      color: #eeeeeb;
+
+      color: rgba(255,255,255,.9);
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: clamp(66px, 15vw, 175px);
+      font-weight: 300;
+
+      line-height: .82;
+      letter-spacing: -.065em;
     }
+
 
     .hero-title span {
       display: block;
-      color: #f9f9f6;
     }
 
-    .hero-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 20px;
-      color: #686868;
-    }
 
-    .hero-bottom p {
-      max-width: 320px;
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
-      line-height: 1.25;
-    }
+    .hero-blurb {
+      max-width: 340px;
 
-    /* EDITORIAL INTRO */
+      margin: 62px 0 0;
 
-    .statement {
-      padding: 90px 5vw 100px;
-      text-align: center;
-    }
-
-    .statement p {
-      max-width: 1150px;
-      margin: 0 auto;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(27px, 4vw, 54px);
-      line-height: 1.08;
-      letter-spacing: -0.025em;
-    }
-
-    /* FIELD / MOTION STUDY */
-
-    .field-section {
-      padding: 35px 5vw 120px;
-    }
-
-    .date {
-      margin-bottom: 20px;
       color: var(--grey);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 17px;
+
+      font-size: 10.5px;
+      line-height: 1.48;
+
+      letter-spacing: .005em;
     }
 
-    .field {
-      position: relative;
-      height: min(70vh, 720px);
-      overflow: hidden;
-      background:
-        linear-gradient(
-          120deg,
-          rgba(161,168,117,.7),
-          rgba(216,205,165,.75),
-          rgba(142,154,100,.8)
-        );
+
+    /* GENERAL */
+
+    section {
+      scroll-margin-top: 60px;
     }
 
-    .grass {
-      position: absolute;
-      inset: -20%;
-      opacity: .6;
-      background:
-        repeating-linear-gradient(
-          82deg,
-          transparent 0 16px,
-          rgba(245,241,214,.8) 17px 19px,
-          transparent 20px 32px
-        );
-      transform-origin: bottom;
-      animation: wind 6s ease-in-out infinite alternate;
+
+    .section-shell {
+      padding: 105px 5vw;
     }
 
-    @keyframes wind {
-      from {
-        transform: translateX(-2%) skewX(-3deg);
-      }
-      to {
-        transform: translateX(3%) skewX(5deg);
-      }
-    }
 
-    .field-label {
-      position: absolute;
-      left: 25px;
-      bottom: 22px;
-      color: white;
-      font-size: clamp(38px, 6vw, 90px);
-      font-weight: 300;
-      letter-spacing: -.04em;
-    }
+    .section-label {
+      margin-bottom: 60px;
 
-    .post-actions {
-      display: flex;
-      gap: 23px;
-      margin-top: 18px;
       color: var(--grey);
-      font-family: Georgia, "Times New Roman", serif;
-      font-style: italic;
+
+      font-size: 10px;
+
+      letter-spacing: .04em;
+      text-transform: uppercase;
     }
 
-    .post-actions button {
-      border: 0;
-      background: none;
-      padding: 0;
-      color: inherit;
-      font: inherit;
-      cursor: pointer;
+
+    /* ARTIST ARCHIVE */
+
+    #work {
+      background: var(--paper);
     }
 
-    /* BLUE PROFILE SECTION */
 
-    .profile {
-      min-height: 90vh;
-      background: var(--blue);
+    .archive {
+      display: flex;
+      flex-direction: column;
+
+      gap: 115px;
+    }
+
+
+    .release {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+
+      grid-template-columns:
+        minmax(280px, 640px)
+        minmax(130px, 280px);
+
+      gap: clamp(40px, 9vw, 150px);
+
       align-items: center;
-      gap: 7vw;
-      padding: 9vw 6vw;
     }
 
-    .portrait {
-      width: min(100%, 620px);
-      aspect-ratio: 4 / 5;
-      background:
-        linear-gradient(180deg, #202329 0 43%, #d7d1bd 43% 100%);
-      position: relative;
-      overflow: hidden;
+
+    .release:nth-child(even) {
+      grid-template-columns:
+        minmax(130px, 280px)
+        minmax(280px, 640px);
     }
 
-    .portrait::before {
-      content: "";
-      position: absolute;
-      width: 38%;
-      height: 30%;
-      border-radius: 50% 50% 40% 40%;
-      left: 31%;
-      top: 13%;
-      background: #17191e;
-      filter: blur(1px);
+
+    .release:nth-child(even) .release-frame {
+      order: 2;
     }
 
-    .portrait::after {
-      content: "";
-      position: absolute;
-      width: 82%;
-      height: 62%;
-      left: 9%;
-      bottom: -15%;
-      background: #b8ae93;
-      border-radius: 40% 40% 0 0;
+
+    .release:nth-child(even) .release-data {
+      order: 1;
+      text-align: right;
     }
 
-    .profile-copy h2 {
-      margin: 0 0 50px;
-      font-size: clamp(42px, 7vw, 100px);
-      font-weight: 300;
-      letter-spacing: -.05em;
-    }
 
-    .profile-copy p {
-      max-width: 600px;
-      font-size: clamp(21px, 2.7vw, 38px);
-      line-height: 1.13;
-      margin: 0;
-    }
+    .release-frame {
+      aspect-ratio: 1 / 1;
 
-    .profile-copy em {
-      font-family: Georgia, "Times New Roman", serif;
-    }
+      padding: clamp(28px, 6vw, 76px);
 
-    /* DRAWINGS */
-
-    .drawings {
-      padding: 120px 5vw;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 45px;
-      color: #666;
-    }
-
-    .drawing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .drawing {
-      background: #efeee9;
-      min-height: 470px;
       display: grid;
       place-items: center;
-      padding: 35px;
     }
 
-    .drawing svg {
+
+    .release:nth-child(3n + 1) .release-frame {
+      background: var(--blue);
+    }
+
+
+    .release:nth-child(3n + 2) .release-frame {
+      background: var(--earth-light);
+    }
+
+
+    .release:nth-child(3n + 3) .release-frame {
+      background: var(--blue-muted);
+    }
+
+
+    .release-art {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+
+      overflow: hidden;
+
+      background: #d8d6d1;
+
+      display: grid;
+      place-items: center;
+    }
+
+
+    .release-art img {
       width: 100%;
       height: 100%;
-      max-height: 390px;
+
+      object-fit: contain;
+
+      background: #d8d6d1;
     }
 
-    /* PHOTO COLLAGE */
 
-    .collage {
-      background: #efefed;
-      padding: 18px;
+    .release-art-placeholder {
+      color: #96938e;
+
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
-    .collage-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+
+    .release-data {
+      color: var(--grey);
+
+      font-size: 10px;
+      line-height: 1.55;
     }
 
-    .photo-card {
-      background: white;
-      padding: 8px;
-      box-shadow: 0 2px 7px rgba(0,0,0,.12);
-    }
 
-    .photo {
-      min-height: 390px;
-      background: #c9c7c1;
-      position: relative;
-      overflow: hidden;
-    }
+    .release-data h3 {
+      margin: 0 0 8px;
 
-    .photo.street {
-      background:
-        linear-gradient(
-          90deg,
-          #655c55,
-          #999084 25%,
-          #47423e 26% 55%,
-          #bbb1a4 56% 100%
-        );
-    }
+      color: var(--ink);
 
-    .photo.pink {
-      background: linear-gradient(150deg, #f0d5df, #b48ca4);
-    }
-
-    .photo.dark {
-      background: linear-gradient(155deg, #151515, #454341);
-    }
-
-    .photo.white {
-      background: linear-gradient(150deg, #eee, #cbc5bb);
-    }
-
-    .photo span {
-      position: absolute;
-      bottom: 14px;
-      left: 13px;
-      color: white;
       font-size: 12px;
-    }
-
-    /* SERVICES */
-
-    .services {
-      padding: 120px 6vw;
-    }
-
-    .services-title {
-      max-width: 950px;
-      margin-bottom: 90px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(40px, 6vw, 83px);
-      line-height: .98;
       font-weight: 400;
     }
 
-    .service {
+
+    .release-actions {
+      display: flex;
+      gap: 14px;
+
+      margin-top: 18px;
+
+      font-size: 12px;
+    }
+
+
+    .release-actions a {
+      border-bottom:
+        1px
+        solid
+        currentColor;
+
+      padding-bottom: 2px;
+    }
+
+
+    /* UPCOMING */
+
+    #upcoming {
+      background: var(--lilac-soft);
+    }
+
+
+    .journal-wrap {
+      max-width: 730px;
+
+      margin-bottom: 90px;
+    }
+
+
+    .journal-heading {
+      margin-bottom: 22px;
+
+      color: var(--grey);
+
+      font-size: 10px;
+    }
+
+
+    .journal-tools {
+      display: flex;
+      gap: 14px;
+
+      margin-bottom: 18px;
+    }
+
+
+    .journal-tools button {
+      border: 0;
+      border-bottom:
+        1px
+        solid
+        currentColor;
+
+      padding: 0 0 2px;
+
+      background: transparent;
+      color: var(--grey);
+
+      font-size: 9px;
+
+      cursor: pointer;
+    }
+
+
+    .journal {
+      max-width: 660px;
+
+      margin: 0;
+
+      font-size: var(--journal-size);
+      line-height: 1.55;
+
+      white-space: pre-line;
+    }
+
+
+    /* TEASER TEXT FIRST */
+
+    .teaser-notes {
       display: grid;
-      grid-template-columns: 70px 1fr auto;
-      align-items: baseline;
-      gap: 20px;
-      padding: 23px 0;
-      border-top: 1px solid #aaa;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 55px;
+
+      max-width: 950px;
+
+      margin-bottom: 70px;
     }
 
-    .service:last-child {
-      border-bottom: 1px solid #aaa;
+
+    .teaser-note {
+      max-width: 400px;
     }
 
-    .service-number {
+
+    .teaser-kicker {
+      margin-bottom: 9px;
+
       color: var(--grey);
+
+      font-size: 9px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
     }
 
-    .service-name {
-      font-size: clamp(27px, 4vw, 54px);
-      letter-spacing: -.03em;
+
+    .teaser-note h3 {
+      margin:
+        0
+        0
+        11px;
+
+      font-size: 14px;
+      font-weight: 400;
     }
 
-    .service-link {
+
+    .teaser-note p {
+      margin: 0;
+
       color: var(--grey);
+
+      font-size: 10.5px;
+      line-height: 1.48;
     }
 
-    /* BOOKING */
 
-    .booking {
-      min-height: 75vh;
-      background: var(--pink);
-      padding: 7vw 6vw;
+    /* ONE ARK ARTWORK */
+
+    .ark-artwork-block {
+      max-width: 650px;
+
+      margin-bottom: 65px;
+    }
+
+
+    .ark-cover-shell {
+      aspect-ratio: 1 / 1;
+
+      padding: clamp(28px, 5vw, 55px);
+
+      background: var(--stone);
+
+      display: grid;
+      place-items: center;
+    }
+
+
+    .ark-cover-shell img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+      background: #ecebe7;
+    }
+
+
+    /* AUDIO AFTER ARTWORK */
+
+    .audio-list {
+      max-width: 850px;
+
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+
+      gap: 48px;
     }
 
-    .booking h2 {
-      max-width: 1100px;
-      margin: 0;
-      color: #f7f5f3;
-      font-size: clamp(60px, 12vw, 170px);
-      line-height: .85;
-      letter-spacing: -.065em;
-      font-weight: 300;
+
+    .audio-entry {
+      padding-bottom: 16px;
+
+      border-bottom:
+        1px
+        solid
+        var(--line);
     }
 
-    .booking-bottom {
+
+    .audio-title {
       display: flex;
       justify-content: space-between;
-      align-items: end;
-      gap: 25px;
+
+      gap: 20px;
+
+      margin-bottom: 12px;
+
+      color: var(--grey);
+
+      font-size: 10px;
     }
 
-    .booking-bottom p {
-      max-width: 370px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 19px;
+
+    audio {
+      width: 100%;
+      height: 34px;
     }
 
-    .book-button {
-      display: inline-block;
-      background: var(--blue);
-      padding: 18px 26px;
-      font-size: 17px;
-      transition: transform .2s ease;
+
+    /* CONTACT */
+
+    #contact {
+      padding:
+        95px
+        5vw
+        105px;
+
+      background: var(--paper);
     }
 
-    .book-button:hover {
-      transform: translateY(-3px);
+
+    .contact-shell {
+      max-width: 680px;
     }
+
+
+    .contact-title {
+      margin:
+        0
+        0
+        40px;
+
+      color: var(--grey);
+
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+
+    .booking-line {
+      margin-bottom: 50px;
+
+      color: var(--grey);
+
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+
+    .booking-line a {
+      color: var(--ink);
+
+      border-bottom:
+        1px
+        solid
+        currentColor;
+
+      padding-bottom: 2px;
+    }
+
+
+    .services {
+      display: flex;
+      flex-direction: column;
+
+      gap: 17px;
+    }
+
+
+    .services div {
+      padding-bottom: 10px;
+
+      border-bottom:
+        1px
+        solid
+        var(--line);
+
+      font-size: 13px;
+    }
+
+
+    /* MINIMAL SUBSCRIBE */
+
+    .subscribe-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      gap: 30px;
+
+      margin-top: 44px;
+
+      padding-top: 13px;
+
+      border-top:
+        1px
+        solid
+        var(--line);
+
+      color: var(--grey);
+
+      font-size: 10.5px;
+    }
+
+
+    .subscribe-block a {
+      color: var(--ink);
+
+      border-bottom:
+        1px
+        solid
+        currentColor;
+
+      padding-bottom: 2px;
+    }
+
 
     /* FOOTER */
 
     footer {
-      padding: 25px 20px 50px;
       display: flex;
       justify-content: space-between;
-      gap: 15px;
+
+      gap: 25px;
+
+      padding:
+        27px
+        5vw
+        42px;
+
       color: var(--grey);
-      font-size: 12px;
-      text-transform: uppercase;
+
+      font-size: 9.5px;
     }
 
-    @media (max-width: 800px) {
-      .topbar nav {
-        gap: 10px;
+
+    /* SETTINGS */
+
+    .settings-panel {
+      position: fixed;
+
+      z-index: 300;
+
+      top: 58px;
+      right: 18px;
+
+      width:
+        min(
+          300px,
+          calc(100vw - 36px)
+        );
+
+      padding: 20px;
+
+      background: var(--paper);
+
+      border:
+        1px
+        solid
+        var(--line);
+
+      box-shadow:
+        0
+        12px
+        30px
+        rgba(0,0,0,.08);
+
+      display: none;
+    }
+
+
+    .settings-panel.open {
+      display: block;
+    }
+
+
+    .settings-panel h2 {
+      margin:
+        0
+        0
+        18px;
+
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      padding: 11px 0;
+
+      border-top:
+        1px
+        solid
+        var(--line);
+
+      font-size: 10px;
+    }
+
+
+    .setting-row button {
+      border: 0;
+
+      background: transparent;
+      color: var(--grey);
+
+      padding: 0;
+
+      cursor: pointer;
+    }
+
+
+    .size-options {
+      display: flex;
+      gap: 13px;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 720px) {
+
+      .site-nav {
+        gap: 17px;
+
+        padding:
+          16px
+          4.5vw;
+
+        font-size: 10px;
+
+        overflow-x: auto;
       }
+
 
       .hero {
         min-height: 88vh;
+
+        padding:
+          31px
+          5vw
+          45px;
       }
 
-      .hero-bottom {
-        flex-direction: column;
-        align-items: flex-start;
+
+      .hero-meta {
+        font-size: 12px;
       }
 
-      .profile {
+
+      .hero-title {
+        font-size:
+          clamp(
+            64px,
+            20vw,
+            110px
+          );
+      }
+
+
+      .section-shell {
+        padding:
+          78px
+          5vw;
+      }
+
+
+      .archive {
+        gap: 82px;
+      }
+
+
+      .release,
+      .release:nth-child(even) {
+        grid-template-columns:
+          minmax(0, 1fr)
+          minmax(85px, 27%);
+
+        gap: 20px;
+      }
+
+
+      .release:nth-child(even) .release-frame {
+        order: 1;
+      }
+
+
+      .release:nth-child(even) .release-data {
+        order: 2;
+        text-align: left;
+      }
+
+
+      .release-frame {
+        padding: 22px;
+      }
+
+
+      .release-data {
+        font-size: 9px;
+      }
+
+
+      .release-data h3 {
+        font-size: 11px;
+      }
+
+
+      .teaser-notes {
         grid-template-columns: 1fr;
+        gap: 42px;
       }
 
-      .drawing-grid {
-        grid-template-columns: 1fr;
+
+      .ark-artwork-block {
+        max-width: 480px;
       }
 
-      .collage-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+      #contact {
+        padding:
+          78px
+          5vw
+          88px;
       }
 
-      .photo {
-        min-height: 260px;
-      }
 
-      .service {
-        grid-template-columns: 42px 1fr;
-      }
-
-      .service-link {
-        display: none;
-      }
-
-      .booking-bottom {
-        flex-direction: column;
-        align-items: flex-start;
+      footer {
+        font-size: 9px;
       }
     }
+
+
+    @media (max-width: 440px) {
+
+      .site-nav {
+        gap: 13px;
+      }
+
+
+      .site-nav .logo {
+        margin-right: 5px;
+      }
+
+
+      .release,
+      .release:nth-child(even) {
+        grid-template-columns:
+          minmax(0, 73%)
+          minmax(70px, 27%);
+
+        gap: 13px;
+      }
+
+
+      .release-frame {
+        padding: 17px;
+      }
+
+
+      .release-data {
+        font-size: 8.6px;
+      }
+    }
+
   </style>
 </head>
 
-<body>
 
-  <header class="topbar">
-    <a href="#top">HH</a>
+<body class="classic-cursor">
 
-    <nav>
-      <a href="#work">Work</a>
-      <a href="#drawings">Drawings</a>
-      <a href="#services">Sound</a>
-      <a href="#book">Book</a>
-    </nav>
 
-    <span>Paris / NY</span>
-  </header>
+  <!-- SETTINGS -->
+
+  <aside
+    class="settings-panel"
+    id="settingsPanel"
+  >
+
+    <h2>Settings</h2>
+
+
+    <div class="setting-row">
+
+      <span>Dark mode</span>
+
+      <button
+        id="darkToggle"
+        type="button"
+      >
+        Off
+      </button>
+
+    </div>
+
+
+    <div class="setting-row">
+
+      <span>1999 cursor</span>
+
+      <button
+        id="cursorToggle"
+        type="button"
+      >
+        On
+      </button>
+
+    </div>
+
+
+    <div class="setting-row">
+
+      <span>Writing size</span>
+
+      <div class="size-options">
+
+        <button
+          id="textSmaller"
+          type="button"
+        >
+          −
+        </button>
+
+        <button
+          id="textReset"
+          type="button"
+        >
+          reset
+        </button>
+
+        <button
+          id="textLarger"
+          type="button"
+        >
+          +
+        </button>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+
+
+  <!-- NAV -->
+
+  <nav class="site-nav">
+
+    <a
+      class="logo"
+      href="#top"
+    >
+      HH
+    </a>
+
+    <a href="#work">
+      Work
+    </a>
+
+    <a href="#upcoming">
+      Upcoming
+    </a>
+
+    <a href="#contact">
+      Contact
+    </a>
+
+    <button
+      class="settings-trigger"
+      id="settingsTrigger"
+      type="button"
+    >
+      Settings
+    </button>
+
+  </nav>
+
 
 
   <main id="top">
 
+
+    <!-- HERO -->
+
     <section class="hero">
+
+
       <div class="hero-meta">
-        <span>Henry Hues</span>
-        <span>Artist archive · 2026</span>
+
+        <span>
+          Henry Hues
+        </span>
+
+        <span>
+          Archive - 2026
+        </span>
+
       </div>
+
 
       <h1 class="hero-title">
+
         HENRY
-        <span>HUES</span>
+
+        <span>
+          HUES
+        </span>
+
       </h1>
 
-      <div class="hero-bottom">
-        <p>
-          Artist, producer and sound curator working across music,
-          image, performance and atmosphere.
-        </p>
 
-        <span>Paris, France</span>
-      </div>
-    </section>
+      <p class="hero-blurb">
 
+        Artist, producer and sound curator
+        working across music, image,
+        performance and atmosphere.
 
-    <section class="statement" id="work">
-      <p>
-        Henry Hues approaches sound as atmosphere — something lived
-        rather than simply heard. His work moves between songwriting,
-        production, DJ culture, image-making and the quiet details that
-        give a room its emotional character.
       </p>
-    </section>
 
-
-    <section class="field-section">
-      <div class="date">September 2026</div>
-
-      <div class="field">
-        <div class="grass"></div>
-        <div class="field-label">Field Study No. 01</div>
-      </div>
-
-      <div class="post-actions">
-        <button id="likeButton">♡ <span id="likes">32</span> Likes</button>
-        <button id="shareButton">↗ Share</button>
-      </div>
-    </section>
-
-
-    <section class="profile">
-      <div class="portrait"></div>
-
-      <div class="profile-copy">
-        <h2>Henry Hues</h2>
-
-        <p>
-          <em>Recording artist, producer and selector.</em><br><br>
-          Music built from memory, tenderness, rhythm and observation.
-          Based in Paris and connected to New York.
-        </p>
-      </div>
-    </section>
-
-
-    <section class="drawings" id="drawings">
-      <div class="section-heading">
-        <span>Drawings / Notes</span>
-        <span>001—003</span>
-      </div>
-
-      <div class="drawing-grid">
-
-        <div class="drawing">
-          <svg viewBox="0 0 400 500">
-            <path d="M58 380 Q120 80 210 300 T350 120"
-              fill="none"
-              stroke="#202020"
-              stroke-width="14"
-              stroke-linecap="round"/>
-            <circle cx="280" cy="340" r="62"
-              fill="none"
-              stroke="#202020"
-              stroke-width="9"/>
-          </svg>
-        </div>
-
-        <div class="drawing">
-          <svg viewBox="0 0 400 500">
-            <path d="M90 400
-                     C70 300 160 210 125 110
-                     M145 420
-                     C210 290 180 190 250 80
-                     M230 440
-                     C260 320 345 200 300 95"
-              fill="none"
-              stroke="#202020"
-              stroke-width="11"
-              stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <div class="drawing">
-          <svg viewBox="0 0 400 500">
-            <path d="M75 110
-                     Q270 35 320 195
-                     Q340 340 160 410
-                     Q60 370 95 260
-                     Q155 180 300 280"
-              fill="none"
-              stroke="#202020"
-              stroke-width="10"/>
-          </svg>
-        </div>
-
-      </div>
-    </section>
-
-
-    <section class="collage">
-      <div class="collage-grid">
-
-        <div class="photo-card">
-          <div class="photo street">
-            <span>Paris / street study</span>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo pink">
-            <span>Portrait / studio</span>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo dark">
-            <span>After hours</span>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo white">
-            <span>Look 01</span>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo white">
-            <span>Soundcheck</span>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo dark">
-            <span>Portrait / anonymous</span>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo street">
-            <span>New York archive</span>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo pink">
-            <span>Studio fragment</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <section class="services" id="services">
-
-      <h2 class="services-title">
-        Sound made for rooms, images, people and moments.
-      </h2>
-
-      <div class="service">
-        <span class="service-number">01</span>
-        <span class="service-name">DJ Sets</span>
-        <a class="service-link" href="#book">Inquire ↗</a>
-      </div>
-
-      <div class="service">
-        <span class="service-number">02</span>
-        <span class="service-name">Sound Curation</span>
-        <a class="service-link" href="#book">Inquire ↗</a>
-      </div>
-
-      <div class="service">
-        <span class="service-number">03</span>
-        <span class="service-name">Music Production</span>
-        <a class="service-link" href="#book">Inquire ↗</a>
-      </div>
-
-      <div class="service">
-        <span class="service-number">04</span>
-        <span class="service-name">Songwriting + Vocals</span>
-        <a class="service-link" href="#book">Inquire ↗</a>
-      </div>
-
-      <div class="service">
-        <span class="service-number">05</span>
-        <span class="service-name">Creative Sound Direction</span>
-        <a class="service-link" href="#book">Inquire ↗</a>
-      </div>
 
     </section>
 
 
-    <section class="booking" id="book">
 
-      <h2>
-        WORK<br>
-        WITH<br>
-        HENRY.
-      </h2>
+    <!-- WORK -->
 
-      <div class="booking-bottom">
-        <p>
-          Available for selected DJ sets, creative commissions,
-          production sessions and sound-curation projects in Paris
-          and internationally.
-        </p>
+    <section
+      id="work"
+      class="section-shell"
+    >
 
-        <a class="book-button" href="mailto:YOUR-EMAIL-HERE">
-          Request a booking ↗
-        </a>
+
+      <div class="section-label">
+        Artist Archive
       </div>
 
+
+      <div class="archive">
+
+
+        <article class="release">
+
+
+          <div class="release-frame">
+
+
+            <div class="release-art">
+
+
+              <img
+                src="assets/images/x.jpg"
+                alt="X by Henry Hues"
+                onerror="
+                  this.style.display='none';
+                  this.nextElementSibling.style.display='block';
+                "
+              >
+
+
+              <span
+                class="release-art-placeholder"
+                style="display:none;"
+              >
+                X
+              </span>
+
+
+            </div>
+
+
+          </div>
+
+
+          <div class="release-data">
+
+
+            <h3>
+              X
+            </h3>
+
+
+            <div>
+              2024
+            </div>
+
+
+            <div>
+              Brooklyn, NY
+            </div>
+
+
+            <div class="release-actions">
+
+              <a
+                href="#"
+                aria-label="Play X"
+              >
+                ▶
+              </a>
+
+              <a
+                href="#"
+                aria-label="Share X"
+              >
+                ↗
+              </a>
+
+            </div>
+
+
+          </div>
+
+
+        </article>
+
+
+      </div>
+
+
     </section>
+
+
+
+    <!-- UPCOMING -->
+
+    <section
+      id="upcoming"
+      class="section-shell"
+    >
+
+
+      <div class="section-label">
+        Upcoming
+      </div>
+
+
+
+      <!-- WRITING FIRST -->
+
+
+      <div class="journal-wrap">
+
+
+        <div class="journal-heading">
+          ARK / Entry 01
+        </div>
+
+
+        <div class="journal-tools">
+
+          <button
+            id="journalSmaller"
+            type="button"
+          >
+            smaller
+          </button>
+
+          <button
+            id="journalLarger"
+            type="button"
+          >
+            larger
+          </button>
+
+        </div>
+
+
+        <p
+          class="journal"
+          id="journal"
+        >ARK is an ongoing body of work concerned with movement, memory and the space between departure and arrival.
+
+This text is temporary. The finished entry will live here as a small journal fragment rather than a formal project statement.
+
+The writing will be replaced with the original ARK entry.</p>
+
+
+      </div>
+
+
+
+      <!-- BOTH TEASER NOTES -->
+
+
+      <div class="teaser-notes">
+
+
+        <article class="teaser-note">
+
+
+          <div class="teaser-kicker">
+            ARK / Preview 01
+          </div>
+
+
+          <h3>
+            Runway Popstar
+          </h3>
+
+
+          <p>
+            A short fragment from ARK.
+            Final notes and context will
+            accompany the finished entry.
+          </p>
+
+
+        </article>
+
+
+
+        <article class="teaser-note">
+
+
+          <div class="teaser-kicker">
+            ARK / Preview 02
+          </div>
+
+
+          <h3>
+            On the Bridge
+          </h3>
+
+
+          <p>
+            A second fragment from ARK.
+            The finished note will sit quietly
+            beside the work rather than
+            over-explaining it.
+          </p>
+
+
+        </article>
+
+
+      </div>
+
+
+
+      <!-- ARK ARTWORK -->
+
+
+      <div class="ark-artwork-block">
+
+
+        <div class="ark-cover-shell">
+
+
+          <img
+            src="assets/images/ark-cover.jpg"
+            alt="ARK artwork"
+          >
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- AUDIO LAST -->
+
+
+      <div class="audio-list">
+
+
+        <div class="audio-entry">
+
+
+          <div class="audio-title">
+
+            <span>
+              Runway Popstar
+            </span>
+
+            <span>
+              00:40
+            </span>
+
+          </div>
+
+
+          <audio
+            controls
+            preload="metadata"
+          >
+
+            <source
+              src="assets/audio/runway-popstar-preview.mp3"
+              type="audio/mpeg"
+            >
+
+          </audio>
+
+
+        </div>
+
+
+
+        <div class="audio-entry">
+
+
+          <div class="audio-title">
+
+            <span>
+              On the Bridge
+            </span>
+
+            <span>
+              00:40
+            </span>
+
+          </div>
+
+
+          <audio
+            controls
+            preload="metadata"
+          >
+
+            <source
+              src="assets/audio/on-the-bridge-preview.mp3"
+              type="audio/mpeg"
+            >
+
+          </audio>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- CONTACT -->
+
+
+    <section id="contact">
+
+
+      <div class="contact-shell">
+
+
+        <h2 class="contact-title">
+          Contact / Work with HH
+        </h2>
+
+
+        <div class="booking-line">
+
+          For bookings / collaborations:
+
+          <a
+            href="mailto:info.tugc@gmail.com"
+          >
+            info.tugc@gmail.com
+          </a>
+
+        </div>
+
+
+        <div class="services">
+
+          <div>
+            Show Set
+          </div>
+
+          <div>
+            Residency commissions
+          </div>
+
+          <div>
+            Artisanal Commissions
+          </div>
+
+        </div>
+
+
+        <div class="subscribe-block">
+
+          <span>
+            Mailing list
+          </span>
+
+          <a
+            href="mailto:info.tugc@gmail.com?subject=Henry%20Hues%20Mailing%20List&body=Please%20add%20me%20to%20the%20Henry%20Hues%20mailing%20list."
+          >
+            Subscribe
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
 
   </main>
 
 
+
+  <!-- FOOTER -->
+
+
   <footer>
-    <span>Henry Hues © 2026</span>
-    <span>Paris / New York</span>
-    <span>Artist · Producer · Sound Curator</span>
+
+    <span>
+      Henry Hues © 2026
+    </span>
+
+    <span>
+      Paris · New York
+    </span>
+
   </footer>
 
 
+
   <script>
-    const likeButton = document.getElementById("likeButton");
-    const likes = document.getElementById("likes");
-    const shareButton = document.getElementById("shareButton");
 
-    let liked = false;
+    const settingsTrigger =
+      document.getElementById(
+        "settingsTrigger"
+      );
 
-    likeButton.addEventListener("click", () => {
-      liked = !liked;
-      likes.textContent = liked ? "33" : "32";
-      likeButton.firstChild.textContent = liked ? "♥ " : "♡ ";
-    });
 
-    shareButton.addEventListener("click", async () => {
-      if (navigator.share) {
-        await navigator.share({
-          title: "Henry Hues",
-          url: window.location.href
-        });
-      } else {
-        await navigator.clipboard.writeText(window.location.href);
-        shareButton.textContent = "Copied";
-        setTimeout(() => {
-          shareButton.textContent = "↗ Share";
-        }, 1500);
+    const settingsPanel =
+      document.getElementById(
+        "settingsPanel"
+      );
+
+
+    settingsTrigger.addEventListener(
+      "click",
+      () => {
+
+        settingsPanel.classList.toggle(
+          "open"
+        );
+
       }
-    });
+    );
+
+
+
+    /* DARK MODE */
+
+
+    const darkToggle =
+      document.getElementById(
+        "darkToggle"
+      );
+
+
+    const savedDark =
+      localStorage.getItem(
+        "henry-dark-mode"
+      );
+
+
+    if (savedDark === "true") {
+
+      document.body.classList.add(
+        "dark"
+      );
+
+      darkToggle.textContent =
+        "On";
+
+    }
+
+
+    darkToggle.addEventListener(
+      "click",
+      () => {
+
+        document.body.classList.toggle(
+          "dark"
+        );
+
+
+        const active =
+          document.body.classList.contains(
+            "dark"
+          );
+
+
+        darkToggle.textContent =
+          active
+            ? "On"
+            : "Off";
+
+
+        localStorage.setItem(
+          "henry-dark-mode",
+          active
+        );
+
+      }
+    );
+
+
+
+    /* CURSOR */
+
+
+    const cursorToggle =
+      document.getElementById(
+        "cursorToggle"
+      );
+
+
+    const savedCursor =
+      localStorage.getItem(
+        "henry-classic-cursor"
+      );
+
+
+    if (savedCursor === "false") {
+
+      document.body.classList.remove(
+        "classic-cursor"
+      );
+
+      cursorToggle.textContent =
+        "Off";
+
+    }
+
+
+    cursorToggle.addEventListener(
+      "click",
+      () => {
+
+        document.body.classList.toggle(
+          "classic-cursor"
+        );
+
+
+        const active =
+          document.body.classList.contains(
+            "classic-cursor"
+          );
+
+
+        cursorToggle.textContent =
+          active
+            ? "On"
+            : "Off";
+
+
+        localStorage.setItem(
+          "henry-classic-cursor",
+          active
+        );
+
+      }
+    );
+
+
+
+    /* WRITING SIZE */
+
+
+    const journal =
+      document.getElementById(
+        "journal"
+      );
+
+
+    const textSmaller =
+      document.getElementById(
+        "textSmaller"
+      );
+
+
+    const textLarger =
+      document.getElementById(
+        "textLarger"
+      );
+
+
+    const textReset =
+      document.getElementById(
+        "textReset"
+      );
+
+
+    const journalSmaller =
+      document.getElementById(
+        "journalSmaller"
+      );
+
+
+    const journalLarger =
+      document.getElementById(
+        "journalLarger"
+      );
+
+
+    let journalSize =
+      parseFloat(
+        localStorage.getItem(
+          "henry-journal-size"
+        )
+      )
+      ||
+      10.5;
+
+
+    function updateJournalSize() {
+
+      journal.style.fontSize =
+        journalSize + "px";
+
+
+      localStorage.setItem(
+        "henry-journal-size",
+        journalSize
+      );
+
+    }
+
+
+    function increaseJournal() {
+
+      journalSize =
+        Math.min(
+          journalSize + 1,
+          22
+        );
+
+      updateJournalSize();
+
+    }
+
+
+    function decreaseJournal() {
+
+      journalSize =
+        Math.max(
+          journalSize - 1,
+          8
+        );
+
+      updateJournalSize();
+
+    }
+
+
+    textLarger.addEventListener(
+      "click",
+      increaseJournal
+    );
+
+
+    journalLarger.addEventListener(
+      "click",
+      increaseJournal
+    );
+
+
+    textSmaller.addEventListener(
+      "click",
+      decreaseJournal
+    );
+
+
+    journalSmaller.addEventListener(
+      "click",
+      decreaseJournal
+    );
+
+
+    textReset.addEventListener(
+      "click",
+      () => {
+
+        journalSize = 10.5;
+
+        updateJournalSize();
+
+      }
+    );
+
+
+    updateJournalSize();
+
+
+
+    /* CLOSE SETTINGS */
+
+
+    document.addEventListener(
+      "click",
+      (event) => {
+
+        const clickedPanel =
+          settingsPanel.contains(
+            event.target
+          );
+
+
+        const clickedTrigger =
+          settingsTrigger.contains(
+            event.target
+          );
+
+
+        if (
+          !clickedPanel
+          &&
+          !clickedTrigger
+        ) {
+
+          settingsPanel.classList.remove(
+            "open"
+          );
+
+        }
+
+      }
+    );
+
   </script>
+
 
 </body>
 </html>
