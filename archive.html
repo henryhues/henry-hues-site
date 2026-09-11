@@ -1,0 +1,471 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"
+>
+
+<meta
+  name="description"
+  content="Henry Hues archive."
+>
+
+<title>Archive — Henry Hues</title>
+
+<style>
+:root {
+  --sand: #f5f3ef;
+  --grey: #858585;
+  --grey2: #aaa7a1;
+  --line: rgba(133,133,133,.28);
+  --ui: 10.5px;
+  --title: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--grey);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--ui);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  text-underline-offset: 2px;
+}
+
+button {
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  margin-right: auto;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav a,
+.nav button {
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.page {
+  min-height: calc(100vh - 52px);
+  padding: 56px 7vw 90px;
+}
+
+.page h1 {
+  font-size: var(--title);
+  font-weight: 400;
+  margin: 0 0 48px;
+}
+
+.catalogue {
+  max-width: 620px;
+}
+
+.release {
+  padding: 0 0 24px;
+  margin: 0 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.release:last-child {
+  border-bottom: 0;
+}
+
+.release-title {
+  font-size: 10.5px;
+  margin: 0 0 4px;
+  font-weight: 400;
+}
+
+.release-year {
+  font-size: 9px;
+  color: var(--grey2);
+  margin: 0 0 8px;
+}
+
+.release-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 9px;
+}
+
+.release-links a {
+  color: var(--grey);
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 24px 16px;
+  background: linear-gradient(transparent, var(--sand) 38%);
+  font-size: 9px;
+}
+
+.settings {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 80;
+  width: min(300px, calc(100vw - 28px));
+  padding: 15px;
+  background: var(--sand);
+  border: 1px solid var(--line);
+  display: none;
+}
+
+.settings.open {
+  display: block;
+}
+
+.settings-head,
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.settings-head {
+  padding-bottom: 11px;
+}
+
+.setting-row {
+  border-top: 1px solid var(--line);
+  padding: 10px 0;
+}
+
+.square {
+  border: 1px solid var(--line);
+  padding: 6px 9px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.setting-actions {
+  display: flex;
+  gap: 5px;
+}
+
+body.dark {
+  --sand: #5a535c;
+  --grey: #d4d0d2;
+  --grey2: #bdb7bb;
+  --line: rgba(247,246,243,.22);
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    padding: 16px 14px;
+    gap: 12px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .page {
+    padding: 44px 24px 88px;
+  }
+
+  .page h1 {
+    margin-bottom: 36px;
+  }
+
+  footer {
+    padding: 12px 14px 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <a class="brand" href="index.html">HH</a>
+
+  <nav class="nav" aria-label="Primary">
+    <a href="archive.html">Archive</a>
+    <a href="upcoming.html">Upcoming</a>
+    <a href="contact.html">Contact</a>
+    <button id="settingsOpen" type="button">Settings</button>
+  </nav>
+
+</header>
+
+<main class="page">
+
+<h1>Archive</h1>
+
+<div class="catalogue">
+
+<section class="release">
+
+  <p class="release-title">X</p>
+
+  <p class="release-year">2025</p>
+
+  <div class="release-links">
+
+    <a
+      href="https://henryhues.bandcamp.com/album/x"
+      target="_blank"
+      rel="noopener"
+    >
+      Bandcamp
+    </a>
+
+    <a
+      href="https://music.apple.com/us/album/x/1791656243"
+      target="_blank"
+      rel="noopener"
+    >
+      Apple
+    </a>
+
+  </div>
+
+</section>
+
+<section class="release">
+
+  <p class="release-title">
+    The World Is A Miracle
+  </p>
+
+  <p class="release-year">2024</p>
+
+  <div class="release-links">
+
+    <a
+      href="https://henryhues.bandcamp.com/album/the-world-is-a-miracle"
+      target="_blank"
+      rel="noopener"
+    >
+      Bandcamp
+    </a>
+
+    <a
+      href="https://music.apple.com/us/album/the-world-is-a-miracle/1767165106"
+      target="_blank"
+      rel="noopener"
+    >
+      Apple
+    </a>
+
+  </div>
+
+</section>
+
+<section class="release">
+
+  <p class="release-title">
+    Rory Express
+  </p>
+
+  <p class="release-year">2024</p>
+
+  <div class="release-links">
+
+    <a
+      href="https://henryhues.bandcamp.com/album/rory-express"
+      target="_blank"
+      rel="noopener"
+    >
+      Bandcamp
+    </a>
+
+    <a
+      href="https://music.apple.com/us/album/rory-express-single/1736688223"
+      target="_blank"
+      rel="noopener"
+    >
+      Apple
+    </a>
+
+  </div>
+
+</section>
+
+<section class="release">
+
+  <p class="release-title">
+    Sweetheart
+  </p>
+
+  <p class="release-year">
+    2024
+  </p>
+
+  <div class="release-links">
+
+    <a
+      href="https://music.apple.com/us/album/sweetheart/6792327995"
+      target="_blank"
+      rel="noopener"
+    >
+      Apple
+    </a>
+
+    <a
+      href="https://open.spotify.com/album/6ea9wrEzdKFj8ZQRpT3aLj"
+      target="_blank"
+      rel="noopener"
+    >
+      Spotify
+    </a>
+
+  </div>
+
+</section>
+
+</div>
+
+</main>
+
+<footer>
+  <span>Henry Hues © 2026</span>
+  <span>Paris · New York</span>
+</footer>
+
+<aside class="settings" id="settings" aria-hidden="true">
+
+<div class="settings-head">
+  <span>Settings</span>
+  <button class="square" id="settingsClose" type="button">Close</button>
+</div>
+
+<div class="setting-row">
+  <span>Text size</span>
+
+  <div class="setting-actions">
+    <button class="square" data-size="10" type="button">A−</button>
+    <button class="square" data-size="10.5" type="button">A</button>
+    <button class="square" data-size="12.5" type="button">A+</button>
+  </div>
+</div>
+
+<div class="setting-row">
+  <span>Theme</span>
+
+  <div class="setting-actions">
+    <button class="square" id="lightBtn" type="button">Light</button>
+    <button class="square" id="darkBtn" type="button">Dark</button>
+  </div>
+</div>
+
+<div class="setting-row">
+  <span>Reset</span>
+  <button class="square" id="resetBtn" type="button">Reset</button>
+</div>
+
+</aside>
+
+<script>
+(() => {
+
+  const root = document.documentElement;
+  const body = document.body;
+
+  const panel = document.getElementById('settings');
+  const openBtn = document.getElementById('settingsOpen');
+  const closeBtn = document.getElementById('settingsClose');
+  const lightBtn = document.getElementById('lightBtn');
+  const darkBtn = document.getElementById('darkBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  const setPanel = (open) => {
+    panel.classList.toggle('open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+  };
+
+  openBtn.addEventListener('click', () => setPanel(true));
+  closeBtn.addEventListener('click', () => setPanel(false));
+
+  const savedSize = localStorage.getItem('hh-size');
+
+  if (savedSize) {
+    root.style.setProperty('--ui', `${savedSize}px`);
+  }
+
+  document.querySelectorAll('[data-size]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const size = button.dataset.size;
+
+      root.style.setProperty('--ui', `${size}px`);
+      localStorage.setItem('hh-size', size);
+    });
+  });
+
+  if (localStorage.getItem('hh-theme') === 'dark') {
+    body.classList.add('dark');
+  }
+
+  darkBtn.addEventListener('click', () => {
+    body.classList.add('dark');
+    localStorage.setItem('hh-theme', 'dark');
+  });
+
+  lightBtn.addEventListener('click', () => {
+    body.classList.remove('dark');
+    localStorage.setItem('hh-theme', 'light');
+  });
+
+  resetBtn.addEventListener('click', () => {
+    localStorage.removeItem('hh-size');
+    localStorage.removeItem('hh-theme');
+
+    root.style.setProperty('--ui', '10.5px');
+    body.classList.remove('dark');
+  });
+
+})();
+</script>
+
+</body>
+</html>
