@@ -1,0 +1,779 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+<meta name="description" content="Upcoming projects, announcements and events from Henry Hues.">
+<title>Upcoming — Henry Hues</title>
+
+<style>
+:root {
+  --sand: #f5f3ef;
+  --sand2: #ece9e3;
+  --grey: #858585;
+  --grey2: #aaa7a1;
+  --line: rgba(133,133,133,.28);
+  --ui: 10.5px;
+  --title: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--grey);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--ui);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  margin-right: auto;
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+}
+
+.nav a,
+.nav button {
+  font-size: 10px;
+}
+
+.page {
+  padding: 56px 7vw 90px;
+}
+
+.page h1 {
+  font-size: var(--title);
+  font-weight: 400;
+  margin: 0 0 50px;
+}
+
+.entry {
+  max-width: 920px;
+}
+
+.ark-grid {
+  display: grid;
+  grid-template-columns: minmax(220px,390px) minmax(220px,1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.cover {
+  background: var(--sand2);
+  padding: 14px;
+  margin: 0;
+}
+
+.cover img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.ark-title {
+  font-size: 12px;
+  margin: 0 0 18px;
+  font-weight: 400;
+}
+
+.track-toggle {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 7px 9px;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.tracklist {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 30px;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.tracklist li {
+  break-inside: avoid;
+}
+
+.tracklist[hidden] {
+  display: none;
+}
+
+.players {
+  margin-top: 38px;
+  display: grid;
+  gap: 22px;
+  max-width: 650px;
+}
+
+.teaser {
+  border-top: 1px solid var(--line);
+  padding-top: 11px;
+}
+
+.teaser h2 {
+  font-size: 10.5px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.meta {
+  font-size: 9px;
+  color: var(--grey2);
+  margin: 3px 0 7px;
+}
+
+.player {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.play {
+  width: 36px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+}
+
+.seek {
+  width: 100%;
+  accent-color: var(--grey);
+}
+
+.time {
+  font-size: 9px;
+  color: var(--grey2);
+  font-variant-numeric: tabular-nums;
+}
+
+.status {
+  min-height: 12px;
+  font-size: 8px;
+  color: var(--grey2);
+  margin-top: 4px;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 24px 16px;
+  background: linear-gradient(transparent,var(--sand) 38%);
+  font-size: 9px;
+}
+
+.settings {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 80;
+  width: min(300px,calc(100vw - 28px));
+  padding: 15px;
+  background: var(--sand);
+  border: 1px solid var(--line);
+  display: none;
+}
+
+.settings.open {
+  display: block;
+}
+
+.settings-head,
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.settings-head {
+  padding-bottom: 11px;
+}
+
+.setting-row {
+  border-top: 1px solid var(--line);
+  padding: 10px 0;
+}
+
+.square {
+  border: 1px solid var(--line);
+  padding: 6px 9px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.setting-actions {
+  display: flex;
+  gap: 5px;
+}
+
+body.dark {
+  --sand: #5a535c;
+  --sand2: #665e68;
+  --grey: #d4d0d2;
+  --grey2: #bdb7bb;
+  --line: rgba(247,246,243,.22);
+}
+
+@media (max-width:720px) {
+  .topbar {
+    padding: 16px 14px;
+    gap: 12px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .page {
+    padding: 44px 24px 88px;
+  }
+
+  .page h1 {
+    margin-bottom: 36px;
+  }
+
+  .ark-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .cover {
+    max-width: 420px;
+  }
+
+  .tracklist {
+    columns: 2;
+    font-size: 8.5px;
+  }
+
+  .players {
+    margin-top: 30px;
+  }
+
+  .player {
+    grid-template-columns: auto 1fr;
+  }
+
+  .time {
+    grid-column: 2;
+    text-align: right;
+    margin-top: -6px;
+  }
+
+  footer {
+    padding: 12px 14px 14px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <a class="brand" href="index.html">HH</a>
+
+  <nav class="nav" aria-label="Primary">
+    <a href="archive.html">Archive</a>
+    <a href="upcoming.html">Upcoming</a>
+    <a href="contact.html">Contact</a>
+    <button id="settingsOpen" type="button">Settings</button>
+  </nav>
+
+</header>
+
+<main class="page">
+
+<h1>Upcoming</h1>
+
+<article class="entry">
+
+<div class="ark-grid">
+
+<figure class="cover">
+  <img src="assets/images/ark-cover.jpg" alt="ARK artwork">
+</figure>
+
+<div>
+
+<h2 class="ark-title">ARK</h2>
+
+<button
+  class="track-toggle"
+  id="trackToggle"
+  type="button"
+  aria-expanded="false"
+>
+  Track listing +
+</button>
+
+<ol class="tracklist" id="tracklist" hidden>
+  <li>RAIN</li>
+  <li>NOVELLA</li>
+  <li>ON THE BRIDGE</li>
+  <li>BREEZE</li>
+  <li>SHREE GUCCI</li>
+  <li>BAD FOR THE PEOPLE</li>
+  <li>POP MUSIC MAGIC</li>
+  <li>LIGHT CONTROL</li>
+  <li>WOTF</li>
+  <li>RUNWAY POPSTAR</li>
+  <li>LIKE A G6</li>
+  <li>ROSE</li>
+  <li>PANTS:COMMAS</li>
+  <li>NO TITLES</li>
+  <li>CLHL</li>
+  <li>FIN</li>
+</ol>
+
+</div>
+
+</div>
+
+<div class="players">
+
+<section class="teaser">
+
+<h2>BREEZE — TEASER</h2>
+
+<p class="meta">
+  1:26–2:06 · 40 SEC PREVIEW
+</p>
+
+<div class="player">
+
+<audio
+  preload="metadata"
+  src="assets/audio/breeze-teaser.m4a"
+></audio>
+
+<button class="play" type="button">
+  Play
+</button>
+
+<input
+  class="seek"
+  type="range"
+  min="0"
+  max="40"
+  value="0"
+  step="0.1"
+  aria-label="Breeze teaser progress"
+>
+
+<span class="time">
+  0:00 / 0:40
+</span>
+
+</div>
+
+<div
+  class="status"
+  aria-live="polite"
+></div>
+
+</section>
+
+<section class="teaser">
+
+<h2>SHREE GUCCI — TEASER</h2>
+
+<p class="meta">
+  0:00–0:40 · 40 SEC PREVIEW
+</p>
+
+<div class="player">
+
+<audio
+  preload="metadata"
+  src="assets/audio/shree-gucci-teaser.m4a"
+></audio>
+
+<button class="play" type="button">
+  Play
+</button>
+
+<input
+  class="seek"
+  type="range"
+  min="0"
+  max="40"
+  value="0"
+  step="0.1"
+  aria-label="Shree Gucci teaser progress"
+>
+
+<span class="time">
+  0:00 / 0:40
+</span>
+
+</div>
+
+<div
+  class="status"
+  aria-live="polite"
+></div>
+
+</section>
+
+</div>
+
+</article>
+
+</main>
+
+<footer>
+  <span>Henry Hues © 2026</span>
+  <span>Paris · New York</span>
+</footer>
+
+<aside
+  class="settings"
+  id="settings"
+  aria-hidden="true"
+>
+
+<div class="settings-head">
+  <span>Settings</span>
+  <button class="square" id="settingsClose" type="button">Close</button>
+</div>
+
+<div class="setting-row">
+
+<span>Text size</span>
+
+<div class="setting-actions">
+  <button class="square" data-size="10" type="button">A−</button>
+  <button class="square" data-size="10.5" type="button">A</button>
+  <button class="square" data-size="12.5" type="button">A+</button>
+</div>
+
+</div>
+
+<div class="setting-row">
+
+<span>Theme</span>
+
+<div class="setting-actions">
+  <button class="square" id="lightBtn" type="button">Light</button>
+  <button class="square" id="darkBtn" type="button">Dark</button>
+</div>
+
+</div>
+
+<div class="setting-row">
+  <span>Reset</span>
+  <button class="square" id="resetBtn" type="button">Reset</button>
+</div>
+
+</aside>
+
+<script>
+(() => {
+
+  const root = document.documentElement;
+  const body = document.body;
+
+  const panel = document.getElementById('settings');
+  const openBtn = document.getElementById('settingsOpen');
+  const closeBtn = document.getElementById('settingsClose');
+  const lightBtn = document.getElementById('lightBtn');
+  const darkBtn = document.getElementById('darkBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  const setPanel = (open) => {
+    panel.classList.toggle('open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+  };
+
+  openBtn.addEventListener('click', () => setPanel(true));
+  closeBtn.addEventListener('click', () => setPanel(false));
+
+  const savedSize = localStorage.getItem('hh-size');
+
+  if (savedSize) {
+    root.style.setProperty('--ui', `${savedSize}px`);
+  }
+
+  document.querySelectorAll('[data-size]').forEach((button) => {
+
+    button.addEventListener('click', () => {
+
+      const size = button.dataset.size;
+
+      root.style.setProperty('--ui', `${size}px`);
+      localStorage.setItem('hh-size', size);
+
+    });
+
+  });
+
+  if (localStorage.getItem('hh-theme') === 'dark') {
+    body.classList.add('dark');
+  }
+
+  darkBtn.addEventListener('click', () => {
+
+    body.classList.add('dark');
+    localStorage.setItem('hh-theme', 'dark');
+
+  });
+
+  lightBtn.addEventListener('click', () => {
+
+    body.classList.remove('dark');
+    localStorage.setItem('hh-theme', 'light');
+
+  });
+
+  resetBtn.addEventListener('click', () => {
+
+    localStorage.removeItem('hh-size');
+    localStorage.removeItem('hh-theme');
+
+    root.style.setProperty('--ui', '10.5px');
+    body.classList.remove('dark');
+
+  });
+
+})();
+
+(() => {
+
+  const trackToggle =
+    document.getElementById('trackToggle');
+
+  const tracklist =
+    document.getElementById('tracklist');
+
+  trackToggle.addEventListener('click', () => {
+
+    const shouldOpen = tracklist.hidden;
+
+    tracklist.hidden = !shouldOpen;
+
+    trackToggle.textContent =
+      shouldOpen
+        ? 'Track listing −'
+        : 'Track listing +';
+
+    trackToggle.setAttribute(
+      'aria-expanded',
+      String(shouldOpen)
+    );
+
+  });
+
+  const formatTime = (seconds) => {
+
+    const safe =
+      Math.max(0, Math.floor(seconds || 0));
+
+    return `${Math.floor(safe / 60)}:${String(
+      safe % 60
+    ).padStart(2, '0')}`;
+
+  };
+
+  document
+    .querySelectorAll('.player')
+    .forEach((player) => {
+
+      const audio =
+        player.querySelector('audio');
+
+      const button =
+        player.querySelector('.play');
+
+      const seek =
+        player.querySelector('.seek');
+
+      const time =
+        player.querySelector('.time');
+
+      const status =
+        player.parentElement.querySelector('.status');
+
+      audio.addEventListener(
+        'loadedmetadata',
+        () => {
+
+          const duration =
+            Math.min(
+              40,
+              audio.duration || 40
+            );
+
+          seek.max = String(duration);
+
+          time.textContent =
+            `0:00 / ${formatTime(duration)}`;
+
+          status.textContent = '';
+
+        }
+      );
+
+      audio.addEventListener(
+        'error',
+        () => {
+
+          status.textContent =
+            'Audio unavailable.';
+
+          button.textContent =
+            'Play';
+
+        }
+      );
+
+      button.addEventListener(
+        'click',
+        async () => {
+
+          if (audio.paused) {
+
+            try {
+
+              await audio.play();
+
+              button.textContent =
+                'Pause';
+
+              status.textContent =
+                '';
+
+            } catch {
+
+              status.textContent =
+                'Tap Play again to start audio.';
+
+            }
+
+          } else {
+
+            audio.pause();
+
+            button.textContent =
+              'Play';
+
+          }
+
+        }
+      );
+
+      seek.addEventListener(
+        'input',
+        () => {
+
+          audio.currentTime =
+            Number(seek.value);
+
+          time.textContent =
+            `${formatTime(
+              Number(seek.value)
+            )} / ${formatTime(
+              Number(seek.max)
+            )}`;
+
+        }
+      );
+
+      audio.addEventListener(
+        'timeupdate',
+        () => {
+
+          const current =
+            Math.min(
+              audio.currentTime,
+              Number(seek.max)
+            );
+
+          seek.value =
+            String(current);
+
+          time.textContent =
+            `${formatTime(
+              current
+            )} / ${formatTime(
+              Number(seek.max)
+            )}`;
+
+        }
+      );
+
+      audio.addEventListener(
+        'ended',
+        () => {
+
+          button.textContent =
+            'Play';
+
+          seek.value = '0';
+
+          time.textContent =
+            `0:00 / ${formatTime(
+              Number(seek.max)
+            )}`;
+
+        }
+      );
+
+    });
+
+})();
+</script>
+
+</body>
+</html>
