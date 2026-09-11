@@ -1,2012 +1,318 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta
-    name="description"
-    content="Henry Hues — artist, producer and sound curator working across music, image, performance and atmosphere."
-  />
-  <meta name="theme-color" content="#d8cfd9" />
-
-  <title>Henry Hues — Archive 2026</title>
-
-  <style>
-    :root {
-      --lilac: #d8cfd9;
-      --lilac-soft: #e9e1e7;
-      --paper: #f5f3ef;
-      --paper-2: #ece9e3;
-
-      --grey: #858585;
-      --grey-light: #aaa7a1;
-      --white: #f7f6f3;
-
-      --blue: #b7cdd6;
-      --earth: #c9b7a4;
-      --plum: #6f6670;
-
-      --line: rgba(133, 133, 133, 0.32);
-
-      --journal-size: 10.5px;
-
-      --retro-cursor:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='%23f7f6f3' stroke='%236f6f6f' stroke-width='1.25' stroke-linejoin='round'%3E%3Cpath d='M8 3h4v11h1V8h4v7h1v-5h4v7h1v-4h4v9c0 4-3 7-7 7h-5c-3 0-5-1-7-4l-4-7c-1-2 2-4 4-2l2 2V3z'/%3E%3C/g%3E%3C/svg%3E")
-        8 3,
-        pointer;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--grey);
-
-      font-family:
-        "Helvetica Neue",
-        Helvetica,
-        Arial,
-        sans-serif;
-
-      font-size: 11px;
-      line-height: 1.35;
-
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-
-      transition:
-        background 180ms ease,
-        color 180ms ease;
-    }
-
-    body.cursor-on,
-    body.cursor-on * {
-      cursor: var(--retro-cursor) !important;
-    }
-
-    body.dark {
-      --paper: #4f4951;
-      --paper-2: #5b545d;
-
-      --lilac: #756b77;
-      --lilac-soft: #625a65;
-
-      --grey: #d2ced0;
-      --grey-light: #b9b3b7;
-      --white: #f7f6f3;
-
-      --blue: #718b95;
-      --earth: #8d7a69;
-      --plum: #514952;
-
-      --line: rgba(247, 246, 243, 0.22);
-    }
-
-    a,
-    button,
-    input {
-      color: inherit;
-      font: inherit;
-    }
-
-    a {
-      text-decoration-color: currentColor;
-      text-underline-offset: 2px;
-    }
-
-    button {
-      border: 0;
-      background: transparent;
-      padding: 0;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .shell {
-      width: min(100%, 1440px);
-      margin: 0 auto;
-    }
-
-    /* ---------------- TOP NAV ---------------- */
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-
-      display: grid;
-      grid-template-columns: auto 1fr;
-
-      align-items: center;
-      gap: 22px;
-
-      min-height: 48px;
-      padding: 0 18px;
-
-      background: var(--lilac);
-      color: var(--white);
-
-      border-bottom:
-        1px solid rgba(247, 246, 243, 0.35);
-    }
-
-    .brand {
-      color: var(--white);
-      text-decoration: none;
-
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      font-size: 12px;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: flex-end;
-
-      gap: 16px;
-
-      white-space: nowrap;
-      overflow-x: auto;
-
-      scrollbar-width: none;
-    }
-
-    .nav::-webkit-scrollbar {
-      display: none;
-    }
-
-    .nav a,
-    .nav button {
-      color: var(--white);
-      text-decoration: none;
-      font-size: 10px;
-    }
-
-    /* ---------------- HERO ---------------- */
-
-    .hero {
-      min-height: 56vh;
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      align-items: end;
-      gap: 30px;
-
-      padding: 26px 18px 22px;
-
-      background: var(--lilac-soft);
-
-      border-bottom:
-        1px solid var(--line);
-    }
-
-    .hero-title {
-      margin: 0;
-
-      color: var(--grey);
-
-      font-size:
-        clamp(38px, 8vw, 104px);
-
-      line-height: 0.9;
-
-      font-weight: 300;
-      font-style: italic;
-
-      letter-spacing: -0.055em;
-    }
-
-    .hero-meta {
-      margin: 10px 0 0;
-
-      color: var(--grey);
-
-      font-size: 11px;
-
-      font-weight: 300;
-      font-style: italic;
-    }
-
-    .hero-copy {
-      max-width: 390px;
-
-      justify-self: end;
-      align-self: end;
-
-      margin: 0;
-
-      color: var(--white);
-
-      font-size: 10.5px;
-      font-weight: 400;
-    }
-
-    section {
-      border-bottom:
-        1px solid var(--line);
-    }
-
-    .section-head {
-      display: flex;
-
-      justify-content: space-between;
-      align-items: baseline;
-
-      gap: 18px;
-
-      padding:
-        14px 18px 10px;
-    }
-
-    .section-head h2,
-    .section-head p {
-      margin: 0;
-
-      font-size: 10px;
-      font-weight: 400;
-    }
-
-    /* ---------------- ARTIST ARCHIVE ---------------- */
-
-    .archive-wrap {
-      padding:
-        0 18px 18px;
-
-      overflow: hidden;
-    }
-
-    .archive-track {
-      display: grid;
-
-      grid-auto-flow: column;
-
-      grid-auto-columns:
-        minmax(0, 1fr);
-
-      grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-      gap: 8px;
-
-      overflow-x: auto;
-
-      overscroll-behavior-x: contain;
-
-      scroll-snap-type:
-        x proximity;
-
-      scrollbar-color:
-        var(--grey-light)
-        transparent;
-
-      scrollbar-width: thin;
-
-      padding-bottom: 8px;
-    }
-
-    .archive-track::-webkit-scrollbar {
-      height: 3px;
-    }
-
-    .archive-track::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .archive-track::-webkit-scrollbar-thumb {
-      background: var(--grey-light);
-      border-radius: 99px;
-    }
-
-    .work-card {
-      min-width: 0;
-      scroll-snap-align: start;
-    }
-
-    .work-frame {
-      aspect-ratio: 1;
-
-      display: grid;
-      place-items: center;
-
-      overflow: hidden;
-
-      background: var(--blue);
-    }
-
-    .work-card:nth-child(2) .work-frame {
-      background: var(--earth);
-    }
-
-    .work-card:nth-child(3) .work-frame {
-      background: var(--lilac);
-    }
-
-    .work-card:nth-child(4) .work-frame {
-      background: var(--paper-2);
-    }
-
-    .work-frame img {
-      width: 78%;
-      height: 78%;
-
-      object-fit: cover;
-    }
-
-    .work-placeholder {
-      width: 78%;
-      height: 78%;
-
-      display: grid;
-      place-items: center;
-
-      padding: 12px;
-
-      border:
-        1px solid var(--line);
-
-      color: var(--grey);
-
-      text-align: center;
-
-      font-size: 9px;
-      font-style: italic;
-    }
-
-    .work-info {
-      padding-top: 7px;
-      min-width: 0;
-    }
-
-    .work-title {
-      margin: 0;
-
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-
-      font-size: 9.5px;
-      font-weight: 400;
-    }
-
-    .work-links {
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 7px;
-
-      margin-top: 4px;
-
-      font-size: 8.5px;
-    }
-
-    .work-links a {
-      color: var(--grey);
-    }
-
-    /* ---------------- UPCOMING / ARK ---------------- */
-
-    .upcoming-grid {
-      display: grid;
-
-      grid-template-columns:
-        minmax(0, 1.15fr)
-        minmax(220px, 0.85fr);
-
-      gap: 28px;
-
-      padding:
-        4px 18px 22px;
-    }
-
-    .journal {
-      max-width: 650px;
-
-      font-size:
-        var(--journal-size);
-
-      line-height: 1.48;
-    }
-
-    .journal p {
-      margin:
-        0 0 14px;
-    }
-
-    .teaser-stack {
-      display: grid;
-      gap: 12px;
-
-      margin-top: 24px;
-    }
-
-    .teaser {
-      border-top:
-        1px solid var(--line);
-
-      padding-top: 9px;
-    }
-
-    .teaser-title {
-      margin: 0;
-
-      font-size: 10px;
-      font-weight: 500;
-
-      letter-spacing:
-        0.01em;
-    }
-
-    .teaser-meta,
-    .teaser-desc {
-      margin:
-        3px 0 0;
-
-      color:
-        var(--grey-light);
-
-      font-size:
-        9px;
-    }
-
-    /* custom audio player */
-
-    .player {
-      display: grid;
-
-      grid-template-columns:
-        auto 1fr auto;
-
-      align-items: center;
-
-      gap: 9px;
-
-      margin-top: 8px;
-
-      padding:
-        7px 0;
-    }
-
-    .player button {
-      min-width: 38px;
-
-      padding:
-        5px 7px;
-
-      border:
-        1px solid var(--line);
-
-      color:
-        var(--grey);
-
-      text-align: center;
-
-      font-size: 9px;
-    }
-
-    .player input[type="range"] {
-      width: 100%;
-
-      accent-color:
-        var(--grey);
-    }
-
-    .player-time {
-      min-width: 57px;
-
-      text-align: right;
-
-      color:
-        var(--grey-light);
-
-      font-size:
-        8.5px;
-
-      font-variant-numeric:
-        tabular-nums;
-    }
-
-    .player-status {
-      min-height: 12px;
-
-      color:
-        var(--grey-light);
-
-      font-size:
-        8px;
-    }
-
-    .ark-art {
-      align-self: start;
-
-      position: sticky;
-      top: 68px;
-
-      background:
-        var(--paper-2);
-
-      padding: 16px;
-    }
-
-    .ark-art img {
-      width: 100%;
-
-      aspect-ratio: 1;
-
-      object-fit: cover;
-    }
-
-    .ark-caption {
-      margin:
-        7px 0 0;
-
-      font-size:
-        8.5px;
-
-      color:
-        var(--grey-light);
-    }
-
-    /* ---------------- CONTACT ---------------- */
-
-    .contact-grid {
-      display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap: 30px;
-
-      padding: 18px;
-
-      min-height: 220px;
-    }
-
-    .contact-grid h2 {
-      margin:
-        0 0 16px;
-
-      font-size: 13px;
-      font-weight: 400;
-    }
-
-    .contact-grid p {
-      margin:
-        0 0 4px;
-
-      font-size:
-        10px;
-    }
-
-    .contact-grid a {
-      color:
-        var(--grey);
-    }
-
-    .subscribe {
-      align-self: end;
-      justify-self: end;
-
-      text-align: right;
-    }
-
-    .subscribe a {
-      font-size: 10px;
-
-      color:
-        var(--grey);
-    }
-
-    /* ---------------- FOOTER ---------------- */
-
-    footer {
-      display: flex;
-
-      justify-content:
-        space-between;
-
-      gap: 20px;
-
-      padding:
-        14px 18px 18px;
-
-      color:
-        var(--grey-light);
-
-      font-size:
-        8.5px;
-    }
-
-    /* ---------------- SETTINGS ---------------- */
-
-    .settings-panel {
-      position: fixed;
-
-      inset:
-        auto 12px 12px auto;
-
-      z-index: 100;
-
-      width:
-        min(300px, calc(100vw - 24px));
-
-      padding: 13px;
-
-      border:
-        1px solid var(--line);
-
-      background:
-        var(--paper);
-
-      box-shadow:
-        0 10px 40px
-        rgba(111, 102, 112, 0.18);
-
-      display: none;
-    }
-
-    .settings-panel.open {
-      display: block;
-    }
-
-    .settings-head {
-      display: flex;
-
-      justify-content:
-        space-between;
-
-      gap: 12px;
-
-      margin-bottom: 12px;
-
-      font-size: 10px;
-    }
-
-    .setting-row {
-      display: flex;
-
-      justify-content:
-        space-between;
-
-      align-items: center;
-
-      gap: 14px;
-
-      padding:
-        8px 0;
-
-      border-top:
-        1px solid var(--line);
-
-      font-size: 9px;
-    }
-
-    .setting-actions {
-      display: flex;
-
-      gap: 5px;
-    }
-
-    .setting-actions button,
-    .toggle-btn {
-      padding:
-        4px 7px;
-
-      border:
-        1px solid var(--line);
-
-      color:
-        var(--grey);
-
-      font-size: 9px;
-    }
-
-    /* ---------------- MOBILE ---------------- */
-
-    @media (max-width: 720px) {
-      .topbar {
-        gap: 10px;
-        padding-inline: 12px;
-      }
-
-      .nav {
-        gap: 12px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-
-        min-height: 50vh;
-
-        padding:
-          24px 12px 18px;
-      }
-
-      .hero-copy {
-        justify-self: start;
-
-        max-width: 310px;
-      }
-
-      .section-head {
-        padding-inline: 12px;
-      }
-
-      .archive-wrap {
-        padding-inline: 12px;
-      }
-
-      .archive-track {
-        gap: 5px;
-      }
-
-      .work-frame img,
-      .work-placeholder {
-        width: 84%;
-        height: 84%;
-      }
-
-      .work-title {
-        font-size: 8px;
-      }
-
-      .work-links {
-        gap: 4px;
-
-        font-size: 7.5px;
-      }
-
-      .upcoming-grid {
-        grid-template-columns: 1fr;
-
-        padding-inline: 12px;
-      }
-
-      .ark-art {
-        position: static;
-
-        max-width: 420px;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-
-        padding-inline: 12px;
-      }
-
-      .subscribe {
-        justify-self: start;
-
-        text-align: left;
-      }
-
-      footer {
-        padding-inline: 12px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+<meta name="description" content="Henry Hues — official site.">
+<title>Henry Hues</title>
+
+<style>
+:root {
+  --lilac: #d8cfd9;
+  --sand: #f5f3ef;
+  --grey: #858585;
+  --white: #f7f6f3;
+  --line: rgba(133,133,133,.28);
+  --ui: 10.5px;
+  --title: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--grey);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--ui);
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+.shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  color: var(--white);
+}
+
+.brand {
+  margin-right: auto;
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.nav a,
+.nav button {
+  font-size: 10px;
+  color: var(--white);
+}
+
+.hero {
+  min-height: 100vh;
+  background: var(--lilac);
+  display: flex;
+  align-items: center;
+  padding: 70px 6vw 58px;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(68px, 11vw, 150px);
+  line-height: .78;
+  letter-spacing: -.065em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 24px 16px;
+  color: var(--grey);
+  font-size: 9px;
+  z-index: 20;
+}
+
+.settings {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 80;
+  width: min(300px, calc(100vw - 28px));
+  padding: 15px;
+  background: var(--sand);
+  border: 1px solid var(--line);
+  display: none;
+}
+
+.settings.open {
+  display: block;
+}
+
+.settings-head,
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.settings-head {
+  padding-bottom: 11px;
+}
+
+.setting-row {
+  border-top: 1px solid var(--line);
+  padding: 10px 0;
+}
+
+.square {
+  border: 1px solid var(--line);
+  padding: 6px 9px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.setting-actions {
+  display: flex;
+  gap: 5px;
+}
+
+body.dark {
+  --sand: #5a535c;
+  --lilac: #756b77;
+  --grey: #d4d0d2;
+  --white: #f7f6f3;
+  --line: rgba(247,246,243,.22);
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    padding: 16px 14px;
+    gap: 12px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .hero {
+    padding: 68px 24px 50px;
+  }
+
+  .hero h1 {
+    font-size: clamp(66px, 22vw, 100px);
+  }
+
+  footer {
+    padding: 12px 14px 14px;
+  }
+}
+</style>
 </head>
 
-<body class="cursor-on">
+<body>
 
-  <div class="shell">
+<div class="shell">
 
-    <!-- NAVIGATION -->
+<header class="topbar">
+  <a class="brand" href="index.html">HH</a>
 
-    <header class="topbar">
+  <nav class="nav" aria-label="Primary">
+    <a href="archive.html" target="_blank" rel="noopener">Archive</a>
+    <a href="upcoming.html" target="_blank" rel="noopener">Upcoming</a>
+    <a href="contact.html">Contact</a>
+    <button id="settingsOpen" type="button">Settings</button>
+  </nav>
+</header>
 
-      <a
-        class="brand"
-        href="#top"
-        aria-label="Henry Hues home"
-      >
-        HH
-      </a>
+<main class="hero">
+  <h1>HENRY<br>HUES</h1>
+</main>
 
-      <nav
-        class="nav"
-        aria-label="Primary navigation"
-      >
+<footer>
+  <span>Henry Hues © 2026</span>
+  <span>Paris · New York</span>
+</footer>
 
-        <a href="#work">
-          Work
-        </a>
+</div>
 
-        <a href="#upcoming">
-          Upcoming
-        </a>
+<aside class="settings" id="settings" aria-hidden="true">
 
-        <a href="#contact">
-          Contact
-        </a>
-
-        <button
-          id="settingsOpen"
-          type="button"
-          aria-controls="settingsPanel"
-          aria-expanded="false"
-        >
-          Settings
-        </button>
-
-      </nav>
-
-    </header>
-
-    <main id="top">
-
-      <!-- HERO -->
-
-      <section
-        class="hero"
-        aria-labelledby="heroTitle"
-      >
-
-        <div>
-
-          <h1
-            class="hero-title"
-            id="heroTitle"
-          >
-            Henry Hues
-          </h1>
-
-          <p class="hero-meta">
-            Archive - 2026
-          </p>
-
-        </div>
-
-        <p class="hero-copy">
-          Artist, producer and sound curator working across music, image, performance and atmosphere.
-        </p>
-
-      </section>
-
-      <!-- ARTIST ARCHIVE -->
-
-      <section
-        id="work"
-        aria-labelledby="workTitle"
-      >
-
-        <div class="section-head">
-
-          <h2 id="workTitle">
-            Artist Archive
-          </h2>
-
-          <p>
-            Catalogue / newest first
-          </p>
-
-        </div>
-
-        <div class="archive-wrap">
-
-          <div
-            class="archive-track"
-            aria-label="Henry Hues artist archive"
-          >
-
-            <!-- X -->
-
-            <article class="work-card">
-
-              <div class="work-frame">
-
-                <img
-                  src="assets/images/x.jpeg"
-                  alt="X album artwork"
-                  loading="lazy"
-                  onerror="
-                    this.style.display='none';
-                    this.nextElementSibling.hidden=false;
-                  "
-                />
-
-                <div
-                  class="work-placeholder"
-                  hidden
-                >
-                  X
-                </div>
-
-              </div>
-
-              <div class="work-info">
-
-                <p class="work-title">
-                  X
-                </p>
-
-                <div class="work-links">
-
-                  <a
-                    href="https://henryhues.bandcamp.com/album/x"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Bandcamp
-                  </a>
-
-                  <a
-                    href="https://music.apple.com/us/album/x/1791656243"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Apple
-                  </a>
-
-                </div>
-
-              </div>
-
-            </article>
-
-            <!-- THE WORLD IS A MIRACLE -->
-
-            <article class="work-card">
-
-              <div class="work-frame">
-
-                <img
-                  src="assets/images/world-is-a-miracle.jpeg"
-                  alt="The World Is A Miracle album artwork"
-                  loading="lazy"
-                  onerror="
-                    this.style.display='none';
-                    this.nextElementSibling.hidden=false;
-                  "
-                />
-
-                <div
-                  class="work-placeholder"
-                  hidden
-                >
-                  The World Is A Miracle
-                </div>
-
-              </div>
-
-              <div class="work-info">
-
-                <p class="work-title">
-                  The World Is A Miracle
-                </p>
-
-                <div class="work-links">
-
-                  <a
-                    href="https://henryhues.bandcamp.com/album/the-world-is-a-miracle"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Bandcamp
-                  </a>
-
-                  <a
-                    href="https://music.apple.com/us/album/the-world-is-a-miracle/1767165106"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Apple
-                  </a>
-
-                </div>
-
-              </div>
-
-            </article>
-
-            <!-- RORY EXPRESS -->
-
-            <article class="work-card">
-
-              <div class="work-frame">
-
-                <img
-                  src="assets/images/rory-express.jpeg"
-                  alt="Rory Express album artwork"
-                  loading="lazy"
-                  onerror="
-                    this.style.display='none';
-                    this.nextElementSibling.hidden=false;
-                  "
-                />
-
-                <div
-                  class="work-placeholder"
-                  hidden
-                >
-                  Rory Express
-                </div>
-
-              </div>
-
-              <div class="work-info">
-
-                <p class="work-title">
-                  Rory Express
-                </p>
-
-                <div class="work-links">
-
-                  <a
-                    href="https://henryhues.bandcamp.com/album/rory-express"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Bandcamp
-                  </a>
-
-                  <a
-                    href="https://music.apple.com/us/album/rory-express-single/1736688223"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Apple
-                  </a>
-
-                </div>
-
-              </div>
-
-            </article>
-
-            <!-- SWEETHEART -->
-
-            <article class="work-card">
-
-              <div class="work-frame">
-
-                <div class="work-placeholder">
-
-                  Sweetheart
-                  <br />
-                  archive entry
-
-                </div>
-
-              </div>
-
-              <div class="work-info">
-
-                <p class="work-title">
-                  Sweetheart
-                </p>
-
-                <div class="work-links">
-
-                  <span>
-                    Catalogue
-                  </span>
-
-                </div>
-
-              </div>
-
-            </article>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- UPCOMING -->
-
-      <section
-        id="upcoming"
-        aria-labelledby="upcomingTitle"
-      >
-
-        <div class="section-head">
-
-          <h2 id="upcomingTitle">
-            Upcoming
-          </h2>
-
-          <p>
-            ARK
-          </p>
-
-        </div>
-
-        <div class="upcoming-grid">
-
-          <div>
-
-            <!-- WRITING -->
-
-            <div
-              class="journal"
-              id="journalText"
-            >
-
-              <p>
-                ARK is an evolving body of work concerned with movement, memory, shelter and atmosphere. This space will hold writing around the project as it develops.
-              </p>
-
-              <p>
-                The work is being assembled slowly through sound, image and performance. Notes will change as the project changes.
-              </p>
-
-            </div>
-
-            <!-- TEASERS -->
-
-            <div class="teaser-stack">
-
-              <!-- RUNWAY POPSTAR -->
-
-              <article class="teaser">
-
-                <h3 class="teaser-title">
-                  RUNWAY POPSTAR — TEASER
-                </h3>
-
-                <p class="teaser-meta">
-                  ARK · 40 SEC PREVIEW
-                </p>
-
-                <p class="teaser-desc">
-                  A short window into the movement and scale of ARK.
-                </p>
-
-                <div
-                  class="player"
-                  data-start="126"
-                  data-length="40"
-                >
-
-                  <audio preload="metadata">
-
-                    <source
-                      src="assets/audio/runway-popstar-teaser.m4a"
-                      type="audio/mp4"
-                    />
-
-                  </audio>
-
-                  <button
-                    class="play-btn"
-                    type="button"
-                  >
-                    Play
-                  </button>
-
-                  <input
-                    class="seek"
-                    type="range"
-                    min="0"
-                    max="40"
-                    value="0"
-                    step="0.1"
-                    aria-label="Runway Popstar teaser progress"
-                  />
-
-                  <span class="player-time">
-                    0:00 / 0:40
-                  </span>
-
-                </div>
-
-                <div
-                  class="player-status"
-                  aria-live="polite"
-                ></div>
-
-              </article>
-
-              <!-- ON THE BRIDGE -->
-
-              <article class="teaser">
-
-                <h3 class="teaser-title">
-                  ON THE BRIDGE — TEASER
-                </h3>
-
-                <p class="teaser-meta">
-                  ARK · 40 SEC PREVIEW
-                </p>
-
-                <p class="teaser-desc">
-                  A second fragment from ARK, presented as an unfinished preview.
-                </p>
-
-                <div
-                  class="player"
-                  data-start="265"
-                  data-length="40"
-                >
-
-                  <audio preload="metadata">
-
-                    <source
-                      src="assets/audio/on-the-bridge-teaser.m4a"
-                      type="audio/mp4"
-                    />
-
-                  </audio>
-
-                  <button
-                    class="play-btn"
-                    type="button"
-                  >
-                    Play
-                  </button>
-
-                  <input
-                    class="seek"
-                    type="range"
-                    min="0"
-                    max="40"
-                    value="0"
-                    step="0.1"
-                    aria-label="On the Bridge teaser progress"
-                  />
-
-                  <span class="player-time">
-                    0:00 / 0:40
-                  </span>
-
-                </div>
-
-                <div
-                  class="player-status"
-                  aria-live="polite"
-                ></div>
-
-              </article>
-
-            </div>
-
-          </div>
-
-          <!-- ARK ART -->
-
-          <figure class="ark-art">
-
-            <img
-              src="assets/images/ark-cover.jpg"
-              alt="ARK project artwork"
-              loading="lazy"
-            />
-
-            <figcaption class="ark-caption">
-              ARK — work in progress
-            </figcaption>
-
-          </figure>
-
-        </div>
-
-      </section>
-
-      <!-- CONTACT -->
-
-      <section
-        id="contact"
-        aria-labelledby="contactTitle"
-      >
-
-        <div class="contact-grid">
-
-          <div>
-
-            <h2 id="contactTitle">
-              Contact / Work with HH
-            </h2>
-
-            <p>
-              For bookings or collaboration on
-            </p>
-
-            <p>
-              DJ Set
-            </p>
-
-            <p>
-              Residency commissions
-            </p>
-
-            <p>
-              Artisanal Commissions
-            </p>
-
-            <p style="margin-top: 12px;">
-
-              Contact
-
-              <a href="mailto:info.tugc@gmail.com">
-                info.tugc@gmail.com
-              </a>
-
-            </p>
-
-          </div>
-
-          <div class="subscribe">
-
-            <a
-              href="mailto:info.tugc@gmail.com?subject=Henry%20Hues%20Mailing%20List&amp;body=Please%20add%20me%20to%20the%20Henry%20Hues%20mailing%20list."
-            >
-              Email / Subscribe
-            </a>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </main>
-
-    <!-- FOOTER -->
-
-    <footer>
-
-      <span>
-        Henry Hues © 2026
-      </span>
-
-      <span>
-        Paris · New York
-      </span>
-
-    </footer>
-
+  <div class="settings-head">
+    <span>Settings</span>
+    <button class="square" id="settingsClose" type="button">Close</button>
   </div>
 
-  <!-- SETTINGS -->
+  <div class="setting-row">
+    <span>Text size</span>
 
-  <aside
-    class="settings-panel"
-    id="settingsPanel"
-    aria-hidden="true"
-  >
-
-    <div class="settings-head">
-
-      <span>
-        Settings
-      </span>
-
-      <button
-        id="settingsClose"
-        type="button"
-      >
-        Close
-      </button>
-
+    <div class="setting-actions">
+      <button class="square" data-size="10" type="button">A−</button>
+      <button class="square" data-size="10.5" type="button">A</button>
+      <button class="square" data-size="12.5" type="button">A+</button>
     </div>
+  </div>
 
-    <div class="setting-row">
+  <div class="setting-row">
+    <span>Theme</span>
 
-      <span>
-        1999 cursor
-      </span>
-
-      <button
-        class="toggle-btn"
-        id="cursorToggle"
-        type="button"
-      >
-        On
-      </button>
-
+    <div class="setting-actions">
+      <button class="square" id="lightBtn" type="button">Light</button>
+      <button class="square" id="darkBtn" type="button">Dark</button>
     </div>
-
-    <div class="setting-row">
-
-      <span>
-        Dark mode
-      </span>
-
-      <button
-        class="toggle-btn"
-        id="darkToggle"
-        type="button"
-      >
-        Off
-      </button>
-
-    </div>
-
-    <div class="setting-row">
-
-      <span>
-        Writing size
-      </span>
-
-      <div class="setting-actions">
-
-        <button
-          type="button"
-          data-size="9.5"
-        >
-          A−
-        </button>
-
-        <button
-          type="button"
-          data-size="10.5"
-        >
-          A
-        </button>
-
-        <button
-          type="button"
-          data-size="12"
-        >
-          A+
-        </button>
-
-      </div>
-
-    </div>
-
-  </aside>
-
-  <script>
-    (() => {
-
-      const body =
-        document.body;
-
-      const root =
-        document.documentElement;
-
-      const panel =
-        document.getElementById(
-          "settingsPanel"
-        );
-
-      const openBtn =
-        document.getElementById(
-          "settingsOpen"
-        );
-
-      const closeBtn =
-        document.getElementById(
-          "settingsClose"
-        );
-
-      const cursorBtn =
-        document.getElementById(
-          "cursorToggle"
-        );
-
-      const darkBtn =
-        document.getElementById(
-          "darkToggle"
-        );
-
-      /* ---------------- SAVED SETTINGS ---------------- */
-
-      const storedCursor =
-        localStorage.getItem(
-          "hh-cursor"
-        );
-
-      const storedDark =
-        localStorage.getItem(
-          "hh-dark"
-        );
-
-      const storedSize =
-        localStorage.getItem(
-          "hh-journal-size"
-        );
-
-      if (
-        storedCursor === "off"
-      ) {
-        body.classList.remove(
-          "cursor-on"
-        );
-      }
-
-      if (
-        storedDark === "on"
-      ) {
-        body.classList.add(
-          "dark"
-        );
-      }
-
-      if (storedSize) {
-
-        root.style.setProperty(
-          "--journal-size",
-          storedSize + "px"
-        );
-
-      }
-
-      function syncSettings() {
-
-        cursorBtn.textContent =
-          body.classList.contains(
-            "cursor-on"
-          )
-            ? "On"
-            : "Off";
-
-        darkBtn.textContent =
-          body.classList.contains(
-            "dark"
-          )
-            ? "On"
-            : "Off";
-
-      }
-
-      function setPanel(open) {
-
-        panel.classList.toggle(
-          "open",
-          open
-        );
-
-        panel.setAttribute(
-          "aria-hidden",
-          String(!open)
-        );
-
-        openBtn.setAttribute(
-          "aria-expanded",
-          String(open)
-        );
-
-      }
-
-      openBtn.addEventListener(
-        "click",
-        () => setPanel(true)
-      );
-
-      closeBtn.addEventListener(
-        "click",
-        () => setPanel(false)
-      );
-
-      cursorBtn.addEventListener(
-        "click",
-        () => {
-
-          body.classList.toggle(
-            "cursor-on"
-          );
-
-          localStorage.setItem(
-            "hh-cursor",
-            body.classList.contains(
-              "cursor-on"
-            )
-              ? "on"
-              : "off"
-          );
-
-          syncSettings();
-
-        }
-      );
-
-      darkBtn.addEventListener(
-        "click",
-        () => {
-
-          body.classList.toggle(
-            "dark"
-          );
-
-          localStorage.setItem(
-            "hh-dark",
-            body.classList.contains(
-              "dark"
-            )
-              ? "on"
-              : "off"
-          );
-
-          syncSettings();
-
-        }
-      );
-
-      document
-        .querySelectorAll(
-          "[data-size]"
-        )
-        .forEach((button) => {
-
-          button.addEventListener(
-            "click",
-            () => {
-
-              const size =
-                button.dataset.size;
-
-              root.style.setProperty(
-                "--journal-size",
-                size + "px"
-              );
-
-              localStorage.setItem(
-                "hh-journal-size",
-                size
-              );
-
-            }
-          );
-
-        });
-
-      syncSettings();
-
-      /* ---------------- AUDIO ---------------- */
-
-      function formatTime(seconds) {
-
-        if (
-          !Number.isFinite(seconds) ||
-          seconds < 0
-        ) {
-          return "0:00";
-        }
-
-        const minutes =
-          Math.floor(
-            seconds / 60
-          );
-
-        const remaining =
-          Math.floor(
-            seconds % 60
-          )
-            .toString()
-            .padStart(2, "0");
-
-        return (
-          minutes +
-          ":" +
-          remaining
-        );
-
-      }
-
-      document
-        .querySelectorAll(
-          ".player"
-        )
-        .forEach((player) => {
-
-          const audio =
-            player.querySelector(
-              "audio"
-            );
-
-          const playBtn =
-            player.querySelector(
-              ".play-btn"
-            );
-
-          const seek =
-            player.querySelector(
-              ".seek"
-            );
-
-          const time =
-            player.querySelector(
-              ".player-time"
-            );
-
-          const status =
-            player.parentElement
-              .querySelector(
-                ".player-status"
-              );
-
-          const requestedStart =
-            Number(
-              player.dataset.start ||
-              0
-            );
-
-          const teaserLength =
-            Number(
-              player.dataset.length ||
-              40
-            );
-
-          let start = 0;
-          let ready = false;
-          let userSeeking = false;
-
-          function resetPlayer() {
-
-            if (ready) {
-              audio.currentTime =
-                start;
-            }
-
-            seek.value = "0";
-
-            playBtn.textContent =
-              "Play";
-
-            time.textContent =
-              "0:00 / " +
-              formatTime(
-                Number(
-                  seek.max
-                )
-              );
-
-          }
-
-          audio.addEventListener(
-            "loadedmetadata",
-            () => {
-
-              /*
-                If GitHub contains the
-                original long recording,
-                use the chosen teaser
-                starting position.
-
-                If it contains an already
-                trimmed teaser file,
-                begin from 0.
-              */
-
-              if (
-                audio.duration >
-                requestedStart + 5
-              ) {
-
-                start =
-                  requestedStart;
-
-              } else {
-
-                start = 0;
-
-              }
-
-              const available =
-                Math.max(
-                  0,
-                  audio.duration -
-                  start
-                );
-
-              const effectiveLength =
-                Math.min(
-                  teaserLength,
-                  available ||
-                  teaserLength
-                );
-
-              seek.max =
-                String(
-                  effectiveLength
-                );
-
-              time.textContent =
-                "0:00 / " +
-                formatTime(
-                  effectiveLength
-                );
-
-              ready = true;
-
-              status.textContent = "";
-
-            }
-          );
-
-          audio.addEventListener(
-            "error",
-            () => {
-
-              status.textContent =
-                "Audio unavailable — check the uploaded file path.";
-
-              playBtn.textContent =
-                "Play";
-
-            }
-          );
-
-          playBtn.addEventListener(
-            "click",
-            async () => {
-
-              if (!ready) {
-
-                audio.load();
-
-                status.textContent =
-                  "Loading audio…";
-
-                return;
-
-              }
-
-              if (audio.paused) {
-
-                if (
-                  audio.currentTime <
-                    start ||
-                  audio.currentTime >=
-                    start +
-                      teaserLength
-                ) {
-
-                  audio.currentTime =
-                    start;
-
-                }
-
-                try {
-
-                  await audio.play();
-
-                  playBtn.textContent =
-                    "Pause";
-
-                  status.textContent =
-                    "";
-
-                } catch (error) {
-
-                  status.textContent =
-                    "Tap Play again to start audio.";
-
-                }
-
-              } else {
-
-                audio.pause();
-
-                playBtn.textContent =
-                  "Play";
-
-              }
-
-            }
-          );
-
-          seek.addEventListener(
-            "input",
-            () => {
-
-              userSeeking = true;
-
-              time.textContent =
-                formatTime(
-                  Number(
-                    seek.value
-                  )
-                ) +
-                " / " +
-                formatTime(
-                  Number(
-                    seek.max
-                  )
-                );
-
-            }
-          );
-
-          seek.addEventListener(
-            "change",
-            () => {
-
-              if (ready) {
-
-                audio.currentTime =
-                  start +
-                  Number(
-                    seek.value
-                  );
-
-              }
-
-              userSeeking =
-                false;
-
-            }
-          );
-
-          audio.addEventListener(
-            "timeupdate",
-            () => {
-
-              if (!ready) {
-                return;
-              }
-
-              const elapsed =
-                Math.max(
-                  0,
-                  audio.currentTime -
-                  start
-                );
-
-              const maximum =
-                Number(
-                  seek.max
-                ) ||
-                teaserLength;
-
-              /*
-                Stop automatically at
-                the teaser limit.
-              */
-
-              if (
-                elapsed >=
-                maximum
-              ) {
-
-                audio.pause();
-
-                resetPlayer();
-
-                return;
-
-              }
-
-              if (!userSeeking) {
-
-                seek.value =
-                  String(
-                    Math.min(
-                      elapsed,
-                      maximum
-                    )
-                  );
-
-              }
-
-              time.textContent =
-                formatTime(
-                  Math.min(
-                    elapsed,
-                    maximum
-                  )
-                ) +
-                " / " +
-                formatTime(
-                  maximum
-                );
-
-            }
-          );
-
-          audio.addEventListener(
-            "ended",
-            resetPlayer
-          );
-
-        });
-
-    })();
-  </script>
+  </div>
+
+  <div class="setting-row">
+    <span>Reset</span>
+    <button class="square" id="resetBtn" type="button">Reset</button>
+  </div>
+
+</aside>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const body = document.body;
+
+  const panel = document.getElementById('settings');
+  const openBtn = document.getElementById('settingsOpen');
+  const closeBtn = document.getElementById('settingsClose');
+  const lightBtn = document.getElementById('lightBtn');
+  const darkBtn = document.getElementById('darkBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  const setPanel = (open) => {
+    panel.classList.toggle('open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+  };
+
+  openBtn.addEventListener('click', () => setPanel(true));
+  closeBtn.addEventListener('click', () => setPanel(false));
+
+  const savedSize = localStorage.getItem('hh-size');
+
+  if (savedSize) {
+    root.style.setProperty('--ui', `${savedSize}px`);
+  }
+
+  document.querySelectorAll('[data-size]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const size = button.dataset.size;
+
+      root.style.setProperty('--ui', `${size}px`);
+      localStorage.setItem('hh-size', size);
+    });
+  });
+
+  if (localStorage.getItem('hh-theme') === 'dark') {
+    body.classList.add('dark');
+  }
+
+  darkBtn.addEventListener('click', () => {
+    body.classList.add('dark');
+    localStorage.setItem('hh-theme', 'dark');
+  });
+
+  lightBtn.addEventListener('click', () => {
+    body.classList.remove('dark');
+    localStorage.setItem('hh-theme', 'light');
+  });
+
+  resetBtn.addEventListener('click', () => {
+    localStorage.removeItem('hh-size');
+    localStorage.removeItem('hh-theme');
+
+    root.style.setProperty('--ui', '10.5px');
+    body.classList.remove('dark');
+  });
+})();
+</script>
 
 </body>
 </html>
