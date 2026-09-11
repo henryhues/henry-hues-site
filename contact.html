@@ -1,0 +1,584 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"
+>
+
+<meta
+  name="description"
+  content="Contact Henry Hues."
+>
+
+<title>Contact — Henry Hues</title>
+
+<style>
+:root {
+  --sand: #f5f3ef;
+  --grey: #858585;
+  --grey2: #aaa7a1;
+  --line: rgba(133,133,133,.28);
+  --ui: 10.5px;
+  --title: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--grey);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--ui);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  text-underline-offset: 2px;
+}
+
+button {
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  margin-right: auto;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+}
+
+.nav a,
+.nav button {
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.page {
+  padding: 56px 7vw 100px;
+}
+
+.page h1 {
+  font-size: var(--title);
+  font-weight: 400;
+  margin: 0 0 46px;
+}
+
+.contact {
+  max-width: 520px;
+}
+
+.contact p {
+  margin: 0 0 4px;
+}
+
+.email {
+  margin-top: 22px !important;
+}
+
+.mailing {
+  margin-top: 42px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.square {
+  border: 1px solid var(--line);
+  padding: 7px 10px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--grey);
+  display: inline-block;
+  text-decoration: none;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 24px 16px;
+  background: linear-gradient(transparent,var(--sand) 38%);
+  font-size: 9px;
+}
+
+.settings {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 80;
+  width: min(300px,calc(100vw - 28px));
+  padding: 15px;
+  background: var(--sand);
+  border: 1px solid var(--line);
+  display: none;
+}
+
+.settings.open {
+  display: block;
+}
+
+.settings-head,
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.settings-head {
+  padding-bottom: 11px;
+}
+
+.setting-row {
+  border-top: 1px solid var(--line);
+  padding: 10px 0;
+}
+
+.setting-actions {
+  display: flex;
+  gap: 5px;
+}
+
+body.dark {
+  --sand: #5a535c;
+  --grey: #d4d0d2;
+  --grey2: #bdb7bb;
+  --line: rgba(247,246,243,.22);
+}
+
+@media(max-width:720px) {
+
+  .topbar {
+    padding: 16px 14px;
+    gap: 12px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .page {
+    padding: 44px 24px 90px;
+  }
+
+  .page h1 {
+    margin-bottom: 36px;
+  }
+
+  footer {
+    padding: 12px 14px 14px;
+  }
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<a
+  class="brand"
+  href="index.html"
+>
+  HH
+</a>
+
+<nav
+  class="nav"
+  aria-label="Primary"
+>
+
+<a href="archive.html">
+  Archive
+</a>
+
+<a href="upcoming.html">
+  Upcoming
+</a>
+
+<a href="contact.html">
+  Contact
+</a>
+
+<button
+  id="settingsOpen"
+  type="button"
+>
+  Settings
+</button>
+
+</nav>
+
+</header>
+
+<main class="page">
+
+<h1>Contact</h1>
+
+<div class="contact">
+
+<p>
+  For bookings or collaboration on
+</p>
+
+<p>
+  Live set
+</p>
+
+<p>
+  Residency
+</p>
+
+<p>
+  Artisanal commissions
+</p>
+
+<p class="email">
+
+Contact<br>
+
+<a href="mailto:info.tugc@gmail.com">
+  info.tugc@gmail.com
+</a>
+
+</p>
+
+<div class="mailing">
+
+<p>
+  Join the mailing list
+</p>
+
+<p>
+
+<a
+  class="square"
+  href="mailto:info.tugc@gmail.com?subject=Henry%20Hues%20Mailing%20List&amp;body=Please%20add%20me%20to%20the%20Henry%20Hues%20mailing%20list."
+>
+  Subscribe
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+<span>
+  Henry Hues © 2026
+</span>
+
+<span>
+  Paris · New York
+</span>
+
+</footer>
+
+<aside
+  class="settings"
+  id="settings"
+  aria-hidden="true"
+>
+
+<div class="settings-head">
+
+<span>
+  Settings
+</span>
+
+<button
+  class="square"
+  id="settingsClose"
+  type="button"
+>
+  Close
+</button>
+
+</div>
+
+<div class="setting-row">
+
+<span>
+  Text size
+</span>
+
+<div class="setting-actions">
+
+<button
+  class="square"
+  data-size="10"
+  type="button"
+>
+  A−
+</button>
+
+<button
+  class="square"
+  data-size="10.5"
+  type="button"
+>
+  A
+</button>
+
+<button
+  class="square"
+  data-size="12.5"
+  type="button"
+>
+  A+
+</button>
+
+</div>
+
+</div>
+
+<div class="setting-row">
+
+<span>
+  Theme
+</span>
+
+<div class="setting-actions">
+
+<button
+  class="square"
+  id="lightBtn"
+  type="button"
+>
+  Light
+</button>
+
+<button
+  class="square"
+  id="darkBtn"
+  type="button"
+>
+  Dark
+</button>
+
+</div>
+
+</div>
+
+<div class="setting-row">
+
+<span>
+  Reset
+</span>
+
+<button
+  class="square"
+  id="resetBtn"
+  type="button"
+>
+  Reset
+</button>
+
+</div>
+
+</aside>
+
+<script>
+(() => {
+
+  const root =
+    document.documentElement;
+
+  const body =
+    document.body;
+
+  const panel =
+    document.getElementById('settings');
+
+  const openBtn =
+    document.getElementById('settingsOpen');
+
+  const closeBtn =
+    document.getElementById('settingsClose');
+
+  const lightBtn =
+    document.getElementById('lightBtn');
+
+  const darkBtn =
+    document.getElementById('darkBtn');
+
+  const resetBtn =
+    document.getElementById('resetBtn');
+
+  const setPanel = (open) => {
+
+    panel.classList.toggle(
+      'open',
+      open
+    );
+
+    panel.setAttribute(
+      'aria-hidden',
+      String(!open)
+    );
+
+  };
+
+  openBtn.addEventListener(
+    'click',
+    () => setPanel(true)
+  );
+
+  closeBtn.addEventListener(
+    'click',
+    () => setPanel(false)
+  );
+
+  const savedSize =
+    localStorage.getItem(
+      'hh-size'
+    );
+
+  if (savedSize) {
+
+    root.style.setProperty(
+      '--ui',
+      `${savedSize}px`
+    );
+
+  }
+
+  document
+    .querySelectorAll('[data-size]')
+    .forEach((button) => {
+
+      button.addEventListener(
+        'click',
+        () => {
+
+          const size =
+            button.dataset.size;
+
+          root.style.setProperty(
+            '--ui',
+            `${size}px`
+          );
+
+          localStorage.setItem(
+            'hh-size',
+            size
+          );
+
+        }
+      );
+
+    });
+
+  if (
+    localStorage.getItem(
+      'hh-theme'
+    ) === 'dark'
+  ) {
+
+    body.classList.add(
+      'dark'
+    );
+
+  }
+
+  darkBtn.addEventListener(
+    'click',
+    () => {
+
+      body.classList.add(
+        'dark'
+      );
+
+      localStorage.setItem(
+        'hh-theme',
+        'dark'
+      );
+
+    }
+  );
+
+  lightBtn.addEventListener(
+    'click',
+    () => {
+
+      body.classList.remove(
+        'dark'
+      );
+
+      localStorage.setItem(
+        'hh-theme',
+        'light'
+      );
+
+    }
+  );
+
+  resetBtn.addEventListener(
+    'click',
+    () => {
+
+      localStorage.removeItem(
+        'hh-size'
+      );
+
+      localStorage.removeItem(
+        'hh-theme'
+      );
+
+      root.style.setProperty(
+        '--ui',
+        '10.5px'
+      );
+
+      body.classList.remove(
+        'dark'
+      );
+
+    }
+  );
+
+})();
+</script>
+
+</body>
+</html>
