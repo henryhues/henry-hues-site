@@ -683,6 +683,9 @@ body.dark {
         async () => {
 
           if (audio.paused) {
+           if (audio.currentTime >= Number(seek.max)) {
+  audio.currentTime = 0;
+}
 
             try {
 
@@ -739,6 +742,11 @@ body.dark {
               audio.currentTime,
               Number(seek.max)
             );
+         if (audio.currentTime >= Number(seek.max)) {
+  audio.pause();
+  audio.currentTime = Number(seek.max);
+  button.textContent = 'Play';
+}
 
           seek.value =
             String(current);
