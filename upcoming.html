@@ -256,13 +256,6 @@ button {
   font-style: italic;
 }
 
-/*
-  Theater images use their natural aspect ratio.
-  No aspect-ratio rule is imposed.
-  No fixed height is imposed.
-  Nothing is cropped.
-*/
-
 .theater-image {
   width: 100%;
   margin: 34px 0 18px;
@@ -715,11 +708,15 @@ body.dark {
 </h2>
 
 <p class="meta">
-  40 SEC PREVIEW
+  0:00–0:40 · 40 SEC PREVIEW
 </p>
 
 
-<div class="player">
+<div
+  class="player"
+  data-preview-start="0"
+  data-preview-duration="40"
+>
 
 <audio
   preload="metadata"
@@ -765,26 +762,30 @@ body.dark {
 <section class="teaser">
 
 <h2>
-  BROTHER - CHORUS (C-EM) — TEASER
+  LIFTING ME 2 — TEASER
 </h2>
 
 <p class="meta">
-  40 SEC PREVIEW
+  0:29–1:09 · 40 SEC PREVIEW
 </p>
 
 
-<div class="player">
+<div
+  class="player"
+  data-preview-start="29"
+  data-preview-duration="40"
+>
 
 <audio
   preload="metadata"
-  src="assets/audio/brother-chorus-preview.m4a"
+  src="assets/audio/lifting-me-2-preview.m4a"
 ></audio>
 
 
 <button
   class="play"
   type="button"
-  aria-label="Play Brother chorus teaser"
+  aria-label="Play Lifting me 2 teaser"
 >
   Play
 </button>
@@ -797,7 +798,7 @@ body.dark {
   max="40"
   value="0"
   step="0.1"
-  aria-label="Brother chorus teaser progress"
+  aria-label="Lifting me 2 teaser progress"
 >
 
 
@@ -900,7 +901,11 @@ body.dark {
 </p>
 
 
-<div class="player">
+<div
+  class="player"
+  data-preview-start="0"
+  data-preview-duration="40"
+>
 
 <audio
   preload="metadata"
@@ -954,7 +959,11 @@ body.dark {
 </p>
 
 
-<div class="player">
+<div
+  class="player"
+  data-preview-start="0"
+  data-preview-duration="40"
+>
 
 <audio
   preload="metadata"
@@ -1332,9 +1341,17 @@ body.dark {
     });
 
 
-  /* ALL PREVIEWS ARE HARD-LIMITED TO 40 SECONDS */
+  /* =======================================
+     AUDIO PREVIEW SYSTEM
 
-  const previewDuration = 40;
+     Each player can now define its own
+     starting point.
+
+     LIFTING ME 2:
+     starts at 29 seconds
+     stops at 69 seconds
+     = exactly 40 seconds
+  ======================================= */
 
 
   const formatTime = (seconds) => {
@@ -1387,8 +1404,49 @@ body.dark {
     }
 
 
+    const previewStart =
+      Number(
+        player.dataset.previewStart || 0
+      );
+
+
+    const previewDuration =
+      Number(
+        player.dataset.previewDuration || 40
+      );
+
+
+    const previewEnd =
+      previewStart + previewDuration;
+
+
+    seek.min = '0';
     seek.max =
       String(previewDuration);
+
+
+    const setDisplay = (elapsed) => {
+
+      const safeElapsed =
+        Math.max(
+          0,
+          Math.min(
+            elapsed,
+            previewDuration
+          )
+        );
+
+      seek.value =
+        String(safeElapsed);
+
+      time.textContent =
+        `${formatTime(
+          safeElapsed
+        )} / ${formatTime(
+          previewDuration
+        )}`;
+
+    };
 
 
     const resetPlayer = () => {
@@ -1396,18 +1454,14 @@ body.dark {
       audio.pause();
 
       try {
-        audio.currentTime = 0;
+        audio.currentTime =
+          previewStart;
       } catch (error) {}
 
-      seek.value = '0';
+      setDisplay(0);
 
       button.textContent =
         'Play';
-
-      time.textContent =
-        `0:00 / ${formatTime(
-          previewDuration
-        )}`;
 
     };
 
@@ -1416,13 +1470,25 @@ body.dark {
       'loadedmetadata',
       () => {
 
-        seek.max =
-          String(previewDuration);
+        try {
 
-        time.textContent =
-          `0:00 / ${formatTime(
-            previewDuration
-          )}`;
+          if (
+            audio.currentTime <
+              previewStart ||
+            audio.currentTime >=
+              previewEnd
+          ) {
+
+            audio.currentTime =
+              previewStart;
+
+          }
+
+        } catch (error) {}
+
+
+        setDisplay(0);
+
 
         if (status) {
           status.textContent = '';
@@ -1498,13 +1564,24 @@ body.dark {
           );
 
 
+          /*
+            Make sure playback can never begin
+            outside this player's preview window.
+          */
+
           if (
+            audio.currentTime <
+              previewStart ||
             audio.currentTime >=
-            previewDuration
+              previewEnd
           ) {
 
-            audio.currentTime = 0;
-            seek.value = '0';
+            try {
+              audio.currentTime =
+                previewStart;
+            } catch (error) {}
+
+            setDisplay(0);
 
           }
 
@@ -1551,11 +1628,19 @@ body.dark {
       'input',
       () => {
 
-        const requestedTime =
-          Math.min(
-            Number(seek.value),
-            previewDuration
+        const elapsed =
+          Math.max(
+            0,
+            Math.min(
+              Number(seek.value),
+              previewDuration
+            )
           );
+
+
+        const requestedTime =
+          previewStart + elapsed;
+
 
         try {
 
@@ -1565,12 +1650,7 @@ body.dark {
         } catch (error) {}
 
 
-        time.textContent =
-          `${formatTime(
-            requestedTime
-          )} / ${formatTime(
-            previewDuration
-          )}`;
+        setDisplay(elapsed);
 
       }
     );
@@ -1580,61 +1660,63 @@ body.dark {
       'timeupdate',
       () => {
 
+        /*
+          Hard stop at the end of the
+          permitted 40-second window.
+        */
+
         if (
           audio.currentTime >=
-          previewDuration
+          previewEnd
         ) {
 
           audio.pause();
 
           try {
-
             audio.currentTime =
-              previewDuration;
-
+              previewEnd;
           } catch (error) {}
 
-
-          seek.value =
-            String(
-              previewDuration
-            );
+          setDisplay(
+            previewDuration
+          );
 
           button.textContent =
             'Play';
-
-          time.textContent =
-            `${formatTime(
-              previewDuration
-            )} / ${formatTime(
-              previewDuration
-            )}`;
 
           return;
 
         }
 
 
-        const current =
-          Math.max(
-            0,
-            Math.min(
-              audio.currentTime,
-              previewDuration
-            )
-          );
+        /*
+          Prevent playback before the
+          configured starting position.
+        */
+
+        if (
+          audio.currentTime <
+          previewStart
+        ) {
+
+          try {
+            audio.currentTime =
+              previewStart;
+          } catch (error) {}
+
+          setDisplay(0);
+
+          return;
+
+        }
 
 
-        seek.value =
-          String(current);
+        const elapsed =
+          audio.currentTime -
+          previewStart;
 
 
-        time.textContent =
-          `${formatTime(
-            current
-          )} / ${formatTime(
-            previewDuration
-          )}`;
+        setDisplay(elapsed);
 
       }
     );
