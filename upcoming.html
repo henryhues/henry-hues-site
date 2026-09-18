@@ -988,22 +988,7 @@ body.dark {
       );
 
     });
-const celineTrackToggle = document.getElementById('celineTrackToggle');
-const celineTrackList = document.getElementById('celineTrackList');
 
-if (celineTrackToggle && celineTrackList) {
-  celineTrackList.hidden = true;
-
-  celineTrackToggle.addEventListener('click', () => {
-    const isOpen = !celineTrackList.hidden;
-
-    celineTrackList.hidden = isOpen;
-    celineTrackToggle.setAttribute('aria-expanded', String(!isOpen));
-    celineTrackToggle.textContent = isOpen
-      ? 'Track listing +'
-      : 'Track listing −';
-  });
-}
 })();
 </script>
 
