@@ -92,7 +92,7 @@ button {
 
 .ark-grid {
   display: grid;
-  grid-template-columns: minmax(220px,390px) minmax(220px,1fr);
+  grid-template-columns: minmax(220px, 390px) minmax(220px, 1fr);
   gap: 36px;
   align-items: start;
 }
@@ -179,6 +179,7 @@ button {
   height: 32px;
   border: 1px solid var(--line);
   border-radius: 0;
+  cursor: pointer;
 }
 
 .seek {
@@ -207,7 +208,7 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 14px 24px 16px;
-  background: linear-gradient(transparent,var(--sand) 38%);
+  background: linear-gradient(transparent, var(--sand) 38%);
   font-size: 9px;
 }
 
@@ -216,7 +217,7 @@ footer {
   right: 14px;
   bottom: 14px;
   z-index: 80;
-  width: min(300px,calc(100vw - 28px));
+  width: min(300px, calc(100vw - 28px));
   padding: 15px;
   background: var(--sand);
   border: 1px solid var(--line);
@@ -249,6 +250,7 @@ footer {
   padding: 6px 9px;
   border-radius: 0;
   background: transparent;
+  cursor: pointer;
 }
 
 .setting-actions {
@@ -264,7 +266,7 @@ body.dark {
   --line: rgba(247,246,243,.22);
 }
 
-@media (max-width:720px) {
+@media (max-width: 720px) {
   .topbar {
     padding: 16px 14px;
     gap: 12px;
@@ -335,141 +337,157 @@ body.dark {
 
 <main class="page">
 
-<h1>Upcoming</h1>
+  <h1>Upcoming</h1>
 
-<article class="entry">
+  <article class="entry">
 
-<div class="ark-grid">
+    <div class="ark-grid">
 
-<figure class="cover">
-  <img src="assets/images/ark-cover.jpg" alt="ARK artwork">
-</figure>
+      <figure class="cover">
+        <img
+          src="assets/images/ark-cover.jpg"
+          alt="ARK artwork"
+        >
+      </figure>
 
-<div>
+      <div>
 
-<h2 class="ark-title">ARK</h2>
+        <h2 class="ark-title">ARK</h2>
 
-<button
-  class="track-toggle"
-  id="trackToggle"
-  type="button"
-  aria-expanded="false"
->
-  Track listing +
-</button>
+        <button
+          class="track-toggle"
+          id="trackToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="tracklist"
+        >
+          Track listing +
+        </button>
 
-<ol class="tracklist" id="tracklist" hidden>
-  <li>RAIN</li>
-  <li>NOVELLA</li>
-  <li>ON THE BRIDGE</li>
-  <li>BREEZE</li>
-  <li>SHREE GUCCI</li>
-  <li>BAD FOR THE PEOPLE</li>
-  <li>POP MUSIC MAGIC</li>
-  <li>LIGHT CONTROL</li>
-  <li>WOTF</li>
-  <li>RUNWAY POPSTAR</li>
-  <li>LIKE A G6</li>
-  <li>ROSE</li>
-  <li>PANTS:COMMAS</li>
-  <li>NO TITLES</li>
-  <li>CLHL</li>
-  <li>FIN</li>
-</ol>
+        <ol
+          class="tracklist"
+          id="tracklist"
+          hidden
+        >
+          <li>RAIN</li>
+          <li>NOVELLA</li>
+          <li>ON THE BRIDGE</li>
+          <li>BREEZE</li>
+          <li>SHREE GUCCI</li>
+          <li>BAD FOR THE PEOPLE</li>
+          <li>POP MUSIC MAGIC</li>
+          <li>LIGHT CONTROL</li>
+          <li>WOTF</li>
+          <li>RUNWAY POPSTAR</li>
+          <li>LIKE A G6</li>
+          <li>ROSE</li>
+          <li>PANTS:COMMAS</li>
+          <li>NO TITLES</li>
+          <li>CLHL</li>
+          <li>FIN</li>
+        </ol>
 
-</div>
+      </div>
 
-</div>
+    </div>
 
-<div class="players">
+    <div class="players">
 
-<section class="teaser">
+      <section class="teaser">
 
-<h2>BREEZE — TEASER</h2>
+        <h2>BREEZE — TEASER</h2>
 
-<p class="meta">
-  1:26–2:06 · 40 SEC PREVIEW
-</p>
+        <p class="meta">
+          1:26–2:06 · 40 SEC PREVIEW
+        </p>
 
-<div class="player">
+        <div class="player">
 
-<audio
-  preload="metadata"
-  src="assets/audio/breeze-preview-v2.m4a"
-></audio>
+          <audio
+            preload="metadata"
+            src="assets/audio/breeze-preview-v2.m4a"
+          ></audio>
 
-<button class="play" type="button">
-  Play
-</button>
+          <button
+            class="play"
+            type="button"
+            aria-label="Play Breeze teaser"
+          >
+            Play
+          </button>
 
-<input
-  class="seek"
-  type="range"
-  min="0"
-  max="40"
-  value="0"
-  step="0.1"
-  aria-label="Breeze teaser progress"
->
+          <input
+            class="seek"
+            type="range"
+            min="0"
+            max="40"
+            value="0"
+            step="0.1"
+            aria-label="Breeze teaser progress"
+          >
 
-<span class="time">
-  0:00 / 0:40
-</span>
+          <span class="time">
+            0:00 / 0:40
+          </span>
 
-</div>
+        </div>
 
-<div
-  class="status"
-  aria-live="polite"
-></div>
+        <div
+          class="status"
+          aria-live="polite"
+        ></div>
 
-</section>
+      </section>
 
-<section class="teaser">
+      <section class="teaser">
 
-<h2>SHREE GUCCI — TEASER</h2>
+        <h2>SHREE GUCCI — TEASER</h2>
 
-<p class="meta">
-  0:00–0:40 · 40 SEC PREVIEW
-</p>
+        <p class="meta">
+          0:00–0:40 · 40 SEC PREVIEW
+        </p>
 
-<div class="player">
+        <div class="player">
 
-<audio
-  preload="metadata"
-  src="assets/audio/shree-gucci-teaser.m4a"
-></audio>
+          <audio
+            preload="metadata"
+            src="assets/audio/shree-gucci-teaser.m4a"
+          ></audio>
 
-<button class="play" type="button">
-  Play
-</button>
+          <button
+            class="play"
+            type="button"
+            aria-label="Play Shree Gucci teaser"
+          >
+            Play
+          </button>
 
-<input
-  class="seek"
-  type="range"
-  min="0"
-  max="40"
-  value="0"
-  step="0.1"
-  aria-label="Shree Gucci teaser progress"
->
+          <input
+            class="seek"
+            type="range"
+            min="0"
+            max="40"
+            value="0"
+            step="0.1"
+            aria-label="Shree Gucci teaser progress"
+          >
 
-<span class="time">
-  0:00 / 0:40
-</span>
+          <span class="time">
+            0:00 / 0:40
+          </span>
 
-</div>
+        </div>
 
-<div
-  class="status"
-  aria-live="polite"
-></div>
+        <div
+          class="status"
+          aria-live="polite"
+        ></div>
 
-</section>
+      </section>
 
-</div>
+    </div>
 
-</article>
+  </article>
 
 </main>
 
@@ -484,44 +502,55 @@ body.dark {
   aria-hidden="true"
 >
 
-<div class="settings-head">
-  <span>Settings</span>
-  <button class="square" id="settingsClose" type="button">Close</button>
-</div>
+  <div class="settings-head">
+    <span>Settings</span>
+    <button
+      class="square"
+      id="settingsClose"
+      type="button"
+    >
+      Close
+    </button>
+  </div>
 
-<div class="setting-row">
+  <div class="setting-row">
 
-<span>Text size</span>
+    <span>Text size</span>
 
-<div class="setting-actions">
-  <button class="square" data-size="10" type="button">A−</button>
-  <button class="square" data-size="10.5" type="button">A</button>
-  <button class="square" data-size="12.5" type="button">A+</button>
-</div>
+    <div class="setting-actions">
+      <button class="square" data-size="10" type="button">A−</button>
+      <button class="square" data-size="10.5" type="button">A</button>
+      <button class="square" data-size="12.5" type="button">A+</button>
+    </div>
 
-</div>
+  </div>
 
-<div class="setting-row">
+  <div class="setting-row">
 
-<span>Theme</span>
+    <span>Theme</span>
 
-<div class="setting-actions">
-  <button class="square" id="lightBtn" type="button">Light</button>
-  <button class="square" id="darkBtn" type="button">Dark</button>
-</div>
+    <div class="setting-actions">
+      <button class="square" id="lightBtn" type="button">Light</button>
+      <button class="square" id="darkBtn" type="button">Dark</button>
+    </div>
 
-</div>
+  </div>
 
-<div class="setting-row">
-  <span>Reset</span>
-  <button class="square" id="resetBtn" type="button">Reset</button>
-</div>
+  <div class="setting-row">
+    <span>Reset</span>
+    <button
+      class="square"
+      id="resetBtn"
+      type="button"
+    >
+      Reset
+    </button>
+  </div>
 
 </aside>
 
 <script>
 (() => {
-
   const root = document.documentElement;
   const body = document.body;
 
@@ -537,8 +566,13 @@ body.dark {
     panel.setAttribute('aria-hidden', String(!open));
   };
 
-  openBtn.addEventListener('click', () => setPanel(true));
-  closeBtn.addEventListener('click', () => setPanel(false));
+  openBtn.addEventListener('click', () => {
+    setPanel(true);
+  });
+
+  closeBtn.addEventListener('click', () => {
+    setPanel(false);
+  });
 
   const savedSize = localStorage.getItem('hh-size');
 
@@ -546,51 +580,42 @@ body.dark {
     root.style.setProperty('--ui', `${savedSize}px`);
   }
 
-  document.querySelectorAll('[data-size]').forEach((button) => {
+  document
+    .querySelectorAll('[data-size]')
+    .forEach((button) => {
+      button.addEventListener('click', () => {
+        const size = button.dataset.size;
 
-    button.addEventListener('click', () => {
-
-      const size = button.dataset.size;
-
-      root.style.setProperty('--ui', `${size}px`);
-      localStorage.setItem('hh-size', size);
-
+        root.style.setProperty('--ui', `${size}px`);
+        localStorage.setItem('hh-size', size);
+      });
     });
-
-  });
 
   if (localStorage.getItem('hh-theme') === 'dark') {
     body.classList.add('dark');
   }
 
   darkBtn.addEventListener('click', () => {
-
     body.classList.add('dark');
     localStorage.setItem('hh-theme', 'dark');
-
   });
 
   lightBtn.addEventListener('click', () => {
-
     body.classList.remove('dark');
     localStorage.setItem('hh-theme', 'light');
-
   });
 
   resetBtn.addEventListener('click', () => {
-
     localStorage.removeItem('hh-size');
     localStorage.removeItem('hh-theme');
 
     root.style.setProperty('--ui', '10.5px');
     body.classList.remove('dark');
-
   });
-
 })();
 
-(() => {
 
+(() => {
   const trackToggle =
     document.getElementById('trackToggle');
 
@@ -598,7 +623,6 @@ body.dark {
     document.getElementById('tracklist');
 
   trackToggle.addEventListener('click', () => {
-
     const shouldOpen = tracklist.hidden;
 
     tracklist.hidden = !shouldOpen;
@@ -612,170 +636,205 @@ body.dark {
       'aria-expanded',
       String(shouldOpen)
     );
-
   });
 
-  const formatTime = (seconds) => {
 
+  const formatTime = (seconds) => {
     const safe =
       Math.max(0, Math.floor(seconds || 0));
 
     return `${Math.floor(safe / 60)}:${String(
       safe % 60
     ).padStart(2, '0')}`;
-
   };
 
-  document
-    .querySelectorAll('.player')
-    .forEach((player) => {
 
-      const audio =
-        player.querySelector('audio');
+  const players =
+    document.querySelectorAll('.player');
 
-      const button =
-        player.querySelector('.play');
 
-      const seek =
-        player.querySelector('.seek');
+  players.forEach((player) => {
+    const audio =
+      player.querySelector('audio');
 
-      const time =
-        player.querySelector('.time');
+    const button =
+      player.querySelector('.play');
 
-      const status =
-        player.parentElement.querySelector('.status');
+    const seek =
+      player.querySelector('.seek');
 
-      audio.addEventListener(
-        'loadedmetadata',
-        () => {
+    const time =
+      player.querySelector('.time');
 
-          const duration =
-            Math.min(
-              40,
-              audio.duration || 40
-            );
+    const status =
+      player.parentElement.querySelector('.status');
 
-          seek.max = String(duration);
+    const previewDuration = 40;
 
-          time.textContent =
-            `0:00 / ${formatTime(duration)}`;
 
-          status.textContent = '';
+    const resetPlayer = () => {
+      audio.pause();
+      audio.currentTime = 0;
 
-        }
-      );
+      seek.value = '0';
 
-      audio.addEventListener(
-        'error',
-        () => {
+      button.textContent = 'Play';
 
-          status.textContent =
-            'Audio unavailable.';
+      time.textContent =
+        `0:00 / ${formatTime(previewDuration)}`;
+    };
 
-          button.textContent =
-            'Play';
 
-        }
-      );
+    audio.addEventListener(
+      'loadedmetadata',
+      () => {
+        seek.max =
+          String(previewDuration);
 
-      button.addEventListener(
-        'click',
-        async () => {
+        time.textContent =
+          `0:00 / ${formatTime(previewDuration)}`;
 
-          if (audio.paused) {
-           if (audio.currentTime >= Number(seek.max)) {
-  audio.currentTime = 0;
-}
+        status.textContent = '';
+      }
+    );
 
-            try {
 
-              await audio.play();
+    audio.addEventListener(
+      'error',
+      () => {
+        status.textContent =
+          'Audio unavailable.';
 
-              button.textContent =
-                'Pause';
+        button.textContent =
+          'Play';
+      }
+    );
 
-              status.textContent =
-                '';
 
-            } catch {
+    button.addEventListener(
+      'click',
+      async () => {
+        if (audio.paused) {
 
-              status.textContent =
-                'Tap Play again to start audio.';
-
+          players.forEach((otherPlayer) => {
+            if (otherPlayer === player) {
+              return;
             }
 
-          } else {
+            const otherAudio =
+              otherPlayer.querySelector('audio');
 
-            audio.pause();
+            const otherButton =
+              otherPlayer.querySelector('.play');
 
+            if (!otherAudio.paused) {
+              otherAudio.pause();
+              otherButton.textContent = 'Play';
+            }
+          });
+
+
+          if (
+            audio.currentTime >= previewDuration ||
+            !Number.isFinite(audio.currentTime)
+          ) {
+            audio.currentTime = 0;
+            seek.value = '0';
+          }
+
+
+          try {
+            await audio.play();
+
+            button.textContent =
+              'Pause';
+
+            status.textContent =
+              '';
+          } catch (error) {
             button.textContent =
               'Play';
 
+            status.textContent =
+              'Tap Play again to start audio.';
           }
 
-        }
-      );
+        } else {
+          audio.pause();
 
-      seek.addEventListener(
-        'input',
-        () => {
+          button.textContent =
+            'Play';
+        }
+      }
+    );
+
+
+    seek.addEventListener(
+      'input',
+      () => {
+        const requestedTime =
+          Math.min(
+            Number(seek.value),
+            previewDuration
+          );
+
+        audio.currentTime =
+          requestedTime;
+
+        time.textContent =
+          `${formatTime(requestedTime)} / ${formatTime(previewDuration)}`;
+      }
+    );
+
+
+    audio.addEventListener(
+      'timeupdate',
+      () => {
+        if (audio.currentTime >= previewDuration) {
+          audio.pause();
 
           audio.currentTime =
-            Number(seek.value);
-
-          time.textContent =
-            `${formatTime(
-              Number(seek.value)
-            )} / ${formatTime(
-              Number(seek.max)
-            )}`;
-
-        }
-      );
-
-      audio.addEventListener(
-        'timeupdate',
-        () => {
-
-          const current =
-            Math.min(
-              audio.currentTime,
-              Number(seek.max)
-            );
-         if (audio.currentTime >= Number(seek.max)) {
-  audio.pause();
-  audio.currentTime = Number(seek.max);
-  button.textContent = 'Play';
-}
+            previewDuration;
 
           seek.value =
-            String(current);
-
-          time.textContent =
-            `${formatTime(
-              current
-            )} / ${formatTime(
-              Number(seek.max)
-            )}`;
-
-        }
-      );
-
-      audio.addEventListener(
-        'ended',
-        () => {
+            String(previewDuration);
 
           button.textContent =
             'Play';
 
-          seek.value = '0';
-
           time.textContent =
-            `0:00 / ${formatTime(
-              Number(seek.max)
-            )}`;
+            `${formatTime(previewDuration)} / ${formatTime(previewDuration)}`;
 
+          return;
         }
-      );
-HTML
-  </script>
+
+        const current =
+          Math.max(
+            0,
+            Math.min(
+              audio.currentTime,
+              previewDuration
+            )
+          );
+
+        seek.value =
+          String(current);
+
+        time.textContent =
+          `${formatTime(current)} / ${formatTime(previewDuration)}`;
+      }
+    );
+
+
+    audio.addEventListener(
+      'ended',
+      () => {
+        resetPlayer();
+      }
+    );
+  });
+})();
+</script>
+
+</body>
+</html>
