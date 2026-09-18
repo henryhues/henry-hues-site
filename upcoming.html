@@ -16,6 +16,7 @@
   --line: rgba(133,133,133,.28);
   --ui: 10.5px;
   --title: 14px;
+  --project-title: 12px;
 }
 
 * {
@@ -77,10 +78,10 @@ button {
 }
 
 .page {
-  padding: 56px 7vw 90px;
+  padding: 56px 7vw 110px;
 }
 
-.page h1 {
+.page > h1 {
   font-size: var(--title);
   font-weight: 400;
   margin: 0 0 50px;
@@ -90,7 +91,15 @@ button {
   max-width: 920px;
 }
 
-.ark-grid {
+.entry + .entry {
+  margin-top: 110px;
+}
+
+/* =========================================
+   SHARED PROJECT SYSTEM
+========================================= */
+
+.project-grid {
   display: grid;
   grid-template-columns: minmax(220px, 390px) minmax(220px, 1fr);
   gap: 36px;
@@ -110,11 +119,16 @@ button {
   object-fit: cover;
 }
 
-.ark-title {
-  font-size: 12px;
+.project-title {
+  font-size: var(--project-title);
   margin: 0 0 18px;
   font-weight: 400;
+  color: var(--grey);
 }
+
+/* =========================================
+   TRACK LISTS
+========================================= */
 
 .track-toggle {
   display: inline-flex;
@@ -142,6 +156,10 @@ button {
 .tracklist[hidden] {
   display: none;
 }
+
+/* =========================================
+   AUDIO PLAYER SYSTEM
+========================================= */
 
 .players {
   margin-top: 38px;
@@ -200,6 +218,115 @@ button {
   margin-top: 4px;
 }
 
+/* =========================================
+   CELINE EDITORIAL
+========================================= */
+
+.celine-editorial {
+  width: min(100%, 500px);
+}
+
+.celine-heading {
+  font-size: var(--project-title);
+  line-height: 1.3;
+  font-weight: 400;
+  margin: 0 0 12px;
+  color: var(--grey);
+}
+
+.celine-date {
+  display: inline-block;
+  font-size: 10px;
+  margin: 0 0 32px;
+  border-bottom: 1px solid currentColor;
+}
+
+.celine-copy p {
+  margin: 0 0 20px;
+  font-size: var(--ui);
+  line-height: 1.58;
+  font-weight: 400;
+}
+
+.celine-copy .opening-note {
+  margin-bottom: 30px;
+}
+
+.celine-copy em {
+  font-style: italic;
+}
+
+/*
+  Theater images use their natural aspect ratio.
+  No aspect-ratio rule is imposed.
+  No fixed height is imposed.
+  Nothing is cropped.
+*/
+
+.theater-image {
+  width: 100%;
+  margin: 34px 0 18px;
+}
+
+.theater-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-follow {
+  margin-top: 0 !important;
+}
+
+.video-note {
+  margin-top: 34px !important;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--grey2);
+  font-size: 9px !important;
+}
+
+/* =========================================
+   CELINE RELEASE SECTION
+========================================= */
+
+.celine-project {
+  margin-top: 54px;
+  width: min(100%, 650px);
+}
+
+.celine-cover {
+  width: min(100%, 390px);
+}
+
+.celine-project-info {
+  margin-top: 16px;
+}
+
+.celine-project-info .project-title {
+  margin-bottom: 12px;
+}
+
+.celine-project-date {
+  font-size: 9px;
+  color: var(--grey2);
+  margin-left: 4px;
+}
+
+.celine-project .tracklist {
+  max-width: 390px;
+}
+
+.celine-players {
+  margin-top: 38px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
 footer {
   position: fixed;
   left: 0;
@@ -211,6 +338,10 @@ footer {
   background: linear-gradient(transparent, var(--sand) 38%);
   font-size: 9px;
 }
+
+/* =========================================
+   SETTINGS
+========================================= */
 
 .settings {
   position: fixed;
@@ -266,7 +397,12 @@ body.dark {
   --line: rgba(247,246,243,.22);
 }
 
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 720px) {
+
   .topbar {
     padding: 16px 14px;
     gap: 12px;
@@ -277,14 +413,18 @@ body.dark {
   }
 
   .page {
-    padding: 44px 24px 88px;
+    padding: 44px 24px 100px;
   }
 
-  .page h1 {
+  .page > h1 {
     margin-bottom: 36px;
   }
 
-  .ark-grid {
+  .entry + .entry {
+    margin-top: 78px;
+  }
+
+  .project-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
@@ -312,6 +452,40 @@ body.dark {
     margin-top: -6px;
   }
 
+  .celine-editorial {
+    width: 100%;
+  }
+
+  .celine-date {
+    margin-bottom: 28px;
+  }
+
+  .celine-copy p {
+    line-height: 1.58;
+  }
+
+  .theater-image {
+    width: 100%;
+    margin: 30px 0 16px;
+  }
+
+  .theater-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .celine-project {
+    margin-top: 46px;
+    width: 100%;
+  }
+
+  .celine-cover {
+    width: 100%;
+    max-width: 420px;
+  }
+
   footer {
     padding: 12px 14px 14px;
   }
@@ -335,166 +509,510 @@ body.dark {
 
 </header>
 
+
 <main class="page">
 
-  <h1>Upcoming</h1>
+<h1>Upcoming</h1>
 
-  <article class="entry">
 
-    <div class="ark-grid">
+<!-- =========================================
+     CELINE 2000-2006
+========================================= -->
 
-      <figure class="cover">
-        <img
-          src="assets/images/ark-cover.jpg"
-          alt="ARK artwork"
-        >
-      </figure>
+<article class="entry">
 
-      <div>
+<section class="celine-editorial">
 
-        <h2 class="ark-title">ARK</h2>
+<header>
 
-        <button
-          class="track-toggle"
-          id="trackToggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="tracklist"
-        >
-          Track listing +
-        </button>
+<h2 class="celine-heading">
+  CELINE 2000-2006
+</h2>
 
-        <ol
-          class="tracklist"
-          id="tracklist"
-          hidden
-        >
-          <li>RAIN</li>
-          <li>NOVELLA</li>
-          <li>ON THE BRIDGE</li>
-          <li>BREEZE</li>
-          <li>SHREE GUCCI</li>
-          <li>BAD FOR THE PEOPLE</li>
-          <li>POP MUSIC MAGIC</li>
-          <li>LIGHT CONTROL</li>
-          <li>WOTF</li>
-          <li>RUNWAY POPSTAR</li>
-          <li>LIKE A G6</li>
-          <li>ROSE</li>
-          <li>PANTS:COMMAS</li>
-          <li>NO TITLES</li>
-          <li>CLHL</li>
-          <li>FIN</li>
-        </ol>
+<p class="celine-date">
+  October 12
+</p>
 
-      </div>
+</header>
 
-    </div>
 
-    <div class="players">
+<div class="celine-copy">
 
-      <section class="teaser">
+<p class="opening-note">
+  <em>The title, for the record, has nothing to do with the fashion house.</em>
+</p>
 
-        <h2>BREEZE — TEASER</h2>
+<p>
+  There is a small cinema in Paris’s 5th arrondissement where Issa Bukasa went to see Lars von Trier’s <em>Dancer in the Dark</em>. At some point during the film, he took three photographs of the screen. Somehow.
+</p>
 
-        <p class="meta">
-          1:26–2:06 · 40 SEC PREVIEW
-        </p>
+<p>
+  They are mostly photographs of darkness. A little blue light. Björk’s face suspended inside it.
+</p>
 
-        <div class="player">
 
-          <audio
-            preload="metadata"
-            src="assets/audio/breeze-preview-v2.m4a"
-          ></audio>
+<figure class="theater-image">
+  <img
+    src="assets/images/celine-theater-01.jpg"
+    alt="Cinema screen photographed during Dancer in the Dark"
+  >
+</figure>
 
-          <button
-            class="play"
-            type="button"
-            aria-label="Play Breeze teaser"
-          >
-            Play
-          </button>
 
-          <input
-            class="seek"
-            type="range"
-            min="0"
-            max="40"
-            value="0"
-            step="0.1"
-            aria-label="Breeze teaser progress"
-          >
+<p class="image-follow">
+  Maybe that is where this record began.
+</p>
 
-          <span class="time">
-            0:00 / 0:40
-          </span>
 
-        </div>
+<p>
+  Selma Ježková, the film’s central character, is slowly losing her sight. She works at a factory, raises her son alone and quietly saves what she can for an operation that might spare him the same fate. The circumstances surrounding her become increasingly cruel. Still, Selma hears music everywhere. Machines keep time. Factory floors become stages. When ordinary life becomes difficult to bear, she listens for another rhythm inside it.
+</p>
 
-        <div
-          class="status"
-          aria-live="polite"
-        ></div>
 
-      </section>
+<figure class="theater-image">
+  <img
+    src="assets/images/celine-theater-02.jpg"
+    alt="Blue-lit cinema screen photographed during Dancer in the Dark"
+  >
+</figure>
 
-      <section class="teaser">
 
-        <h2>SHREE GUCCI — TEASER</h2>
+<p class="image-follow">
+  Bukasa understood that.
+</p>
 
-        <p class="meta">
-          0:00–0:40 · 40 SEC PREVIEW
-        </p>
 
-        <div class="player">
+<p>
+  <em>Celine 2000-2006</em> collects seven songs from a period when his own relationship with music had become uncertain. They come from daily diaries, passing emotions and the recurring thought that perhaps making something did not always require sharing it. Sometimes he wanted to stop altogether.
+</p>
 
-          <audio
-            preload="metadata"
-            src="assets/audio/shree-gucci-teaser.m4a"
-          ></audio>
+<p>
+  The film complicated that thought.
+</p>
 
-          <button
-            class="play"
-            type="button"
-            aria-label="Play Shree Gucci teaser"
-          >
-            Play
-          </button>
+<p>
+  On “Sage,” saving becomes its own kind of tenderness. Selma has her small reserve of money, guarded because it belongs to a future she can still imagine. Bukasa has music. The song circles a similar instinct: keeping something warm when the rest of life has gone cold. Not happiness, exactly. More like an ember.
+</p>
 
-          <input
-            class="seek"
-            type="range"
-            min="0"
-            max="40"
-            value="0"
-            step="0.1"
-            aria-label="Shree Gucci teaser progress"
-          >
+<p>
+  Then things begin to turn.
+</p>
 
-          <span class="time">
-            0:00 / 0:40
-          </span>
+<p>
+  “Grizz Lee” carries the unease of discovering danger in something once mistaken for safety. Selma learns this through betrayal. Bukasa puts it another way: <em>tread slow, you’re in the wild now.</em> The grizzlies, he says, were thought to be teddies.
+</p>
 
-        </div>
+<p>
+  Across the record, that tension keeps returning. “Alms” arrives and disappears in barely more than a minute. “Brother -chorus (c-em)” lingers much longer, almost suspended. “zxy” moves differently again. The songs do not resolve one another so much as remember different temperatures of the same life.
+</p>
 
-        <div
-          class="status"
-          aria-live="polite"
-        ></div>
+<p>
+  Which makes “Lifting me 2” feel less like an ending than an answer.
+</p>
 
-      </section>
 
-    </div>
+<figure class="theater-image">
+  <img
+    src="assets/images/celine-theater-03.jpg"
+    alt="Cinema screen photographed during Dancer in the Dark"
+  >
+</figure>
 
-  </article>
+
+<p class="image-follow">
+  Near the end of <em>Dancer in the Dark</em>, Selma has almost nothing left. Even standing becomes difficult. Brenda reminds her of something seemingly useless under the circumstances: dancing. Music. Joy. And somehow Selma moves again.
+</p>
+
+<p>
+  It stayed with Bukasa after leaving the theater.
+</p>
+
+<p>
+  Not because Selma’s story suggests that music makes suffering disappear. It doesn’t. Perhaps the stranger possibility is that something beautiful can accompany a life without correcting it. A song can exist beside disappointment. Rhythm beside fear. Warmth beside cold.
+</p>
+
+<p>
+  And sometimes that is enough movement for another step.
+</p>
+
+<p>
+  <em>Celine 2000-2006</em> came from Bukasa wondering whether he still wanted to make music at all. Seven songs later, there is no grand conclusion.
+</p>
+
+<p>
+  Only that he kept going.
+</p>
+
+<p class="video-note">
+  Two videos will be released alongside the project.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- CELINE COVER -->
+
+<section class="celine-project">
+
+<figure class="cover celine-cover">
+
+  <img
+    src="assets/images/celine-2000-2006-cover.jpg"
+    alt="Celine 2000-2006 artwork"
+  >
+
+</figure>
+
+
+<div class="celine-project-info">
+
+<h2 class="project-title">
+  Celine 2000-2006
+  <span class="celine-project-date">
+    — October 12.
+  </span>
+</h2>
+
+
+<button
+  class="track-toggle"
+  type="button"
+  aria-expanded="false"
+  aria-controls="celine-tracklist"
+>
+  Track listing +
+</button>
+
+
+<ol
+  class="tracklist"
+  id="celine-tracklist"
+  hidden
+>
+  <li>Celine 2000-2006</li>
+  <li>Sage</li>
+  <li>Alms</li>
+  <li>Brother -chorus (c-em)</li>
+  <li>zxy</li>
+  <li>Grizz Lee</li>
+  <li>Lifting me 2</li>
+</ol>
+
+</div>
+
+
+<!-- CELINE TEASERS -->
+
+<div class="players celine-players">
+
+
+<section class="teaser">
+
+<h2>
+  CELINE 2000-2006 — TEASER
+</h2>
+
+<p class="meta">
+  40 SEC PREVIEW
+</p>
+
+
+<div class="player">
+
+<audio
+  preload="metadata"
+  src="assets/audio/celine-preview.m4a"
+></audio>
+
+
+<button
+  class="play"
+  type="button"
+  aria-label="Play Celine 2000-2006 teaser"
+>
+  Play
+</button>
+
+
+<input
+  class="seek"
+  type="range"
+  min="0"
+  max="40"
+  value="0"
+  step="0.1"
+  aria-label="Celine 2000-2006 teaser progress"
+>
+
+
+<span class="time">
+  0:00 / 0:40
+</span>
+
+</div>
+
+
+<div
+  class="status"
+  aria-live="polite"
+></div>
+
+</section>
+
+
+<section class="teaser">
+
+<h2>
+  BROTHER - CHORUS (C-EM) — TEASER
+</h2>
+
+<p class="meta">
+  40 SEC PREVIEW
+</p>
+
+
+<div class="player">
+
+<audio
+  preload="metadata"
+  src="assets/audio/brother-chorus-preview.m4a"
+></audio>
+
+
+<button
+  class="play"
+  type="button"
+  aria-label="Play Brother chorus teaser"
+>
+  Play
+</button>
+
+
+<input
+  class="seek"
+  type="range"
+  min="0"
+  max="40"
+  value="0"
+  step="0.1"
+  aria-label="Brother chorus teaser progress"
+>
+
+
+<span class="time">
+  0:00 / 0:40
+</span>
+
+</div>
+
+
+<div
+  class="status"
+  aria-live="polite"
+></div>
+
+</section>
+
+
+</div>
+
+</section>
+
+</article>
+
+
+<!-- =========================================
+     ARK
+========================================= -->
+
+<article class="entry">
+
+<div class="project-grid">
+
+<figure class="cover">
+
+  <img
+    src="assets/images/ark-cover.jpg"
+    alt="ARK artwork"
+  >
+
+</figure>
+
+
+<div>
+
+<h2 class="project-title">
+  ARK
+</h2>
+
+
+<button
+  class="track-toggle"
+  type="button"
+  aria-expanded="false"
+  aria-controls="ark-tracklist"
+>
+  Track listing +
+</button>
+
+
+<ol
+  class="tracklist"
+  id="ark-tracklist"
+  hidden
+>
+  <li>RAIN</li>
+  <li>NOVELLA</li>
+  <li>ON THE BRIDGE</li>
+  <li>BREEZE</li>
+  <li>SHREE GUCCI</li>
+  <li>BAD FOR THE PEOPLE</li>
+  <li>POP MUSIC MAGIC</li>
+  <li>LIGHT CONTROL</li>
+  <li>WOTF</li>
+  <li>RUNWAY POPSTAR</li>
+  <li>LIKE A G6</li>
+  <li>ROSE</li>
+  <li>PANTS:COMMAS</li>
+  <li>NO TITLES</li>
+  <li>CLHL</li>
+  <li>FIN</li>
+</ol>
+
+</div>
+
+</div>
+
+
+<div class="players">
+
+
+<section class="teaser">
+
+<h2>
+  BREEZE — TEASER
+</h2>
+
+<p class="meta">
+  1:26–2:06 · 40 SEC PREVIEW
+</p>
+
+
+<div class="player">
+
+<audio
+  preload="metadata"
+  src="assets/audio/breeze-preview-v2.m4a"
+></audio>
+
+
+<button
+  class="play"
+  type="button"
+  aria-label="Play Breeze teaser"
+>
+  Play
+</button>
+
+
+<input
+  class="seek"
+  type="range"
+  min="0"
+  max="40"
+  value="0"
+  step="0.1"
+  aria-label="Breeze teaser progress"
+>
+
+
+<span class="time">
+  0:00 / 0:40
+</span>
+
+</div>
+
+
+<div
+  class="status"
+  aria-live="polite"
+></div>
+
+</section>
+
+
+<section class="teaser">
+
+<h2>
+  SHREE GUCCI — TEASER
+</h2>
+
+<p class="meta">
+  0:00–0:40 · 40 SEC PREVIEW
+</p>
+
+
+<div class="player">
+
+<audio
+  preload="metadata"
+  src="assets/audio/shree-gucci-teaser.m4a"
+></audio>
+
+
+<button
+  class="play"
+  type="button"
+  aria-label="Play Shree Gucci teaser"
+>
+  Play
+</button>
+
+
+<input
+  class="seek"
+  type="range"
+  min="0"
+  max="40"
+  value="0"
+  step="0.1"
+  aria-label="Shree Gucci teaser progress"
+>
+
+
+<span class="time">
+  0:00 / 0:40
+</span>
+
+</div>
+
+
+<div
+  class="status"
+  aria-live="polite"
+></div>
+
+</section>
+
+
+</div>
+
+</article>
 
 </main>
+
 
 <footer>
   <span>Henry Hues © 2026</span>
   <span>Paris · New York</span>
 </footer>
+
+
+<!-- =========================================
+     SETTINGS PANEL
+========================================= -->
 
 <aside
   class="settings"
@@ -502,150 +1020,337 @@ body.dark {
   aria-hidden="true"
 >
 
-  <div class="settings-head">
-    <span>Settings</span>
-    <button
-      class="square"
-      id="settingsClose"
-      type="button"
-    >
-      Close
-    </button>
-  </div>
+<div class="settings-head">
 
-  <div class="setting-row">
+<span>Settings</span>
 
-    <span>Text size</span>
+<button
+  class="square"
+  id="settingsClose"
+  type="button"
+>
+  Close
+</button>
 
-    <div class="setting-actions">
-      <button class="square" data-size="10" type="button">A−</button>
-      <button class="square" data-size="10.5" type="button">A</button>
-      <button class="square" data-size="12.5" type="button">A+</button>
-    </div>
+</div>
 
-  </div>
 
-  <div class="setting-row">
+<div class="setting-row">
 
-    <span>Theme</span>
+<span>Text size</span>
 
-    <div class="setting-actions">
-      <button class="square" id="lightBtn" type="button">Light</button>
-      <button class="square" id="darkBtn" type="button">Dark</button>
-    </div>
+<div class="setting-actions">
 
-  </div>
+<button
+  class="square"
+  data-size="10"
+  type="button"
+>
+  A−
+</button>
 
-  <div class="setting-row">
-    <span>Reset</span>
-    <button
-      class="square"
-      id="resetBtn"
-      type="button"
-    >
-      Reset
-    </button>
-  </div>
+<button
+  class="square"
+  data-size="10.5"
+  type="button"
+>
+  A
+</button>
+
+<button
+  class="square"
+  data-size="12.5"
+  type="button"
+>
+  A+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="setting-row">
+
+<span>Theme</span>
+
+<div class="setting-actions">
+
+<button
+  class="square"
+  id="lightBtn"
+  type="button"
+>
+  Light
+</button>
+
+<button
+  class="square"
+  id="darkBtn"
+  type="button"
+>
+  Dark
+</button>
+
+</div>
+
+</div>
+
+
+<div class="setting-row">
+
+<span>Reset</span>
+
+<button
+  class="square"
+  id="resetBtn"
+  type="button"
+>
+  Reset
+</button>
+
+</div>
 
 </aside>
 
+
+<!-- =========================================
+     SETTINGS JAVASCRIPT
+========================================= -->
+
 <script>
 (() => {
+
   const root = document.documentElement;
   const body = document.body;
 
-  const panel = document.getElementById('settings');
-  const openBtn = document.getElementById('settingsOpen');
-  const closeBtn = document.getElementById('settingsClose');
-  const lightBtn = document.getElementById('lightBtn');
-  const darkBtn = document.getElementById('darkBtn');
-  const resetBtn = document.getElementById('resetBtn');
+  const panel =
+    document.getElementById('settings');
+
+  const openBtn =
+    document.getElementById('settingsOpen');
+
+  const closeBtn =
+    document.getElementById('settingsClose');
+
+  const lightBtn =
+    document.getElementById('lightBtn');
+
+  const darkBtn =
+    document.getElementById('darkBtn');
+
+  const resetBtn =
+    document.getElementById('resetBtn');
+
 
   const setPanel = (open) => {
-    panel.classList.toggle('open', open);
-    panel.setAttribute('aria-hidden', String(!open));
+
+    panel.classList.toggle(
+      'open',
+      open
+    );
+
+    panel.setAttribute(
+      'aria-hidden',
+      String(!open)
+    );
+
   };
 
-  openBtn.addEventListener('click', () => {
-    setPanel(true);
-  });
 
-  closeBtn.addEventListener('click', () => {
-    setPanel(false);
-  });
+  openBtn.addEventListener(
+    'click',
+    () => setPanel(true)
+  );
 
-  const savedSize = localStorage.getItem('hh-size');
+
+  closeBtn.addEventListener(
+    'click',
+    () => setPanel(false)
+  );
+
+
+  const savedSize =
+    localStorage.getItem('hh-size');
+
 
   if (savedSize) {
-    root.style.setProperty('--ui', `${savedSize}px`);
+
+    root.style.setProperty(
+      '--ui',
+      `${savedSize}px`
+    );
+
   }
+
 
   document
     .querySelectorAll('[data-size]')
     .forEach((button) => {
-      button.addEventListener('click', () => {
-        const size = button.dataset.size;
 
-        root.style.setProperty('--ui', `${size}px`);
-        localStorage.setItem('hh-size', size);
-      });
+      button.addEventListener(
+        'click',
+        () => {
+
+          const size =
+            button.dataset.size;
+
+          root.style.setProperty(
+            '--ui',
+            `${size}px`
+          );
+
+          localStorage.setItem(
+            'hh-size',
+            size
+          );
+
+        }
+      );
+
     });
 
-  if (localStorage.getItem('hh-theme') === 'dark') {
+
+  if (
+    localStorage.getItem('hh-theme') ===
+    'dark'
+  ) {
+
     body.classList.add('dark');
+
   }
 
-  darkBtn.addEventListener('click', () => {
-    body.classList.add('dark');
-    localStorage.setItem('hh-theme', 'dark');
-  });
 
-  lightBtn.addEventListener('click', () => {
-    body.classList.remove('dark');
-    localStorage.setItem('hh-theme', 'light');
-  });
+  darkBtn.addEventListener(
+    'click',
+    () => {
 
-  resetBtn.addEventListener('click', () => {
-    localStorage.removeItem('hh-size');
-    localStorage.removeItem('hh-theme');
+      body.classList.add('dark');
 
-    root.style.setProperty('--ui', '10.5px');
-    body.classList.remove('dark');
-  });
+      localStorage.setItem(
+        'hh-theme',
+        'dark'
+      );
+
+    }
+  );
+
+
+  lightBtn.addEventListener(
+    'click',
+    () => {
+
+      body.classList.remove('dark');
+
+      localStorage.setItem(
+        'hh-theme',
+        'light'
+      );
+
+    }
+  );
+
+
+  resetBtn.addEventListener(
+    'click',
+    () => {
+
+      localStorage.removeItem(
+        'hh-size'
+      );
+
+      localStorage.removeItem(
+        'hh-theme'
+      );
+
+      root.style.setProperty(
+        '--ui',
+        '10.5px'
+      );
+
+      body.classList.remove('dark');
+
+    }
+  );
+
 })();
+</script>
 
 
+<!-- =========================================
+     TRACKLIST + AUDIO JAVASCRIPT
+========================================= -->
+
+<script>
 (() => {
-  const trackToggle =
-    document.getElementById('trackToggle');
 
-  const tracklist =
-    document.getElementById('tracklist');
+  /* TRACK LISTS */
 
-  trackToggle.addEventListener('click', () => {
-    const shouldOpen = tracklist.hidden;
+  document
+    .querySelectorAll('.track-toggle')
+    .forEach((button) => {
 
-    tracklist.hidden = !shouldOpen;
+      const listId =
+        button.getAttribute(
+          'aria-controls'
+        );
 
-    trackToggle.textContent =
-      shouldOpen
-        ? 'Track listing −'
-        : 'Track listing +';
+      const tracklist =
+        document.getElementById(
+          listId
+        );
 
-    trackToggle.setAttribute(
-      'aria-expanded',
-      String(shouldOpen)
-    );
-  });
+
+      if (!tracklist) {
+        return;
+      }
+
+
+      button.addEventListener(
+        'click',
+        () => {
+
+          const shouldOpen =
+            tracklist.hidden;
+
+          tracklist.hidden =
+            !shouldOpen;
+
+          button.textContent =
+            shouldOpen
+              ? 'Track listing −'
+              : 'Track listing +';
+
+          button.setAttribute(
+            'aria-expanded',
+            String(shouldOpen)
+          );
+
+        }
+      );
+
+    });
+
+
+  /* ALL PREVIEWS ARE HARD-LIMITED TO 40 SECONDS */
+
+  const previewDuration = 40;
 
 
   const formatTime = (seconds) => {
-    const safe =
-      Math.max(0, Math.floor(seconds || 0));
 
-    return `${Math.floor(safe / 60)}:${String(
+    const safe =
+      Math.max(
+        0,
+        Math.floor(seconds || 0)
+      );
+
+    return `${Math.floor(
+      safe / 60
+    )}:${String(
       safe % 60
     ).padStart(2, '0')}`;
+
   };
 
 
@@ -654,6 +1359,7 @@ body.dark {
 
 
   players.forEach((player) => {
+
     const audio =
       player.querySelector('audio');
 
@@ -667,34 +1373,61 @@ body.dark {
       player.querySelector('.time');
 
     const status =
-      player.parentElement.querySelector('.status');
+      player.parentElement
+        .querySelector('.status');
 
-    const previewDuration = 40;
+
+    if (
+      !audio ||
+      !button ||
+      !seek ||
+      !time
+    ) {
+      return;
+    }
+
+
+    seek.max =
+      String(previewDuration);
 
 
     const resetPlayer = () => {
+
       audio.pause();
-      audio.currentTime = 0;
+
+      try {
+        audio.currentTime = 0;
+      } catch (error) {}
 
       seek.value = '0';
 
-      button.textContent = 'Play';
+      button.textContent =
+        'Play';
 
       time.textContent =
-        `0:00 / ${formatTime(previewDuration)}`;
+        `0:00 / ${formatTime(
+          previewDuration
+        )}`;
+
     };
 
 
     audio.addEventListener(
       'loadedmetadata',
       () => {
+
         seek.max =
           String(previewDuration);
 
         time.textContent =
-          `0:00 / ${formatTime(previewDuration)}`;
+          `0:00 / ${formatTime(
+            previewDuration
+          )}`;
 
-        status.textContent = '';
+        if (status) {
+          status.textContent = '';
+        }
+
       }
     );
 
@@ -702,11 +1435,15 @@ body.dark {
     audio.addEventListener(
       'error',
       () => {
-        status.textContent =
-          'Audio unavailable.';
+
+        if (status) {
+          status.textContent =
+            'Audio unavailable.';
+        }
 
         button.textContent =
           'Play';
+
       }
     );
 
@@ -714,57 +1451,98 @@ body.dark {
     button.addEventListener(
       'click',
       async () => {
+
         if (audio.paused) {
 
-          players.forEach((otherPlayer) => {
-            if (otherPlayer === player) {
-              return;
+          /*
+            Pause every other preview before
+            starting the selected preview.
+          */
+
+          players.forEach(
+            (otherPlayer) => {
+
+              if (
+                otherPlayer === player
+              ) {
+                return;
+              }
+
+
+              const otherAudio =
+                otherPlayer.querySelector(
+                  'audio'
+                );
+
+              const otherButton =
+                otherPlayer.querySelector(
+                  '.play'
+                );
+
+
+              if (
+                otherAudio &&
+                !otherAudio.paused
+              ) {
+
+                otherAudio.pause();
+
+                if (otherButton) {
+                  otherButton.textContent =
+                    'Play';
+                }
+
+              }
+
             }
-
-            const otherAudio =
-              otherPlayer.querySelector('audio');
-
-            const otherButton =
-              otherPlayer.querySelector('.play');
-
-            if (!otherAudio.paused) {
-              otherAudio.pause();
-              otherButton.textContent = 'Play';
-            }
-          });
+          );
 
 
           if (
-            audio.currentTime >= previewDuration ||
-            !Number.isFinite(audio.currentTime)
+            audio.currentTime >=
+            previewDuration
           ) {
+
             audio.currentTime = 0;
             seek.value = '0';
+
           }
 
 
           try {
+
             await audio.play();
 
             button.textContent =
               'Pause';
 
-            status.textContent =
-              '';
+            if (status) {
+              status.textContent = '';
+            }
+
           } catch (error) {
+
             button.textContent =
               'Play';
 
-            status.textContent =
-              'Tap Play again to start audio.';
+            if (status) {
+
+              status.textContent =
+                'Tap Play again to start audio.';
+
+            }
+
           }
 
         } else {
+
           audio.pause();
 
           button.textContent =
             'Play';
+
         }
+
       }
     );
 
@@ -772,17 +1550,28 @@ body.dark {
     seek.addEventListener(
       'input',
       () => {
+
         const requestedTime =
           Math.min(
             Number(seek.value),
             previewDuration
           );
 
-        audio.currentTime =
-          requestedTime;
+        try {
+
+          audio.currentTime =
+            requestedTime;
+
+        } catch (error) {}
+
 
         time.textContent =
-          `${formatTime(requestedTime)} / ${formatTime(previewDuration)}`;
+          `${formatTime(
+            requestedTime
+          )} / ${formatTime(
+            previewDuration
+          )}`;
+
       }
     );
 
@@ -790,23 +1579,41 @@ body.dark {
     audio.addEventListener(
       'timeupdate',
       () => {
-        if (audio.currentTime >= previewDuration) {
+
+        if (
+          audio.currentTime >=
+          previewDuration
+        ) {
+
           audio.pause();
 
-          audio.currentTime =
-            previewDuration;
+          try {
+
+            audio.currentTime =
+              previewDuration;
+
+          } catch (error) {}
+
 
           seek.value =
-            String(previewDuration);
+            String(
+              previewDuration
+            );
 
           button.textContent =
             'Play';
 
           time.textContent =
-            `${formatTime(previewDuration)} / ${formatTime(previewDuration)}`;
+            `${formatTime(
+              previewDuration
+            )} / ${formatTime(
+              previewDuration
+            )}`;
 
           return;
+
         }
+
 
         const current =
           Math.max(
@@ -817,11 +1624,18 @@ body.dark {
             )
           );
 
+
         seek.value =
           String(current);
 
+
         time.textContent =
-          `${formatTime(current)} / ${formatTime(previewDuration)}`;
+          `${formatTime(
+            current
+          )} / ${formatTime(
+            previewDuration
+          )}`;
+
       }
     );
 
@@ -829,10 +1643,14 @@ body.dark {
     audio.addEventListener(
       'ended',
       () => {
+
         resetPlayer();
+
       }
     );
+
   });
+
 })();
 </script>
 
