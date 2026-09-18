@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+hi <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -315,36 +315,23 @@ body.dark {
   }
 }}
 
-/* CELINE 2000–2006 — compact image system */
-.celine-image {
-  width: min(72vw, 380px);
-  margin: 26px auto;
-}
+/* CELINE 2000–2006 */
 
-.celine-image img {
+.celine-theater-image {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
+  object-fit: contain;
 }
 
 .celine-cover {
-  width: min(72vw, 380px);
-  margin: 32px auto 18px;
-}
-
-.celine-cover img {
   display: block;
-  width: 100%;
+  width: min(72vw, 380px);
+  max-width: 100%;
   height: auto;
-}
-.celine img {
-  display: block !important;
-  width: 280px !important;
-  height: 280px !important;
-  max-width: 80vw !important;
-  object-fit: cover !important;
-  margin: 28px auto !important;
+  margin: 32px auto 18px;
 }
 
 </style>
