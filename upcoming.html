@@ -315,12 +315,12 @@ body.dark {
   }
 }}
 
-/* CELINE 2000–2006 */
+/* CELINE 2000–2006 — image system */
 
 .celine-theater-image {
   display: block;
-  width: 100%;
-  max-width: 100%;
+  width: 90%;
+  max-width: 620px;
   height: auto;
   margin: 28px auto;
   object-fit: contain;
@@ -328,24 +328,11 @@ body.dark {
 
 .celine-cover {
   display: block;
-  width: min(72vw, 380px);
-  max-width: 100%;
+  width: 90%;
+  max-width: 620px;
   height: auto;
   margin: 32px auto 18px;
 }
-
-</style>
-
-</head>
-
-<body>
-
-<header class="topbar">
-
-  <a class="brand" href="index.html">HH</a>
-
-  <nav class="nav" aria-label="Primary">
-    <a href="archive.html">Archive</a>
     <a href="upcoming.html">Upcoming</a>
     <a href="contact.html">Contact</a>
     <button id="settingsOpen" type="button">Settings</button>
@@ -499,24 +486,24 @@ body.dark {
     </p>
 
     <!-- TRACK LIST -->
-    <button
-      class="celine-track-toggle"
-      type="button"
-      onclick="toggleCelineTracks()"
-      aria-expanded="false"
-    >
-      Track listing +
-    </button>
+<button
+  class="track-toggle"
+  id="celineTrackToggle"
+  type="button"
+  aria-expanded="false"
+>
+  Track listing +
+</button>
 
-    <ol id="celine-track-list" class="celine-track-list" hidden>
-      <li>Celine 2000-2006</li>
-      <li>Sage</li>
-      <li>Alms</li>
-      <li>Brother -chorus (c-em)</li>
-      <li>zxy</li>
-      <li>Grizz Lee</li>
-      <li>Lifting me 2</li>
-    </ol>
+<ol class="tracklist" id="celineTrackList">
+  <li>Celine 2000-2006</li>
+  <li>Sage</li>
+  <li>Alms</li>
+  <li>Brother -chorus (c-em)</li>
+  <li>zxy</li>
+  <li>Grizz Lee</li>
+  <li>Lifting me 2</li>
+</ol>
 
     <!-- PREVIEWS -->
     <div class="celine-previews">
@@ -532,7 +519,6 @@ body.dark {
         </div>
 
         <audio
-          controls
           preload="metadata"
           src="assets/audio/celine-preview.m4a"
           ontimeupdate="limitCelinePreview(this)"
@@ -550,7 +536,6 @@ body.dark {
         </div>
 
         <audio
-          controls
           preload="metadata"
           src="assets/audio/brother-chorus-preview.m4a"
           ontimeupdate="limitCelinePreview(this)"
@@ -1003,7 +988,22 @@ body.dark {
       );
 
     });
+const celineTrackToggle = document.getElementById('celineTrackToggle');
+const celineTrackList = document.getElementById('celineTrackList');
 
+if (celineTrackToggle && celineTrackList) {
+  celineTrackList.hidden = true;
+
+  celineTrackToggle.addEventListener('click', () => {
+    const isOpen = !celineTrackList.hidden;
+
+    celineTrackList.hidden = isOpen;
+    celineTrackToggle.setAttribute('aria-expanded', String(!isOpen));
+    celineTrackToggle.textContent = isOpen
+      ? 'Track listing +'
+      : 'Track listing −';
+  });
+}
 })();
 </script>
 
