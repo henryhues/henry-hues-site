@@ -127,7 +127,7 @@ button {
 }
 
 /* =========================================
-   TRACKLIST
+   TRACK LIST
 ========================================= */
 
 .track-toggle {
@@ -255,8 +255,6 @@ button {
 .celine-copy em {
   font-style: italic;
 }
-
-/* Natural proportions — no cropping */
 
 .theater-image {
   width: 100%;
@@ -707,8 +705,6 @@ body.dark {
 <div class="players celine-players">
 
 
-<!-- CELINE PREVIEW -->
-
 <section class="teaser">
 
 <h2>
@@ -767,7 +763,7 @@ body.dark {
 </section>
 
 
-<!-- LIFTING ME 2 PREVIEW -->
+<!-- LIFTING ME 2 -->
 
 <section class="teaser">
 
@@ -788,7 +784,7 @@ body.dark {
 
 <audio
   preload="metadata"
-  src="assets/audio/lifting-me-2-preview.m4a"
+  src="assets/audio/Lifting-me-2-preview.m4a"
 ></audio>
 
 
@@ -1358,16 +1354,10 @@ body.dark {
   /* =========================================
      AUDIO PREVIEW SYSTEM
 
-     CELINE:
-     0:00–0:40
-
-     LIFTING ME 2:
-     0:29–1:09
-
-     ARK previews:
-     Existing 40-second teaser files
+     Each player has its own source start.
+     The visible scrubber always represents
+     the 40-second preview itself.
   ========================================= */
-
 
   const formatTime = (seconds) => {
 
@@ -1464,9 +1454,7 @@ body.dark {
     };
 
 
-    const resetPlayer = () => {
-
-      audio.pause();
+    const moveToStart = () => {
 
       try {
         audio.currentTime =
@@ -1474,6 +1462,15 @@ body.dark {
       } catch (error) {}
 
       setDisplay(0);
+
+    };
+
+
+    const resetPlayer = () => {
+
+      audio.pause();
+
+      moveToStart();
 
       button.textContent =
         'Play';
@@ -1485,25 +1482,7 @@ body.dark {
       'loadedmetadata',
       () => {
 
-        try {
-
-          if (
-            audio.currentTime <
-              previewStart ||
-            audio.currentTime >=
-              previewEnd
-          ) {
-
-            audio.currentTime =
-              previewStart;
-
-          }
-
-        } catch (error) {}
-
-
-        setDisplay(0);
-
+        moveToStart();
 
         if (status) {
           status.textContent = '';
@@ -1535,7 +1514,7 @@ body.dark {
 
         if (audio.paused) {
 
-          /* Pause every other player */
+          /* Pause all other teasers */
 
           players.forEach(
             (otherPlayer) => {
@@ -1576,21 +1555,20 @@ body.dark {
           );
 
 
-          /* Enforce this preview's starting point */
+          /*
+            Restart from the permitted beginning
+            if the player is outside its window.
+          */
 
           if (
+            !Number.isFinite(audio.currentTime) ||
             audio.currentTime <
               previewStart ||
             audio.currentTime >=
               previewEnd
           ) {
 
-            try {
-              audio.currentTime =
-                previewStart;
-            } catch (error) {}
-
-            setDisplay(0);
+            moveToStart();
 
           }
 
@@ -1665,7 +1643,10 @@ body.dark {
       'timeupdate',
       () => {
 
-        /* Hard stop at end of preview */
+        /*
+          Hard stop after exactly
+          40 seconds of permitted playback.
+        */
 
         if (
           audio.currentTime >=
@@ -1691,20 +1672,17 @@ body.dark {
         }
 
 
-        /* Never allow playback before start */
+        /*
+          Guard against playback before
+          the configured preview start.
+        */
 
         if (
           audio.currentTime <
           previewStart
         ) {
 
-          try {
-            audio.currentTime =
-              previewStart;
-          } catch (error) {}
-
-          setDisplay(0);
-
+          moveToStart();
           return;
 
         }
@@ -1723,11 +1701,7 @@ body.dark {
 
     audio.addEventListener(
       'ended',
-      () => {
-
-        resetPlayer();
-
-      }
+      resetPlayer
     );
 
   });
