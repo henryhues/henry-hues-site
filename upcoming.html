@@ -101,7 +101,7 @@ button {
 
 .project-grid {
   display: grid;
-  grid-template-columns: minmax(220px, 390px) minmax(220px, 1fr);
+  grid-template-columns: minmax(220px,390px) minmax(220px,1fr);
   gap: 36px;
   align-items: start;
 }
@@ -127,7 +127,7 @@ button {
 }
 
 /* =========================================
-   TRACK LISTS
+   TRACKLIST
 ========================================= */
 
 .track-toggle {
@@ -158,7 +158,7 @@ button {
 }
 
 /* =========================================
-   AUDIO PLAYER SYSTEM
+   AUDIO PLAYERS
 ========================================= */
 
 .players {
@@ -223,7 +223,7 @@ button {
 ========================================= */
 
 .celine-editorial {
-  width: min(100%, 500px);
+  width: min(100%,500px);
 }
 
 .celine-heading {
@@ -256,6 +256,8 @@ button {
   font-style: italic;
 }
 
+/* Natural proportions — no cropping */
+
 .theater-image {
   width: 100%;
   margin: 34px 0 18px;
@@ -282,16 +284,16 @@ button {
 }
 
 /* =========================================
-   CELINE RELEASE SECTION
+   CELINE RELEASE
 ========================================= */
 
 .celine-project {
   margin-top: 54px;
-  width: min(100%, 650px);
+  width: min(100%,650px);
 }
 
 .celine-cover {
-  width: min(100%, 390px);
+  width: min(100%,390px);
 }
 
 .celine-project-info {
@@ -328,7 +330,7 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 14px 24px 16px;
-  background: linear-gradient(transparent, var(--sand) 38%);
+  background: linear-gradient(transparent,var(--sand) 38%);
   font-size: 9px;
 }
 
@@ -341,7 +343,7 @@ footer {
   right: 14px;
   bottom: 14px;
   z-index: 80;
-  width: min(300px, calc(100vw - 28px));
+  width: min(300px,calc(100vw - 28px));
   padding: 15px;
   background: var(--sand);
   border: 1px solid var(--line);
@@ -394,7 +396,7 @@ body.dark {
    MOBILE
 ========================================= */
 
-@media (max-width: 720px) {
+@media (max-width:720px) {
 
   .topbar {
     padding: 16px 14px;
@@ -484,21 +486,21 @@ body.dark {
   }
 }
 </style>
-
 </head>
+
 
 <body>
 
 <header class="topbar">
 
-  <a class="brand" href="index.html">HH</a>
+<a class="brand" href="index.html">HH</a>
 
-  <nav class="nav" aria-label="Primary">
-    <a href="archive.html">Archive</a>
-    <a href="upcoming.html">Upcoming</a>
-    <a href="contact.html">Contact</a>
-    <button id="settingsOpen" type="button">Settings</button>
-  </nav>
+<nav class="nav" aria-label="Primary">
+  <a href="archive.html">Archive</a>
+  <a href="upcoming.html">Upcoming</a>
+  <a href="contact.html">Contact</a>
+  <button id="settingsOpen" type="button">Settings</button>
+</nav>
 
 </header>
 
@@ -645,16 +647,18 @@ body.dark {
 </section>
 
 
-<!-- CELINE COVER -->
+<!-- =========================================
+     CELINE COVER + TRACKLIST
+========================================= -->
 
 <section class="celine-project">
 
 <figure class="cover celine-cover">
 
-  <img
-    src="assets/images/celine-2000-2006-cover.jpg"
-    alt="Celine 2000-2006 artwork"
-  >
+<img
+  src="assets/images/celine-2000-2006-cover.jpg"
+  alt="Celine 2000-2006 artwork"
+>
 
 </figure>
 
@@ -696,10 +700,14 @@ body.dark {
 </div>
 
 
-<!-- CELINE TEASERS -->
+<!-- =========================================
+     CELINE TEASERS
+========================================= -->
 
 <div class="players celine-players">
 
+
+<!-- CELINE PREVIEW -->
 
 <section class="teaser">
 
@@ -758,6 +766,8 @@ body.dark {
 
 </section>
 
+
+<!-- LIFTING ME 2 PREVIEW -->
 
 <section class="teaser">
 
@@ -834,10 +844,10 @@ body.dark {
 
 <figure class="cover">
 
-  <img
-    src="assets/images/ark-cover.jpg"
-    alt="ARK artwork"
-  >
+<img
+  src="assets/images/ark-cover.jpg"
+  alt="ARK artwork"
+>
 
 </figure>
 
@@ -886,6 +896,10 @@ body.dark {
 
 </div>
 
+
+<!-- =========================================
+     ARK TEASERS
+========================================= -->
 
 <div class="players">
 
@@ -1014,13 +1028,13 @@ body.dark {
 
 
 <footer>
-  <span>Henry Hues © 2026</span>
-  <span>Paris · New York</span>
+<span>Henry Hues © 2026</span>
+<span>Paris · New York</span>
 </footer>
 
 
 <!-- =========================================
-     SETTINGS PANEL
+     SETTINGS
 ========================================= -->
 
 <aside
@@ -1293,7 +1307,7 @@ body.dark {
 <script>
 (() => {
 
-  /* TRACK LISTS */
+  /* TRACKLISTS */
 
   document
     .querySelectorAll('.track-toggle')
@@ -1341,17 +1355,18 @@ body.dark {
     });
 
 
-  /* =======================================
+  /* =========================================
      AUDIO PREVIEW SYSTEM
 
-     Each player can now define its own
-     starting point.
+     CELINE:
+     0:00–0:40
 
      LIFTING ME 2:
-     starts at 29 seconds
-     stops at 69 seconds
-     = exactly 40 seconds
-  ======================================= */
+     0:29–1:09
+
+     ARK previews:
+     Existing 40-second teaser files
+  ========================================= */
 
 
   const formatTime = (seconds) => {
@@ -1366,7 +1381,7 @@ body.dark {
       safe / 60
     )}:${String(
       safe % 60
-    ).padStart(2, '0')}`;
+    ).padStart(2,'0')}`;
 
   };
 
@@ -1520,10 +1535,7 @@ body.dark {
 
         if (audio.paused) {
 
-          /*
-            Pause every other preview before
-            starting the selected preview.
-          */
+          /* Pause every other player */
 
           players.forEach(
             (otherPlayer) => {
@@ -1564,10 +1576,7 @@ body.dark {
           );
 
 
-          /*
-            Make sure playback can never begin
-            outside this player's preview window.
-          */
+          /* Enforce this preview's starting point */
 
           if (
             audio.currentTime <
@@ -1603,10 +1612,8 @@ body.dark {
               'Play';
 
             if (status) {
-
               status.textContent =
                 'Tap Play again to start audio.';
-
             }
 
           }
@@ -1643,10 +1650,8 @@ body.dark {
 
 
         try {
-
           audio.currentTime =
             requestedTime;
-
         } catch (error) {}
 
 
@@ -1660,10 +1665,7 @@ body.dark {
       'timeupdate',
       () => {
 
-        /*
-          Hard stop at the end of the
-          permitted 40-second window.
-        */
+        /* Hard stop at end of preview */
 
         if (
           audio.currentTime >=
@@ -1689,10 +1691,7 @@ body.dark {
         }
 
 
-        /*
-          Prevent playback before the
-          configured starting position.
-        */
+        /* Never allow playback before start */
 
         if (
           audio.currentTime <
