@@ -1,0 +1,1427 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Video Archive — Henry Hues.">
+<title>Video Archive — Henry Hues</title>
+
+<style>
+:root {
+  --paper: #f2f0eb;
+  --folder: #e7e4de;
+  --folder-light: #f5f3ee;
+  --edge: #d6d2ca;
+  --text: #77746f;
+  --soft: #aaa59e;
+  --line: #dcd8d1;
+  --ui: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--text);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--ui);
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 1px solid var(--soft);
+  outline-offset: 3px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 25px 5%;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-size: 15px;
+  letter-spacing: -.05em;
+  white-space: nowrap;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px 19px;
+}
+
+nav a,
+nav button {
+  font-size: 12px;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+nav a:hover,
+nav button:hover {
+  color: var(--soft);
+}
+
+nav .current {
+  color: var(--soft);
+}
+
+/* MAIN PAGE */
+
+main {
+  width: min(100% - 44px, 1000px);
+  min-height: calc(100vh - 151px);
+  margin: 0 auto;
+  padding: 55px 0 100px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 70px;
+}
+
+.heading h1 {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.back {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--soft);
+  font-size: 12px;
+}
+
+.back:hover {
+  color: var(--text);
+}
+
+/* ARCHIVAL FOLDER LAYOUT */
+
+.stage {
+  display: block;
+  min-height: 410px;
+  padding: 15px 0 0 24px;
+}
+
+.stage[hidden] {
+  display: none !important;
+}
+
+.master {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 17px;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.master-label {
+  display: block;
+  padding-bottom: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* CLASSIC MAC-INSPIRED FOLDERS */
+
+.folder-icon {
+  position: relative;
+  display: block;
+  width: 116px;
+  height: 88px;
+  flex-shrink: 0;
+  filter: drop-shadow(
+    0 4px 4px rgba(130,125,115,.07)
+  );
+  transition: transform .3s ease;
+}
+
+.folder-icon::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 42%;
+  height: 21%;
+  border: 1px solid var(--edge);
+  border-bottom: 0;
+  border-radius: 5px 7px 0 0;
+  background: #dfdcd5;
+}
+
+.folder-icon::after {
+  content: "";
+  position: absolute;
+  inset: 23% 0 0;
+  border: 1px solid var(--edge);
+  border-radius: 4px 6px 7px 7px;
+  background: linear-gradient(
+    165deg,
+    var(--folder-light) 0%,
+    #eeece6 47%,
+    var(--folder) 100%
+  );
+  box-shadow: inset 0 2px 2px rgba(255,255,255,.65);
+}
+
+.folder-icon .fold {
+  position: absolute;
+  z-index: 1;
+  top: 24%;
+  left: 4%;
+  width: 92%;
+  height: 2px;
+  background: rgba(255,255,255,.32);
+}
+
+.master:hover .folder-icon,
+.film-folder:hover .folder-icon {
+  transform: translateY(-3px);
+}
+
+/* SECOND SCREEN — ALPHABETICAL */
+
+.film-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  margin: 0;
+}
+
+.film-folder {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 17px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.film-name {
+  padding-bottom: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* FOOTER */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 5%;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 11px;
+}
+
+/* SETTINGS PANEL */
+
+.settings {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  right: 0;
+  width: min(100%, 310px);
+  height: 100dvh;
+  padding: 28px 24px;
+  border-left: 1px solid var(--line);
+  background: var(--paper);
+  transform: translateX(102%);
+  visibility: hidden;
+  transition: transform .3s ease, visibility .3s;
+}
+
+.settings.open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.settings-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 43px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.setting-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.square {
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 6px 9px;
+  color: var(--text);
+}
+
+.square:hover {
+  background: var(--folder);
+}
+
+/* ACCESS WINDOW */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(242,240,235,.97);
+}
+
+.dialog {
+  position: relative;
+  width: min(100%, 390px);
+  padding: 40px 30px 34px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.dialog h2 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.dialog p {
+  margin: 0 0 24px;
+  color: var(--soft);
+}
+
+.close {
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--soft);
+  font-size: 20px;
+}
+
+.dialog .close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+}
+
+.dialog input {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  outline-color: var(--soft);
+}
+
+.dialog input::placeholder {
+  color: var(--soft);
+  opacity: 1;
+}
+
+.action {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid var(--edge);
+  background: var(--folder);
+}
+
+.action:hover {
+  background: #efede7;
+}
+
+.action:disabled {
+  opacity: .55;
+  cursor: wait;
+}
+
+.message {
+  min-height: 20px;
+  margin-top: 15px;
+  color: var(--text);
+  font-size: 11px;
+}
+
+/* ARCHIVAL FILM PLAYER */
+
+#viewer {
+  z-index: 30;
+  overflow: auto;
+  background: var(--paper);
+}
+
+.viewing-room {
+  width: min(100%, 1000px);
+}
+
+.viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 23px;
+}
+
+.viewer-title {
+  font-size: 12px;
+}
+
+.viewer-close {
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: var(--soft);
+}
+
+.screen {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #e5e2dc;
+}
+
+.screen video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #e5e2dc;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--folder);
+  color: var(--soft);
+  font-size: 11px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 19px 0 13px;
+  border-bottom: 1px solid var(--line);
+}
+
+.control,
+.speed {
+  min-height: 31px;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+}
+
+.control:hover,
+.speed:hover {
+  background: var(--folder);
+}
+
+.time {
+  color: var(--soft);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.seek {
+  flex: 1 1 150px;
+  min-width: 85px;
+}
+
+.volume {
+  width: 65px;
+}
+
+input[type="range"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 3px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--edge);
+  accent-color: var(--soft);
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--soft);
+  border-radius: 50%;
+  background: var(--folder-light);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--soft);
+  border-radius: 50%;
+  background: var(--folder-light);
+}
+
+.viewer-note {
+  padding-top: 13px;
+  color: var(--soft);
+  font-size: 11px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  header {
+    align-items: flex-start;
+  }
+
+  nav {
+    gap: 10px 14px;
+  }
+
+  nav a,
+  nav button {
+    font-size: 11px;
+  }
+
+  main {
+    padding: 36px 0 70px;
+  }
+
+  .heading {
+    margin-bottom: 50px;
+  }
+
+  .stage {
+    min-height: 350px;
+    padding: 12px 0 0 5px;
+  }
+
+  .film-grid {
+    gap: 28px;
+  }
+
+  .folder-icon {
+    width: 96px;
+    height: 73px;
+  }
+
+  .master,
+  .film-folder {
+    gap: 14px;
+  }
+
+  .master-label,
+  .film-name {
+    font-size: 11px;
+  }
+
+  .controls {
+    gap: 9px;
+  }
+
+  .volume {
+    width: 52px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <a href="index.html" class="brand">HH</a>
+
+  <nav aria-label="Main navigation">
+    <a href="archive.html">Archive</a>
+    <a href="upcoming.html">Upcoming</a>
+    <a href="contact.html">Contact</a>
+    <a href="video-archive.html"
+       class="current"
+       aria-current="page">Video Archive</a>
+    <button id="settingsOpen" type="button">Settings</button>
+  </nav>
+</header>
+
+<!-- MAIN ARCHIVE -->
+
+<main>
+  <div class="heading">
+    <h1>Video Archive</h1>
+
+    <button id="backButton"
+            class="back"
+            type="button"
+            hidden>
+      ← Back
+    </button>
+  </div>
+
+  <!-- FIRST LANDING SCREEN -->
+
+  <section class="stage"
+           id="landing"
+           aria-label="Video collection">
+
+    <button class="master"
+            id="openCollection"
+            type="button"
+            aria-label="Open Celine 2000–2006 collection">
+
+      <span class="folder-icon" aria-hidden="true">
+        <span class="fold"></span>
+      </span>
+
+      <span class="master-label">
+        Celine 2000–2006
+      </span>
+
+    </button>
+  </section>
+
+  <!-- SECOND SCREEN: TWO FILMS -->
+
+  <section class="stage"
+           id="collection"
+           aria-label="Films"
+           hidden>
+
+    <div class="film-grid">
+
+      <button class="film-folder"
+              data-film="celine"
+              type="button">
+
+        <span class="folder-icon" aria-hidden="true">
+          <span class="fold"></span>
+        </span>
+
+        <span class="film-name">
+          Celine 2000–2006
+        </span>
+      </button>
+
+      <button class="film-folder"
+              data-film="lifting"
+              type="button">
+
+        <span class="folder-icon" aria-hidden="true">
+          <span class="fold"></span>
+        </span>
+
+        <span class="film-name">
+          Lifting me 2
+        </span>
+      </button>
+
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+  <span>Henry Hues © 2026</span>
+  <span>Paris · New York</span>
+</footer>
+
+<!-- SETTINGS PANEL -->
+
+<aside class="settings"
+       id="settings"
+       aria-hidden="true"
+       inert>
+
+  <div class="settings-head">
+    <span>Settings</span>
+
+    <button class="square"
+            id="settingsClose"
+            type="button">
+      Close
+    </button>
+  </div>
+
+  <div class="setting-row">
+    <span>Text size</span>
+
+    <div class="setting-actions">
+      <button class="square" data-size="10" type="button">A−</button>
+      <button class="square" data-size="12" type="button">A</button>
+      <button class="square" data-size="12.5" type="button">A+</button>
+    </div>
+  </div>
+
+  <div class="setting-row">
+    <span>Appearance</span>
+    <span>Light</span>
+  </div>
+
+  <div class="setting-row">
+    <span>Reset</span>
+    <button class="square" id="resetBtn" type="button">
+      Reset
+    </button>
+  </div>
+</aside>
+
+<!-- EMAIL VERIFICATION -->
+
+<div class="overlay" id="access" hidden>
+
+  <div class="dialog"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="accessTitle">
+
+    <button id="closeAccess"
+            class="close"
+            type="button"
+            aria-label="Close">
+      ×
+    </button>
+
+    <h2 id="accessTitle">Archive access</h2>
+
+    <p id="accessText">
+      Enter your email to receive a six-digit access code.
+    </p>
+
+    <form id="emailForm">
+      <input id="email"
+             type="email"
+             required
+             autocomplete="email"
+             placeholder="Email address"
+             aria-label="Email address">
+
+      <button class="action" type="submit">
+        Send access code
+      </button>
+    </form>
+
+    <form id="codeForm" hidden>
+      <input id="code"
+             type="text"
+             required
+             inputmode="numeric"
+             autocomplete="one-time-code"
+             maxlength="6"
+             pattern="[0-9]{6}"
+             placeholder="Six-digit code"
+             aria-label="Six-digit code">
+
+      <button class="action" type="submit">
+        Enter archive
+      </button>
+    </form>
+
+    <div id="message"
+         class="message"
+         role="status"
+         aria-live="polite"></div>
+  </div>
+</div>
+
+<!-- FILM VIEWER -->
+
+<div class="overlay" id="viewer" hidden>
+
+  <div class="viewing-room">
+
+    <div class="viewer-header">
+      <span id="viewerTitle" class="viewer-title"></span>
+
+      <button id="closeViewer"
+              class="viewer-close"
+              type="button">
+        Close ×
+      </button>
+    </div>
+
+    <div class="screen" id="screen">
+      <video id="video"
+             playsinline
+             preload="none"></video>
+
+      <div id="loading" class="loading" hidden>
+        Preparing film…
+      </div>
+    </div>
+
+    <div class="controls" aria-label="Playback controls">
+
+      <button class="control"
+              id="play"
+              type="button">
+        Play
+      </button>
+
+      <button class="control"
+              id="rewind"
+              type="button">
+        −10s
+      </button>
+
+      <button class="control"
+              id="forward"
+              type="button">
+        +10s
+      </button>
+
+      <span class="time" id="time">
+        00:00 / 00:00
+      </span>
+
+      <input class="seek"
+             id="seek"
+             type="range"
+             min="0"
+             max="1000"
+             value="0"
+             aria-label="Film position">
+
+      <button class="control"
+              id="mute"
+              type="button">
+        Volume
+      </button>
+
+      <input class="volume"
+             id="volume"
+             type="range"
+             min="0"
+             max="1"
+             step=".05"
+             value="1"
+             aria-label="Volume">
+
+      <button class="speed"
+              id="speed"
+              type="button"
+              aria-label="Change playback speed">
+        1×
+      </button>
+
+      <button class="control"
+              id="fullscreen"
+              type="button">
+        Fullscreen
+      </button>
+
+    </div>
+
+    <div class="viewer-note"
+         id="viewerNote"
+         role="status"
+         aria-live="polite"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+
+  const titles = {
+    celine: "Celine 2000–2006",
+    lifting: "Lifting me 2"
+  };
+
+  const speeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
+
+  let chosenFilm = null;
+  let email = "";
+  let token = null;
+  let expiresAt = 0;
+  let videoUrl = null;
+  let loadId = 0;
+
+  const video = $("video");
+  const access = $("access");
+  const viewer = $("viewer");
+
+  /* NAVIGATION */
+
+  function showCollection() {
+    $("landing").hidden = true;
+    $("collection").hidden = false;
+    $("backButton").hidden = false;
+  }
+
+  function showLanding() {
+    $("collection").hidden = true;
+    $("landing").hidden = false;
+    $("backButton").hidden = true;
+  }
+
+  $("openCollection").addEventListener(
+    "click",
+    showCollection
+  );
+
+  $("backButton").addEventListener(
+    "click",
+    showLanding
+  );
+
+  /* SETTINGS */
+
+  const settings = $("settings");
+
+  function setSettings(open) {
+    settings.classList.toggle("open", open);
+    settings.setAttribute("aria-hidden", String(!open));
+    settings.inert = !open;
+  }
+
+  $("settingsOpen").addEventListener("click", () => {
+    setSettings(true);
+  });
+
+  $("settingsClose").addEventListener("click", () => {
+    setSettings(false);
+  });
+
+  try {
+    const savedSize = localStorage.getItem("hh-size");
+    if (savedSize && /^\d+(\.\d+)?$/.test(savedSize)) {
+      const value = Number(savedSize);
+      if (value >= 10 && value <= 12.5) {
+        document.documentElement.style.setProperty(
+          "--ui", value + "px"
+        );
+      }
+    }
+  } catch {}
+
+  document.querySelectorAll("[data-size]").forEach(button => {
+    button.addEventListener("click", () => {
+      const size = button.dataset.size;
+
+      document.documentElement.style.setProperty(
+        "--ui", size + "px"
+      );
+
+      try {
+        localStorage.setItem("hh-size", size);
+      } catch {}
+    });
+  });
+
+  $("resetBtn").addEventListener("click", () => {
+    document.documentElement.style.setProperty(
+      "--ui", "12px"
+    );
+
+    try {
+      localStorage.removeItem("hh-size");
+    } catch {}
+  });
+
+  /* ACCESS */
+
+  function status(text) {
+    $("message").textContent = text;
+  }
+
+  function openAccess() {
+    $("emailForm").hidden = false;
+    $("codeForm").hidden = true;
+
+    $("accessText").textContent =
+      "Enter your email to receive a six-digit access code.";
+
+    status("");
+    access.hidden = false;
+    $("email").focus();
+  }
+
+  function closeAccess() {
+    access.hidden = true;
+    status("");
+  }
+
+  async function postJSON(path, data) {
+    const response = await fetch(path, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(
+        result.error || "Unable to continue."
+      );
+    }
+
+    return result;
+  }
+
+  /* VIDEO LIFECYCLE */
+
+  function stopVideo() {
+    loadId++;
+
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+
+    if (videoUrl) {
+      URL.revokeObjectURL(videoUrl);
+      videoUrl = null;
+    }
+
+    $("play").textContent = "Play";
+    $("seek").value = 0;
+    $("time").textContent = "00:00 / 00:00";
+    $("loading").hidden = true;
+  }
+
+  function closeViewer() {
+    viewer.hidden = true;
+    stopVideo();
+    $("viewerNote").textContent = "";
+  }
+
+  function formatTime(seconds) {
+    if (!Number.isFinite(seconds)) {
+      return "00:00";
+    }
+
+    const s = Math.floor(Math.max(0, seconds));
+
+    return String(Math.floor(s / 60)).padStart(2, "0") +
+      ":" +
+      String(s % 60).padStart(2, "0");
+  }
+
+  function updateTimeline() {
+    const duration = video.duration;
+    const current = video.currentTime;
+
+    $("time").textContent =
+      formatTime(current) +
+      " / " +
+      formatTime(duration);
+
+    $("seek").value =
+      Number.isFinite(duration) && duration > 0
+        ? Math.round(current / duration * 1000)
+        : 0;
+  }
+
+  async function openFilm(film) {
+    if (!Object.prototype.hasOwnProperty.call(titles, film)) {
+      return;
+    }
+
+    chosenFilm = film;
+
+    if (!token || Date.now() >= expiresAt) {
+      token = null;
+      openAccess();
+      return;
+    }
+
+    closeAccess();
+    closeViewer();
+
+    const thisLoad = loadId;
+
+    viewer.hidden = false;
+    $("viewerTitle").textContent = titles[film];
+    $("viewerNote").textContent = "";
+    $("loading").hidden = false;
+
+    try {
+      const response = await fetch(
+        "/api/video?film=" + encodeURIComponent(film),
+        {
+          headers: {
+            Authorization: "Bearer " + token
+          },
+          cache: "no-store"
+        }
+      );
+
+      if (thisLoad !== loadId || viewer.hidden) {
+        return;
+      }
+
+      if (response.status === 401) {
+        token = null;
+        closeViewer();
+        openAccess();
+        status("Access expired. Please verify again.");
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          "Film unavailable (" + response.status + ")."
+        );
+      }
+
+      const blob = await response.blob();
+
+      if (thisLoad !== loadId || viewer.hidden) {
+        return;
+      }
+
+      videoUrl = URL.createObjectURL(blob);
+      video.src = videoUrl;
+      video.playbackRate = 1;
+      video.volume = 1;
+      video.muted = false;
+
+      $("speed").textContent = "1×";
+      $("volume").value = 1;
+      $("mute").textContent = "Volume";
+
+      video.load();
+
+      $("loading").hidden = true;
+      $("viewerNote").textContent = "";
+
+    } catch (error) {
+      if (thisLoad === loadId && !viewer.hidden) {
+        $("loading").hidden = true;
+        $("viewerNote").textContent = error.message;
+      }
+    }
+  }
+
+  document.querySelectorAll("[data-film]").forEach(button => {
+    button.addEventListener("click", () => {
+      openFilm(button.dataset.film);
+    });
+  });
+
+  /* REQUEST EMAIL CODE */
+
+  $("emailForm").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const button =
+      event.currentTarget.querySelector("button");
+
+    email = $("email").value.trim().toLowerCase();
+
+    button.disabled = true;
+    status("Sending access code…");
+
+    try {
+      await postJSON("/api/request-code", { email });
+
+      $("emailForm").hidden = true;
+      $("codeForm").hidden = false;
+
+      $("accessText").textContent =
+        "Enter the six-digit code sent to " +
+        email + ".";
+
+      status("The code expires in 10 minutes.");
+      $("code").focus();
+
+    } catch (error) {
+      status(error.message);
+
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  /* VERIFY EMAIL CODE */
+
+  $("codeForm").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const button =
+      event.currentTarget.querySelector("button");
+
+    button.disabled = true;
+    status("Verifying…");
+
+    try {
+      const result = await postJSON(
+        "/api/verify-code",
+        {
+          email,
+          code: $("code").value.trim()
+        }
+      );
+
+      if (!result.token) {
+        throw new Error("Verification token unavailable.");
+      }
+
+      token = result.token;
+
+      expiresAt =
+        Date.now() +
+        (result.expiresIn || 3600) * 1000;
+
+      $("code").value = "";
+      closeAccess();
+
+      await openFilm(chosenFilm);
+
+    } catch (error) {
+      status(error.message);
+
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  $("closeAccess").addEventListener(
+    "click",
+    closeAccess
+  );
+
+  $("closeViewer").addEventListener(
+    "click",
+    closeViewer
+  );
+
+  /* PLAY AND PAUSE */
+
+  $("play").addEventListener("click", async () => {
+    if (!video.src) return;
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch {
+        $("viewerNote").textContent =
+          "Unable to play this video format.";
+      }
+    } else {
+      video.pause();
+    }
+  });
+
+  video.addEventListener("play", () => {
+    $("play").textContent = "Pause";
+  });
+
+  video.addEventListener("pause", () => {
+    $("play").textContent = "Play";
+  });
+
+  video.addEventListener(
+    "timeupdate",
+    updateTimeline
+  );
+
+  video.addEventListener(
+    "loadedmetadata",
+    updateTimeline
+  );
+
+  video.addEventListener("ended", () => {
+    $("play").textContent = "Play";
+  });
+
+  video.addEventListener("error", () => {
+    if (video.src) {
+      $("viewerNote").textContent =
+        "This video format could not be played in your browser.";
+    }
+  });
+
+  /* TIMELINE */
+
+  $("seek").addEventListener("input", () => {
+    if (
+      Number.isFinite(video.duration) &&
+      video.duration > 0
+    ) {
+      video.currentTime =
+        Number($("seek").value) /
+        1000 * video.duration;
+    }
+  });
+
+  /* FORWARD / REWIND */
+
+  $("rewind").addEventListener("click", () => {
+    if (Number.isFinite(video.duration)) {
+      video.currentTime =
+        Math.max(0, video.currentTime - 10);
+    }
+  });
+
+  $("forward").addEventListener("click", () => {
+    if (Number.isFinite(video.duration)) {
+      video.currentTime = Math.min(
+        video.duration,
+        video.currentTime + 10
+      );
+    }
+  });
+
+  /* VOLUME */
+
+  $("mute").addEventListener("click", () => {
+    video.muted = !video.muted;
+
+    $("mute").textContent =
+      video.muted ? "Unmute" : "Volume";
+  });
+
+  $("volume").addEventListener("input", () => {
+    video.volume = Number($("volume").value);
+    video.muted = video.volume === 0;
+
+    $("mute").textContent =
+      video.muted ? "Unmute" : "Volume";
+  });
+
+  /* PLAYBACK SPEED */
+
+  $("speed").addEventListener("click", () => {
+    const current =
+      speeds.indexOf(video.playbackRate);
+
+    const next =
+      speeds[(current + 1) % speeds.length];
+
+    video.playbackRate = next;
+    $("speed").textContent = next + "×";
+  });
+
+  /* FULLSCREEN */
+
+  $("fullscreen").addEventListener("click", async () => {
+    try {
+      if (document.fullscreenElement) {
+        await document.exitFullscreen();
+
+      } else if (video.webkitEnterFullscreen) {
+        video.webkitEnterFullscreen();
+
+      } else if ($("screen").requestFullscreen) {
+        await $("screen").requestFullscreen();
+      }
+
+    } catch {
+      $("viewerNote").textContent =
+        "Fullscreen is unavailable on this device.";
+    }
+  });
+
+  /* KEYBOARD */
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeAccess();
+      closeViewer();
+      setSettings(false);
+    }
+  });
+
+})();
+</script>
+
+</body>
+</html>
