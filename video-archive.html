@@ -26,6 +26,7 @@
 html {
   min-height: 100%;
   background: var(--paper);
+  color-scheme: light;
 }
 
 body {
@@ -40,7 +41,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-button, input {
+button,
+input {
   font: inherit;
   color: inherit;
 }
@@ -152,10 +154,6 @@ main {
   padding: 15px 0 0 24px;
 }
 
-.stage[hidden] {
-  display: none !important;
-}
-
 .master {
   display: inline-flex;
   align-items: flex-end;
@@ -176,13 +174,13 @@ main {
   white-space: nowrap;
 }
 
-/* CLASSIC MAC-INSPIRED FOLDERS */
+/* COMPACT, SQUARER MAC FOLDERS */
 
 .folder-icon {
   position: relative;
   display: block;
-  width: 116px;
-  height: 88px;
+  width: 92px;
+  height: 91px;
   flex-shrink: 0;
   filter: drop-shadow(
     0 4px 4px rgba(130,125,115,.07)
@@ -195,7 +193,7 @@ main {
   position: absolute;
   top: 10%;
   left: 0;
-  width: 42%;
+  width: 43%;
   height: 21%;
   border: 1px solid var(--edge);
   border-bottom: 0;
@@ -347,17 +345,20 @@ footer {
   padding: 40px 30px 34px;
   border: 1px solid var(--line);
   background: var(--paper);
+  text-align: center;
 }
 
 .dialog h2 {
   margin: 0 0 12px;
   font-size: 13px;
   font-weight: 400;
+  text-align: center;
 }
 
 .dialog p {
   margin: 0 0 24px;
   color: var(--soft);
+  text-align: center;
 }
 
 .close {
@@ -394,6 +395,7 @@ footer {
   padding: 13px;
   border: 1px solid var(--edge);
   background: var(--folder);
+  color: var(--text);
 }
 
 .action:hover {
@@ -410,6 +412,41 @@ footer {
   margin-top: 15px;
   color: var(--text);
   font-size: 11px;
+  text-align: center;
+}
+
+/* SIX-DIGIT VERIFICATION */
+
+.code-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  margin: 7px 0 24px;
+}
+
+.dialog .code-digit {
+  width: 37px;
+  height: 44px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--text);
+  text-align: center;
+  font-size: 15px;
+  line-height: 44px;
+  font-variant-numeric: tabular-nums;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.dialog .code-digit:focus {
+  border-color: var(--soft);
+  outline: 1px solid var(--soft);
+  outline-offset: 1px;
 }
 
 /* ARCHIVAL FILM PLAYER */
@@ -582,8 +619,8 @@ input[type="range"]::-moz-range-thumb {
   }
 
   .folder-icon {
-    width: 96px;
-    height: 73px;
+    width: 78px;
+    height: 79px;
   }
 
   .master,
@@ -594,6 +631,16 @@ input[type="range"]::-moz-range-thumb {
   .master-label,
   .film-name {
     font-size: 11px;
+  }
+
+  .code-boxes {
+    gap: 7px;
+  }
+
+  .dialog .code-digit {
+    width: 34px;
+    height: 42px;
+    line-height: 42px;
   }
 
   .controls {
@@ -652,7 +699,7 @@ input[type="range"]::-moz-range-thumb {
     </button>
   </div>
 
-  <!-- FIRST LANDING SCREEN -->
+  <!-- FIRST SCREEN -->
 
   <section class="stage"
            id="landing"
@@ -674,7 +721,7 @@ input[type="range"]::-moz-range-thumb {
     </button>
   </section>
 
-  <!-- SECOND SCREEN: TWO FILMS -->
+  <!-- SECOND SCREEN: ALPHABETICAL FILMS -->
 
   <section class="stage"
            id="collection"
@@ -720,7 +767,7 @@ input[type="range"]::-moz-range-thumb {
   <span>Paris · New York</span>
 </footer>
 
-<!-- SETTINGS PANEL -->
+<!-- SETTINGS -->
 
 <aside class="settings"
        id="settings"
@@ -779,7 +826,7 @@ input[type="range"]::-moz-range-thumb {
     <h2 id="accessTitle">Archive access</h2>
 
     <p id="accessText">
-      Enter your email to receive a six-digit access code.
+      Enter your email to receive an access code.
     </p>
 
     <form id="emailForm">
@@ -791,23 +838,62 @@ input[type="range"]::-moz-range-thumb {
              aria-label="Email address">
 
       <button class="action" type="submit">
-        Send access code
+        Request code →
       </button>
     </form>
 
     <form id="codeForm" hidden>
-      <input id="code"
-             type="text"
-             required
-             inputmode="numeric"
-             autocomplete="one-time-code"
-             maxlength="6"
-             pattern="[0-9]{6}"
-             placeholder="Six-digit code"
-             aria-label="Six-digit code">
+      <div class="code-boxes"
+           role="group"
+           aria-label="Six-digit verification code">
+
+        <input class="code-digit"
+               type="text"
+               inputmode="numeric"
+               autocomplete="one-time-code"
+               maxlength="6"
+               aria-label="Digit 1"
+               required>
+
+        <input class="code-digit"
+               type="text"
+               inputmode="numeric"
+               maxlength="1"
+               aria-label="Digit 2"
+               required>
+
+        <input class="code-digit"
+               type="text"
+               inputmode="numeric"
+               maxlength="1"
+               aria-label="Digit 3"
+               required>
+
+        <input class="code-digit"
+               type="text"
+               inputmode="numeric"
+               maxlength="1"
+               aria-label="Digit 4"
+               required>
+
+        <input class="code-digit"
+               type="text"
+               inputmode="numeric"
+               maxlength="1"
+               aria-label="Digit 5"
+               required>
+
+        <input class="code-digit"
+               type="text"
+               inputmode="numeric"
+               maxlength="1"
+               aria-label="Digit 6"
+               required>
+
+      </div>
 
       <button class="action" type="submit">
-        Enter archive
+        Enter archive →
       </button>
     </form>
 
@@ -979,11 +1065,14 @@ input[type="range"]::-moz-range-thumb {
 
   try {
     const savedSize = localStorage.getItem("hh-size");
+
     if (savedSize && /^\d+(\.\d+)?$/.test(savedSize)) {
       const value = Number(savedSize);
+
       if (value >= 10 && value <= 12.5) {
         document.documentElement.style.setProperty(
-          "--ui", value + "px"
+          "--ui",
+          value + "px"
         );
       }
     }
@@ -994,7 +1083,8 @@ input[type="range"]::-moz-range-thumb {
       const size = button.dataset.size;
 
       document.documentElement.style.setProperty(
-        "--ui", size + "px"
+        "--ui",
+        size + "px"
       );
 
       try {
@@ -1005,12 +1095,91 @@ input[type="range"]::-moz-range-thumb {
 
   $("resetBtn").addEventListener("click", () => {
     document.documentElement.style.setProperty(
-      "--ui", "12px"
+      "--ui",
+      "12px"
     );
 
     try {
       localStorage.removeItem("hh-size");
     } catch {}
+  });
+
+  /* SIX CODE BOXES */
+
+  const digits = Array.from(
+    document.querySelectorAll(".code-digit")
+  );
+
+  function setCode(value) {
+    const clean = String(value)
+      .replace(/\D/g, "")
+      .slice(0, 6);
+
+    digits.forEach((input, index) => {
+      input.value = clean[index] || "";
+    });
+
+    const nextIndex = Math.min(clean.length, 5);
+    digits[nextIndex].focus();
+  }
+
+  function getCode() {
+    return digits.map(input => input.value).join("");
+  }
+
+  digits.forEach((input, index) => {
+    input.addEventListener("input", () => {
+      const entered = input.value.replace(/\D/g, "");
+
+      if (entered.length > 1) {
+        const before = digits
+          .slice(0, index)
+          .map(box => box.value)
+          .join("");
+
+        setCode(before + entered);
+        return;
+      }
+
+      input.value = entered.slice(0, 1);
+
+      if (input.value && index < 5) {
+        digits[index + 1].focus();
+      }
+    });
+
+    input.addEventListener("keydown", event => {
+      if (event.key === "Backspace" && !input.value && index > 0) {
+        digits[index - 1].value = "";
+        digits[index - 1].focus();
+      }
+
+      if (event.key === "ArrowLeft" && index > 0) {
+        event.preventDefault();
+        digits[index - 1].focus();
+      }
+
+      if (event.key === "ArrowRight" && index < 5) {
+        event.preventDefault();
+        digits[index + 1].focus();
+      }
+    });
+
+    input.addEventListener("paste", event => {
+      const pasted = event.clipboardData?.getData("text") || "";
+      const clean = pasted.replace(/\D/g, "");
+
+      if (clean) {
+        event.preventDefault();
+
+        const before = digits
+          .slice(0, index)
+          .map(box => box.value)
+          .join("");
+
+        setCode(before + clean);
+      }
+    });
   });
 
   /* ACCESS */
@@ -1023,8 +1192,10 @@ input[type="range"]::-moz-range-thumb {
     $("emailForm").hidden = false;
     $("codeForm").hidden = true;
 
+    $("accessTitle").textContent = "Archive access";
+
     $("accessText").textContent =
-      "Enter your email to receive a six-digit access code.";
+      "Enter your email to receive an access code.";
 
     status("");
     access.hidden = false;
@@ -1215,12 +1386,17 @@ input[type="range"]::-moz-range-thumb {
       $("emailForm").hidden = true;
       $("codeForm").hidden = false;
 
-      $("accessText").textContent =
-        "Enter the six-digit code sent to " +
-        email + ".";
+      $("accessTitle").textContent = "Check your email";
 
-      status("The code expires in 10 minutes.");
-      $("code").focus();
+      $("accessText").textContent =
+        "Enter your six-digit code.";
+
+      digits.forEach(input => {
+        input.value = "";
+      });
+
+      status("");
+      digits[0].focus();
 
     } catch (error) {
       status(error.message);
@@ -1230,10 +1406,17 @@ input[type="range"]::-moz-range-thumb {
     }
   });
 
-  /* VERIFY EMAIL CODE */
+  /* VERIFY SIX-DIGIT CODE */
 
   $("codeForm").addEventListener("submit", async event => {
     event.preventDefault();
+
+    const code = getCode();
+
+    if (!/^\d{6}$/.test(code)) {
+      status("Please enter all six digits.");
+      return;
+    }
 
     const button =
       event.currentTarget.querySelector("button");
@@ -1246,12 +1429,14 @@ input[type="range"]::-moz-range-thumb {
         "/api/verify-code",
         {
           email,
-          code: $("code").value.trim()
+          code
         }
       );
 
       if (!result.token) {
-        throw new Error("Verification token unavailable.");
+        throw new Error(
+          "Verification token unavailable."
+        );
       }
 
       token = result.token;
@@ -1260,7 +1445,10 @@ input[type="range"]::-moz-range-thumb {
         Date.now() +
         (result.expiresIn || 3600) * 1000;
 
-      $("code").value = "";
+      digits.forEach(input => {
+        input.value = "";
+      });
+
       closeAccess();
 
       await openFilm(chosenFilm);
