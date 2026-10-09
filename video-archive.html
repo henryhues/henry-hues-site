@@ -12,11 +12,27 @@
   --paper: #f2f0eb;
   --folder: #e7e4de;
   --folder-light: #f5f3ee;
+  --folder-mid: #eeece6;
+  --folder-tab: #dfdcd5;
   --edge: #d6d2ca;
   --text: #77746f;
   --soft: #aaa59e;
   --line: #dcd8d1;
   --ui: 12px;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --paper: #252429;
+  --folder: #454249;
+  --folder-light: #625d65;
+  --folder-mid: #514c54;
+  --folder-tab: #514c54;
+  --edge: #706a73;
+  --text: #e0dce0;
+  --soft: #aaa4ac;
+  --line: #49454c;
+  color-scheme: dark;
 }
 
 * {
@@ -26,7 +42,6 @@
 html {
   min-height: 100%;
   background: var(--paper);
-  color-scheme: light;
 }
 
 body {
@@ -39,6 +54,7 @@ body {
   font-weight: 400;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  transition: background-color .25s, color .25s;
 }
 
 button,
@@ -79,7 +95,7 @@ header {
 }
 
 .brand {
-  font-size: 15px;
+  font-size: calc(var(--ui) + 3px);
   letter-spacing: -.05em;
   white-space: nowrap;
 }
@@ -94,7 +110,7 @@ nav {
 
 nav a,
 nav button {
-  font-size: 12px;
+  font-size: var(--ui);
   background: none;
   border: 0;
   padding: 0;
@@ -103,10 +119,7 @@ nav button {
 }
 
 nav a:hover,
-nav button:hover {
-  color: var(--soft);
-}
-
+nav button:hover,
 nav .current {
   color: var(--soft);
 }
@@ -129,7 +142,7 @@ main {
 }
 
 .heading h1 {
-  font-size: 13px;
+  font-size: calc(var(--ui) + 1px);
   font-weight: 400;
   margin: 0;
 }
@@ -139,7 +152,7 @@ main {
   border: 0;
   background: none;
   color: var(--soft);
-  font-size: 12px;
+  font-size: var(--ui);
 }
 
 .back:hover {
@@ -169,19 +182,18 @@ main {
 .master-label {
   display: block;
   padding-bottom: 5px;
-  font-size: 12px;
+  font-size: var(--ui);
   font-weight: 400;
   white-space: nowrap;
 }
 
-/* COMPACT, SQUARER MAC FOLDERS */
+/* COMPACT ARCHIVAL FOLDERS */
 
 .folder-icon {
   position: relative;
   display: block;
-    width: 48px;
+  width: 48px;
   height: 48px;
- 
   flex-shrink: 0;
   filter: drop-shadow(
     0 4px 4px rgba(130,125,115,.07)
@@ -199,7 +211,7 @@ main {
   border: 1px solid var(--edge);
   border-bottom: 0;
   border-radius: 5px 7px 0 0;
-  background: #dfdcd5;
+  background: var(--folder-tab);
 }
 
 .folder-icon::after {
@@ -207,14 +219,14 @@ main {
   position: absolute;
   inset: 23% 0 0;
   border: 1px solid var(--edge);
-  border-radius: 4px 6px 7px 7px;
+  border-radius: 4px 6px 0 0;
   background: linear-gradient(
     165deg,
     var(--folder-light) 0%,
-    #eeece6 47%,
+    var(--folder-mid) 47%,
     var(--folder) 100%
   );
-  box-shadow: inset 0 2px 2px rgba(255,255,255,.65);
+  box-shadow: inset 0 2px 2px rgba(255,255,255,.16);
 }
 
 .folder-icon .fold {
@@ -256,7 +268,7 @@ main {
 
 .film-name {
   padding-bottom: 5px;
-  font-size: 12px;
+  font-size: var(--ui);
   font-weight: 400;
   white-space: nowrap;
 }
@@ -270,7 +282,7 @@ footer {
   padding: 22px 5%;
   border-top: 1px solid var(--line);
   color: var(--soft);
-  font-size: 11px;
+  font-size: calc(var(--ui) - 1px);
 }
 
 /* SETTINGS PANEL */
@@ -323,8 +335,10 @@ footer {
   color: var(--text);
 }
 
-.square:hover {
+.square:hover,
+.square[aria-pressed="true"] {
   background: var(--folder);
+  border-color: var(--edge);
 }
 
 /* ACCESS WINDOW */
@@ -337,7 +351,7 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 22px;
-  background: rgba(242,240,235,.97);
+  background: var(--paper);
 }
 
 .dialog {
@@ -351,7 +365,7 @@ footer {
 
 .dialog h2 {
   margin: 0 0 12px;
-  font-size: 13px;
+  font-size: calc(var(--ui) + 1px);
   font-weight: 400;
   text-align: center;
 }
@@ -400,7 +414,7 @@ footer {
 }
 
 .action:hover {
-  background: #efede7;
+  background: var(--folder-light);
 }
 
 .action:disabled {
@@ -412,7 +426,7 @@ footer {
   min-height: 20px;
   margin-top: 15px;
   color: var(--text);
-  font-size: 11px;
+  font-size: calc(var(--ui) - 1px);
   text-align: center;
 }
 
@@ -471,7 +485,7 @@ footer {
 }
 
 .viewer-title {
-  font-size: 12px;
+  font-size: var(--ui);
 }
 
 .viewer-close {
@@ -489,7 +503,7 @@ footer {
   width: 100%;
   aspect-ratio: 16/9;
   overflow: hidden;
-  background: #e5e2dc;
+  background: #000;
 }
 
 .screen video {
@@ -497,7 +511,7 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #e5e2dc;
+  background: #000;
 }
 
 .loading {
@@ -506,9 +520,9 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--folder);
-  color: var(--soft);
-  font-size: 11px;
+  background: #000;
+  color: #aaa;
+  font-size: calc(var(--ui) - 1px);
 }
 
 .controls {
@@ -536,7 +550,7 @@ footer {
 
 .time {
   color: var(--soft);
-  font-size: 11px;
+  font-size: calc(var(--ui) - 1px);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -583,7 +597,7 @@ input[type="range"]::-moz-range-thumb {
 .viewer-note {
   padding-top: 13px;
   color: var(--soft);
-  font-size: 11px;
+  font-size: calc(var(--ui) - 1px);
 }
 
 /* MOBILE */
@@ -595,11 +609,6 @@ input[type="range"]::-moz-range-thumb {
 
   nav {
     gap: 10px 14px;
-  }
-
-  nav a,
-  nav button {
-    font-size: 11px;
   }
 
   main {
@@ -619,7 +628,7 @@ input[type="range"]::-moz-range-thumb {
     gap: 28px;
   }
 
-    .folder-icon {
+  .folder-icon {
     width: 48px;
     height: 48px;
   }
@@ -627,11 +636,6 @@ input[type="range"]::-moz-range-thumb {
   .master,
   .film-folder {
     gap: 14px;
-  }
-
-  .master-label,
-  .film-name {
-    font-size: 11px;
   }
 
   .code-boxes {
@@ -789,20 +793,44 @@ input[type="range"]::-moz-range-thumb {
     <span>Text size</span>
 
     <div class="setting-actions">
-      <button class="square" data-size="10" type="button">A−</button>
-      <button class="square" data-size="12" type="button">A</button>
-      <button class="square" data-size="12.5" type="button">A+</button>
+      <button class="square"
+              data-size="10"
+              type="button">A−</button>
+      <button class="square"
+              data-size="12"
+              type="button">A</button>
+      <button class="square"
+              data-size="12.5"
+              type="button">A+</button>
     </div>
   </div>
 
   <div class="setting-row">
     <span>Appearance</span>
-    <span>Light</span>
+
+    <div class="setting-actions">
+      <button class="square"
+              id="lightBtn"
+              type="button"
+              aria-pressed="true">
+        Light
+      </button>
+
+      <button class="square"
+              id="darkBtn"
+              type="button"
+              aria-pressed="false">
+        Dark
+      </button>
+    </div>
   </div>
 
   <div class="setting-row">
     <span>Reset</span>
-    <button class="square" id="resetBtn" type="button">
+
+    <button class="square"
+            id="resetBtn"
+            type="button">
       Reset
     </button>
   </div>
@@ -1064,43 +1092,97 @@ input[type="range"]::-moz-range-thumb {
     setSettings(false);
   });
 
-  try {
-    const savedSize = localStorage.getItem("hh-size");
+  function setTheme(theme, save = true) {
+    const next = theme === "dark" ? "dark" : "light";
 
-    if (savedSize && /^\d+(\.\d+)?$/.test(savedSize)) {
-      const value = Number(savedSize);
-
-      if (value >= 10 && value <= 12.5) {
-        document.documentElement.style.setProperty(
-          "--ui",
-          value + "px"
-        );
-      }
-    }
-  } catch {}
-
-  document.querySelectorAll("[data-size]").forEach(button => {
-    button.addEventListener("click", () => {
-      const size = button.dataset.size;
-
-      document.documentElement.style.setProperty(
-        "--ui",
-        size + "px"
-      );
-
-      try {
-        localStorage.setItem("hh-size", size);
-      } catch {}
-    });
-  });
-
-  $("resetBtn").addEventListener("click", () => {
-    document.documentElement.style.setProperty(
-      "--ui",
-      "12px"
+    document.documentElement.setAttribute(
+      "data-theme",
+      next
     );
 
+    $("lightBtn").setAttribute(
+      "aria-pressed",
+      String(next === "light")
+    );
+
+    $("darkBtn").setAttribute(
+      "aria-pressed",
+      String(next === "dark")
+    );
+
+    if (save) {
+      try {
+        localStorage.setItem("hh-theme", next);
+      } catch {}
+    }
+  }
+
+  function setTextSize(size, save = true) {
+    const value = Number(size);
+
+    if (![10, 12, 12.5].includes(value)) {
+      return;
+    }
+
+    document.documentElement.style.setProperty(
+      "--ui",
+      value + "px"
+    );
+
+    document.querySelectorAll("[data-size]").forEach(
+      button => {
+        button.setAttribute(
+          "aria-pressed",
+          String(Number(button.dataset.size) === value)
+        );
+      }
+    );
+
+    if (save) {
+      try {
+        localStorage.setItem("hh-size", String(value));
+      } catch {}
+    }
+  }
+
+  try {
+    const savedTheme = localStorage.getItem("hh-theme");
+    setTheme(savedTheme === "dark" ? "dark" : "light", false);
+
+    const savedSize = localStorage.getItem("hh-size");
+    setTextSize(
+      [10, 12, 12.5].includes(Number(savedSize))
+        ? Number(savedSize)
+        : 12,
+      false
+    );
+  } catch {
+    setTheme("light", false);
+    setTextSize(12, false);
+  }
+
+  $("lightBtn").addEventListener("click", () => {
+    setTheme("light");
+  });
+
+  $("darkBtn").addEventListener("click", () => {
+    setTheme("dark");
+  });
+
+  document.querySelectorAll("[data-size]").forEach(
+    button => {
+      button.addEventListener("click", () => {
+        setTextSize(button.dataset.size);
+      });
+    }
+  );
+
+  $("resetBtn").addEventListener("click", () => {
+    setTheme("light", false);
+    setTextSize(12, false);
+
     try {
+      localStorage.removeItem("hh-theme");
       localStorage.removeItem("hh-size");
     } catch {}
   });
