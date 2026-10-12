@@ -1,4 +1,5 @@
- <!DOCTYPE html>
+ 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -111,7 +112,7 @@ button {
 
 .release-links a { color: var(--grey); }
 
-/* CELINE — EXPANDABLE EDITORIAL */
+/* CELINE EXPANDABLE EDITORIAL */
 
 .celine-head {
   display: flex;
@@ -198,11 +199,16 @@ button {
   font-size: 9px;
 }
 
-/* CELINE — ARTWORK AND TRACK LIST */
+/* EVERYTHING BELOW IS HIDDEN UNTIL EXPANDED */
 
 .celine-extras {
+  display: none;
   margin-top: 36px;
   max-width: 620px;
+}
+
+.celine-release.expanded .celine-extras {
+  display: block;
 }
 
 .celine-cover {
@@ -243,7 +249,7 @@ button {
 
 .tracklist li { break-inside: avoid; }
 
-/* CELINE — AUDIO PREVIEWS */
+/* AUDIO PREVIEWS */
 
 .players {
   margin-top: 38px;
@@ -434,7 +440,7 @@ body.dark {
       class="celine-expand"
       type="button"
       aria-expanded="false"
-      aria-controls="celine-story"
+      aria-controls="celine-content"
       aria-label="Expand Celine editorial"
     >+</button>
   </div>
@@ -447,216 +453,221 @@ body.dark {
     >Apple</a>
   </div>
 
-  <div class="celine-story collapsed" id="celine-story">
-    <div class="celine-copy">
+  <div id="celine-content">
 
-      <p class="opening-note">
-        <em>The title, for the record, has nothing to do with the fashion house.</em>
-      </p>
+    <div class="celine-story collapsed" id="celine-story">
+      <div class="celine-copy">
 
-      <p>
-        There is a small cinema in Paris’s 5th arrondissement where Issa Bukasa went to see Lars von Trier’s <em>Dancer in the Dark</em>. At some point during the film, he took three photographs of the screen. Somehow.
-      </p>
+        <p class="opening-note">
+          <em>The title, for the record, has nothing to do with the fashion house.</em>
+        </p>
 
-      <p>
-        They are mostly photographs of darkness. A little blue light. Björk’s face suspended inside it.
-      </p>
+        <p>
+          There is a small cinema in Paris’s 5th arrondissement where Issa Bukasa went to see Lars von Trier’s <em>Dancer in the Dark</em>. At some point during the film, he took three photographs of the screen. Somehow.
+        </p>
 
-      <figure class="theater-image">
-        <img
-          src="assets/images/celine-theater-01.jpg"
-          alt="Cinema screen photographed during Dancer in the Dark"
-        >
-      </figure>
+        <p>
+          They are mostly photographs of darkness. A little blue light. Björk’s face suspended inside it.
+        </p>
 
-      <p class="image-follow">
-        Maybe that is where this record began.
-      </p>
-
-      <p>
-        Selma Ježková, the film’s central character, is slowly losing her sight. She works at a factory, raises her son alone and quietly saves what she can for an operation that might spare him the same fate. The circumstances surrounding her become increasingly cruel. Still, Selma hears music everywhere. Machines keep time. Factory floors become stages. When ordinary life becomes difficult to bear, she listens for another rhythm inside it.
-      </p>
-
-      <figure class="theater-image">
-        <img
-          src="assets/images/celine-theater-02.jpg"
-          alt="Blue-lit cinema screen photographed during Dancer in the Dark"
-        >
-      </figure>
-
-      <p class="image-follow">
-        Bukasa understood that.
-      </p>
-
-      <p>
-        <em>Celine 2000-2006</em> collects seven songs from a period when his own relationship with music had become uncertain. They come from daily diaries, passing emotions and the recurring thought that perhaps making something did not always require sharing it. Sometimes he wanted to stop altogether.
-      </p>
-
-      <p>
-        The film complicated that thought.
-      </p>
-
-      <p>
-        On “Sage,” saving becomes its own kind of tenderness. Selma has her small reserve of money, guarded because it belongs to a future she can still imagine. Bukasa has music. The song circles a similar instinct: keeping something warm when the rest of life has gone cold. Not happiness, exactly. More like an ember.
-      </p>
-
-      <p>
-        Then things begin to turn.
-      </p>
-
-      <p>
-        “Grizz Lee” carries the unease of discovering danger in something once mistaken for safety. Selma learns this through betrayal. Bukasa puts it another way: <em>tread slow, you’re in the wild now.</em> The grizzlies, he says, were thought to be teddies.
-      </p>
-
-      <p>
-        Across the record, that tension keeps returning. “Alms” arrives and disappears in barely more than a minute. “Brother -chorus (c-em)” lingers much longer, almost suspended. “zxy” moves differently again. The songs do not resolve one another so much as remember different temperatures of the same life.
-      </p>
-
-      <p>
-        Which makes “Lifting me 2” feel less like an ending than an answer.
-      </p>
-
-      <figure class="theater-image">
-        <img
-          src="assets/images/celine-theater-03.jpg"
-          alt="Cinema screen photographed during Dancer in the Dark"
-        >
-      </figure>
-
-      <p class="image-follow">
-        Near the end of <em>Dancer in the Dark</em>, Selma has almost nothing left. Even standing becomes difficult. Brenda reminds her of something seemingly useless under the circumstances: dancing. Music. Joy. And somehow Selma moves again.
-      </p>
-
-      <p>
-        It stayed with Bukasa after leaving the theater.
-      </p>
-
-      <p>
-        Not because Selma’s story suggests that music makes suffering disappear. It doesn’t. Perhaps the stranger possibility is that something beautiful can accompany a life without correcting it. A song can exist beside disappointment. Rhythm beside fear. Warmth beside cold.
-      </p>
-
-      <p>
-        And sometimes that is enough movement for another step.
-      </p>
-
-      <p>
-        <em>Celine 2000-2006</em> came from Bukasa wondering whether he still wanted to make music at all. Seven songs later, there is no grand conclusion.
-      </p>
-
-      <p>
-        Only that he kept going.
-      </p>
-
-      <p class="video-note">
-        Two videos will be released alongside the project.
-      </p>
-
-    </div>
-  </div>
-
-  <div class="celine-extras">
-
-    <figure class="celine-cover">
-      <img
-        src="assets/images/celine-2000-2006-cover.jpg"
-        alt="Celine 2000-2006 artwork"
-      >
-    </figure>
-
-    <button
-      class="track-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="celine-tracklist"
-    >Track listing +</button>
-
-    <ol class="tracklist" id="celine-tracklist" hidden>
-      <li>Celine 2000-2006</li>
-      <li>Sage</li>
-      <li>Alms</li>
-      <li>Brother -chorus (c-em)</li>
-      <li>zxy</li>
-      <li>Grizz Lee</li>
-      <li>Lifting me 2</li>
-    </ol>
-
-    <div class="players">
-
-      <section class="teaser">
-        <h2>CELINE 2000-2006 — TEASER</h2>
-        <p class="meta">0:00–0:40 · 40 SEC PREVIEW</p>
-
-        <div
-          class="player"
-          data-preview-start="0"
-          data-preview-duration="40"
-        >
-          <audio
-            preload="metadata"
-            src="assets/audio/celine-preview.m4a"
-          ></audio>
-
-          <button
-            class="play"
-            type="button"
-            aria-label="Play Celine 2000-2006 teaser"
-          >Play</button>
-
-          <input
-            class="seek"
-            type="range"
-            min="0"
-            max="40"
-            value="0"
-            step="0.1"
-            aria-label="Celine teaser progress"
+        <figure class="theater-image">
+          <img
+            src="assets/images/celine-theater-01.jpg"
+            alt="Cinema screen photographed during Dancer in the Dark"
           >
+        </figure>
 
-          <span class="time">0:00 / 0:40</span>
-        </div>
+        <p class="image-follow">
+          Maybe that is where this record began.
+        </p>
 
-        <div class="status" aria-live="polite"></div>
-      </section>
+        <p>
+          Selma Ježková, the film’s central character, is slowly losing her sight. She works at a factory, raises her son alone and quietly saves what she can for an operation that might spare him the same fate. The circumstances surrounding her become increasingly cruel. Still, Selma hears music everywhere. Machines keep time. Factory floors become stages. When ordinary life becomes difficult to bear, she listens for another rhythm inside it.
+        </p>
 
-      <section class="teaser">
-        <h2>LIFTING ME 2 — TEASER</h2>
-        <p class="meta">0:29–1:09 · 40 SEC PREVIEW</p>
-
-        <div
-          class="player"
-          data-preview-start="29"
-          data-preview-duration="40"
-        >
-          <audio
-            preload="metadata"
-            src="assets/audio/Lifting-me-2-preview.m4a"
-          ></audio>
-
-          <button
-            class="play"
-            type="button"
-            aria-label="Play Lifting me 2 teaser"
-          >Play</button>
-
-          <input
-            class="seek"
-            type="range"
-            min="0"
-            max="40"
-            value="0"
-            step="0.1"
-            aria-label="Lifting me 2 teaser progress"
+        <figure class="theater-image">
+          <img
+            src="assets/images/celine-theater-02.jpg"
+            alt="Blue-lit cinema screen photographed during Dancer in the Dark"
           >
+        </figure>
 
-          <span class="time">0:00 / 0:40</span>
-        </div>
+        <p class="image-follow">
+          Bukasa understood that.
+        </p>
 
-        <div class="status" aria-live="polite"></div>
-      </section>
+        <p>
+          <em>Celine 2000-2006</em> collects seven songs from a period when his own relationship with music had become uncertain. They come from daily diaries, passing emotions and the recurring thought that perhaps making something did not always require sharing it. Sometimes he wanted to stop altogether.
+        </p>
 
+        <p>
+          The film complicated that thought.
+        </p>
+
+        <p>
+          On “Sage,” saving becomes its own kind of tenderness. Selma has her small reserve of money, guarded because it belongs to a future she can still imagine. Bukasa has music. The song circles a similar instinct: keeping something warm when the rest of life has gone cold. Not happiness, exactly. More like an ember.
+        </p>
+
+        <p>
+          Then things begin to turn.
+        </p>
+
+        <p>
+          “Grizz Lee” carries the unease of discovering danger in something once mistaken for safety. Selma learns this through betrayal. Bukasa puts it another way: <em>tread slow, you’re in the wild now.</em> The grizzlies, he says, were thought to be teddies.
+        </p>
+
+        <p>
+          Across the record, that tension keeps returning. “Alms” arrives and disappears in barely more than a minute. “Brother -chorus (c-em)” lingers much longer, almost suspended. “zxy” moves differently again. The songs do not resolve one another so much as remember different temperatures of the same life.
+        </p>
+
+        <p>
+          Which makes “Lifting me 2” feel less like an ending than an answer.
+        </p>
+
+        <figure class="theater-image">
+          <img
+            src="assets/images/celine-theater-03.jpg"
+            alt="Cinema screen photographed during Dancer in the Dark"
+          >
+        </figure>
+
+        <p class="image-follow">
+          Near the end of <em>Dancer in the Dark</em>, Selma has almost nothing left. Even standing becomes difficult. Brenda reminds her of something seemingly useless under the circumstances: dancing. Music. Joy. And somehow Selma moves again.
+        </p>
+
+        <p>
+          It stayed with Bukasa after leaving the theater.
+        </p>
+
+        <p>
+          Not because Selma’s story suggests that music makes suffering disappear. It doesn’t. Perhaps the stranger possibility is that something beautiful can accompany a life without correcting it. A song can exist beside disappointment. Rhythm beside fear. Warmth beside cold.
+        </p>
+
+        <p>
+          And sometimes that is enough movement for another step.
+        </p>
+
+        <p>
+          <em>Celine 2000-2006</em> came from Bukasa wondering whether he still wanted to make music at all. Seven songs later, there is no grand conclusion.
+        </p>
+
+        <p>
+          Only that he kept going.
+        </p>
+
+        <p class="video-note">
+          Two videos will be released alongside the project.
+        </p>
+
+      </div>
     </div>
-  </div>
 
+    <!-- HIDDEN UNTIL PLUS IS CLICKED -->
+
+    <div class="celine-extras">
+
+      <figure class="celine-cover">
+        <img
+          src="assets/images/celine-2000-2006-cover.jpg"
+          alt="Celine 2000-2006 artwork"
+        >
+      </figure>
+
+      <button
+        class="track-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="celine-tracklist"
+      >Track listing +</button>
+
+      <ol class="tracklist" id="celine-tracklist" hidden>
+        <li>Celine 2000-2006</li>
+        <li>Sage</li>
+        <li>Alms</li>
+        <li>Brother -chorus (c-em)</li>
+        <li>zxy</li>
+        <li>Grizz Lee</li>
+        <li>Lifting me 2</li>
+      </ol>
+
+      <div class="players">
+
+        <section class="teaser">
+          <h2>CELINE 2000-2006 — TEASER</h2>
+          <p class="meta">0:00–0:40 · 40 SEC PREVIEW</p>
+
+          <div
+            class="player"
+            data-preview-start="0"
+            data-preview-duration="40"
+          >
+            <audio
+              preload="metadata"
+              src="assets/audio/celine-preview.m4a"
+            ></audio>
+
+            <button
+              class="play"
+              type="button"
+              aria-label="Play Celine 2000-2006 teaser"
+            >Play</button>
+
+            <input
+              class="seek"
+              type="range"
+              min="0"
+              max="40"
+              value="0"
+              step="0.1"
+              aria-label="Celine teaser progress"
+            >
+
+            <span class="time">0:00 / 0:40</span>
+          </div>
+
+          <div class="status" aria-live="polite"></div>
+        </section>
+
+        <section class="teaser">
+          <h2>LIFTING ME 2 — TEASER</h2>
+          <p class="meta">0:29–1:09 · 40 SEC PREVIEW</p>
+
+          <div
+            class="player"
+            data-preview-start="29"
+            data-preview-duration="40"
+          >
+            <audio
+              preload="metadata"
+              src="assets/audio/Lifting-me-2-preview.m4a"
+            ></audio>
+
+            <button
+              class="play"
+              type="button"
+              aria-label="Play Lifting me 2 teaser"
+            >Play</button>
+
+            <input
+              class="seek"
+              type="range"
+              min="0"
+              max="40"
+              value="0"
+              step="0.1"
+              aria-label="Lifting me 2 teaser progress"
+            >
+
+            <span class="time">0:00 / 0:40</span>
+          </div>
+
+          <div class="status" aria-live="polite"></div>
+        </section>
+
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- EXISTING ARCHIVE RELEASES -->
@@ -845,8 +856,10 @@ body.dark {
 
 <script>
 (() => {
-  const expand = document.querySelector('.celine-expand');
+  const release = document.querySelector('.celine-release');
+  const expand = release.querySelector('.celine-expand');
   const story = document.getElementById('celine-story');
+  const extras = release.querySelector('.celine-extras');
 
   expand.addEventListener('click', () => {
     const open = expand.getAttribute('aria-expanded') !== 'true';
@@ -858,10 +871,25 @@ body.dark {
     );
 
     expand.textContent = open ? '−' : '+';
+
     story.classList.toggle('collapsed', !open);
+
+    // Show or hide the cover, tracklist and audio together.
+    release.classList.toggle('expanded', open);
+
+    if (!open) {
+      // Stop any audio when the editorial closes.
+      release.querySelectorAll('audio').forEach(audio => {
+        audio.pause();
+      });
+
+      release.querySelectorAll('.play').forEach(button => {
+        button.textContent = 'Play';
+      });
+    }
   });
 
-  const trackButton = document.querySelector('.track-toggle');
+  const trackButton = release.querySelector('.track-toggle');
   const tracklist = document.getElementById('celine-tracklist');
 
   trackButton.addEventListener('click', () => {
@@ -882,7 +910,7 @@ body.dark {
       String(safe % 60).padStart(2, '0');
   };
 
-  const players = [...document.querySelectorAll('.celine-release .player')];
+  const players = [...release.querySelectorAll('.player')];
 
   players.forEach(player => {
     const audio = player.querySelector('audio');
