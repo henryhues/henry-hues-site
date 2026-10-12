@@ -1,25 +1,15 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"
->
-
-<meta
-  name="description"
-  content="Henry Hues archive."
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+<meta name="description" content="Henry Hues archive.">
 <title>Archive — Henry Hues</title>
 
 <style>
 :root {
   --sand: #f5f3ef;
+  --sand2: #ece9e3;
   --grey: #858585;
   --grey2: #aaa7a1;
   --line: rgba(133,133,133,.28);
@@ -27,13 +17,9 @@
   --title: 14px;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  -webkit-text-size-adjust: 100%;
-}
+html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
@@ -45,15 +31,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a,
-button {
+a, button, input {
   font: inherit;
   color: inherit;
 }
 
-a {
-  text-underline-offset: 2px;
-}
+a { text-underline-offset: 2px; }
 
 button {
   border: 0;
@@ -81,8 +64,7 @@ button {
   align-items: center;
 }
 
-.nav a,
-.nav button {
+.nav a, .nav button {
   text-decoration: none;
   font-size: 10px;
 }
@@ -98,9 +80,7 @@ button {
   margin: 0 0 48px;
 }
 
-.catalogue {
-  max-width: 620px;
-}
+.catalogue { max-width: 620px; }
 
 .release {
   padding: 0 0 24px;
@@ -108,9 +88,7 @@ button {
   border-bottom: 1px solid var(--line);
 }
 
-.release:last-child {
-  border-bottom: 0;
-}
+.release:last-child { border-bottom: 0; }
 
 .release-title {
   font-size: 10.5px;
@@ -131,9 +109,200 @@ button {
   font-size: 9px;
 }
 
-.release-links a {
-  color: var(--grey);
+.release-links a { color: var(--grey); }
+
+/* CELINE — EXPANDABLE EDITORIAL */
+
+.celine-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
 }
+
+.celine-expand {
+  flex: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--grey);
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.celine-expand:focus-visible,
+.track-toggle:focus-visible,
+.play:focus-visible,
+.seek:focus-visible {
+  outline: 1px solid var(--grey);
+  outline-offset: 3px;
+}
+
+.celine-story {
+  position: relative;
+  max-width: 500px;
+  margin-top: 28px;
+}
+
+.celine-story.collapsed {
+  max-height: 165px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 55%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 55%,
+    transparent 100%
+  );
+}
+
+.celine-copy p {
+  margin: 0 0 20px;
+  font-size: var(--ui);
+  line-height: 1.58;
+  font-weight: 400;
+}
+
+.celine-copy .opening-note {
+  margin-bottom: 30px;
+}
+
+.celine-copy em { font-style: italic; }
+
+.theater-image {
+  width: 100%;
+  margin: 34px 0 18px;
+}
+
+.theater-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.celine-copy .image-follow {
+  margin-top: 0;
+}
+
+.celine-copy .video-note {
+  margin-top: 34px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--grey2);
+  font-size: 9px;
+}
+
+/* CELINE — ARTWORK AND TRACK LIST */
+
+.celine-extras {
+  margin-top: 36px;
+  max-width: 620px;
+}
+
+.celine-cover {
+  width: min(100%,390px);
+  margin: 0 0 20px;
+  padding: 14px;
+  background: var(--sand2);
+}
+
+.celine-cover img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.track-toggle {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 7px 9px;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.tracklist {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 30px;
+  max-width: 390px;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.tracklist[hidden] { display: none; }
+
+.tracklist li { break-inside: avoid; }
+
+/* CELINE — AUDIO PREVIEWS */
+
+.players {
+  margin-top: 38px;
+  display: grid;
+  gap: 22px;
+  max-width: 620px;
+}
+
+.teaser {
+  border-top: 1px solid var(--line);
+  padding-top: 11px;
+}
+
+.teaser h2 {
+  font-size: 10.5px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.meta {
+  font-size: 9px;
+  color: var(--grey2);
+  margin: 3px 0 7px;
+}
+
+.player {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.play {
+  width: 36px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.seek {
+  width: 100%;
+  accent-color: var(--grey);
+}
+
+.time {
+  font-size: 9px;
+  color: var(--grey2);
+  font-variant-numeric: tabular-nums;
+}
+
+.status {
+  min-height: 12px;
+  font-size: 8px;
+  color: var(--grey2);
+  margin-top: 4px;
+}
+
+/* FOOTER */
 
 footer {
   position: fixed;
@@ -143,37 +312,35 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 14px 24px 16px;
-  background: linear-gradient(transparent, var(--sand) 38%);
+  background: linear-gradient(transparent,var(--sand) 38%);
   font-size: 9px;
+  z-index: 20;
 }
+
+/* SETTINGS */
 
 .settings {
   position: fixed;
   right: 14px;
   bottom: 14px;
   z-index: 80;
-  width: min(300px, calc(100vw - 28px));
+  width: min(300px,calc(100vw - 28px));
   padding: 15px;
   background: var(--sand);
   border: 1px solid var(--line);
   display: none;
 }
 
-.settings.open {
-  display: block;
-}
+.settings.open { display: block; }
 
-.settings-head,
-.setting-row {
+.settings-head, .setting-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
 }
 
-.settings-head {
-  padding-bottom: 11px;
-}
+.settings-head { padding-bottom: 11px; }
 
 .setting-row {
   border-top: 1px solid var(--line);
@@ -185,6 +352,7 @@ footer {
   padding: 6px 9px;
   border-radius: 0;
   background: transparent;
+  cursor: pointer;
 }
 
 .setting-actions {
@@ -194,32 +362,41 @@ footer {
 
 body.dark {
   --sand: #5a535c;
+  --sand2: #665e68;
   --grey: #d4d0d2;
   --grey2: #bdb7bb;
   --line: rgba(247,246,243,.22);
 }
 
-@media (max-width: 720px) {
+/* MOBILE */
+
+@media (max-width:720px) {
   .topbar {
     padding: 16px 14px;
     gap: 12px;
   }
 
-  .nav {
-    gap: 12px;
+  .nav { gap: 12px; }
+
+  .page { padding: 44px 24px 88px; }
+
+  .page h1 { margin-bottom: 36px; }
+
+  .celine-story { max-width: 100%; }
+
+  .theater-image { margin: 30px 0 16px; }
+
+  .player {
+    grid-template-columns: auto 1fr;
   }
 
-  .page {
-    padding: 44px 24px 88px;
+  .time {
+    grid-column: 2;
+    text-align: right;
+    margin-top: -6px;
   }
 
-  .page h1 {
-    margin-bottom: 36px;
-  }
-
-  footer {
-    padding: 12px 14px 14px;
-  }
+  footer { padding: 12px 14px 14px; }
 }
 </style>
 </head>
@@ -227,7 +404,6 @@ body.dark {
 <body>
 
 <header class="topbar">
-
   <a class="brand" href="index.html">HH</a>
 
   <nav class="nav" aria-label="Primary">
@@ -237,137 +413,331 @@ body.dark {
     <a href="video-archive.html">Video Archive</a>
     <button id="settingsOpen" type="button">Settings</button>
   </nav>
-
 </header>
 
 <main class="page">
-
 <h1>Archive</h1>
 
 <div class="catalogue">
 
+<!-- CELINE 2000-2006 -->
+
+<section class="release celine-release">
+
+  <div class="celine-head">
+    <div>
+      <h2 class="release-title">Celine 2000-2006</h2>
+      <p class="release-year">2026</p>
+    </div>
+
+    <button
+      class="celine-expand"
+      type="button"
+      aria-expanded="false"
+      aria-controls="celine-story"
+      aria-label="Expand Celine editorial"
+    >+</button>
+  </div>
+
+  <div class="release-links">
+    <a
+      href="https://music.apple.com/us/album/celine-2000-2006/6820429079"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Apple</a>
+  </div>
+
+  <div class="celine-story collapsed" id="celine-story">
+    <div class="celine-copy">
+
+      <p class="opening-note">
+        <em>The title, for the record, has nothing to do with the fashion house.</em>
+      </p>
+
+      <p>
+        There is a small cinema in Paris’s 5th arrondissement where Issa Bukasa went to see Lars von Trier’s <em>Dancer in the Dark</em>. At some point during the film, he took three photographs of the screen. Somehow.
+      </p>
+
+      <p>
+        They are mostly photographs of darkness. A little blue light. Björk’s face suspended inside it.
+      </p>
+
+      <figure class="theater-image">
+        <img
+          src="assets/images/celine-theater-01.jpg"
+          alt="Cinema screen photographed during Dancer in the Dark"
+        >
+      </figure>
+
+      <p class="image-follow">
+        Maybe that is where this record began.
+      </p>
+
+      <p>
+        Selma Ježková, the film’s central character, is slowly losing her sight. She works at a factory, raises her son alone and quietly saves what she can for an operation that might spare him the same fate. The circumstances surrounding her become increasingly cruel. Still, Selma hears music everywhere. Machines keep time. Factory floors become stages. When ordinary life becomes difficult to bear, she listens for another rhythm inside it.
+      </p>
+
+      <figure class="theater-image">
+        <img
+          src="assets/images/celine-theater-02.jpg"
+          alt="Blue-lit cinema screen photographed during Dancer in the Dark"
+        >
+      </figure>
+
+      <p class="image-follow">
+        Bukasa understood that.
+      </p>
+
+      <p>
+        <em>Celine 2000-2006</em> collects seven songs from a period when his own relationship with music had become uncertain. They come from daily diaries, passing emotions and the recurring thought that perhaps making something did not always require sharing it. Sometimes he wanted to stop altogether.
+      </p>
+
+      <p>
+        The film complicated that thought.
+      </p>
+
+      <p>
+        On “Sage,” saving becomes its own kind of tenderness. Selma has her small reserve of money, guarded because it belongs to a future she can still imagine. Bukasa has music. The song circles a similar instinct: keeping something warm when the rest of life has gone cold. Not happiness, exactly. More like an ember.
+      </p>
+
+      <p>
+        Then things begin to turn.
+      </p>
+
+      <p>
+        “Grizz Lee” carries the unease of discovering danger in something once mistaken for safety. Selma learns this through betrayal. Bukasa puts it another way: <em>tread slow, you’re in the wild now.</em> The grizzlies, he says, were thought to be teddies.
+      </p>
+
+      <p>
+        Across the record, that tension keeps returning. “Alms” arrives and disappears in barely more than a minute. “Brother -chorus (c-em)” lingers much longer, almost suspended. “zxy” moves differently again. The songs do not resolve one another so much as remember different temperatures of the same life.
+      </p>
+
+      <p>
+        Which makes “Lifting me 2” feel less like an ending than an answer.
+      </p>
+
+      <figure class="theater-image">
+        <img
+          src="assets/images/celine-theater-03.jpg"
+          alt="Cinema screen photographed during Dancer in the Dark"
+        >
+      </figure>
+
+      <p class="image-follow">
+        Near the end of <em>Dancer in the Dark</em>, Selma has almost nothing left. Even standing becomes difficult. Brenda reminds her of something seemingly useless under the circumstances: dancing. Music. Joy. And somehow Selma moves again.
+      </p>
+
+      <p>
+        It stayed with Bukasa after leaving the theater.
+      </p>
+
+      <p>
+        Not because Selma’s story suggests that music makes suffering disappear. It doesn’t. Perhaps the stranger possibility is that something beautiful can accompany a life without correcting it. A song can exist beside disappointment. Rhythm beside fear. Warmth beside cold.
+      </p>
+
+      <p>
+        And sometimes that is enough movement for another step.
+      </p>
+
+      <p>
+        <em>Celine 2000-2006</em> came from Bukasa wondering whether he still wanted to make music at all. Seven songs later, there is no grand conclusion.
+      </p>
+
+      <p>
+        Only that he kept going.
+      </p>
+
+      <p class="video-note">
+        Two videos will be released alongside the project.
+      </p>
+
+    </div>
+  </div>
+
+  <div class="celine-extras">
+
+    <figure class="celine-cover">
+      <img
+        src="assets/images/celine-2000-2006-cover.jpg"
+        alt="Celine 2000-2006 artwork"
+      >
+    </figure>
+
+    <button
+      class="track-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="celine-tracklist"
+    >Track listing +</button>
+
+    <ol class="tracklist" id="celine-tracklist" hidden>
+      <li>Celine 2000-2006</li>
+      <li>Sage</li>
+      <li>Alms</li>
+      <li>Brother -chorus (c-em)</li>
+      <li>zxy</li>
+      <li>Grizz Lee</li>
+      <li>Lifting me 2</li>
+    </ol>
+
+    <div class="players">
+
+      <section class="teaser">
+        <h2>CELINE 2000-2006 — TEASER</h2>
+        <p class="meta">0:00–0:40 · 40 SEC PREVIEW</p>
+
+        <div
+          class="player"
+          data-preview-start="0"
+          data-preview-duration="40"
+        >
+          <audio
+            preload="metadata"
+            src="assets/audio/celine-preview.m4a"
+          ></audio>
+
+          <button
+            class="play"
+            type="button"
+            aria-label="Play Celine 2000-2006 teaser"
+          >Play</button>
+
+          <input
+            class="seek"
+            type="range"
+            min="0"
+            max="40"
+            value="0"
+            step="0.1"
+            aria-label="Celine teaser progress"
+          >
+
+          <span class="time">0:00 / 0:40</span>
+        </div>
+
+        <div class="status" aria-live="polite"></div>
+      </section>
+
+      <section class="teaser">
+        <h2>LIFTING ME 2 — TEASER</h2>
+        <p class="meta">0:29–1:09 · 40 SEC PREVIEW</p>
+
+        <div
+          class="player"
+          data-preview-start="29"
+          data-preview-duration="40"
+        >
+          <audio
+            preload="metadata"
+            src="assets/audio/Lifting-me-2-preview.m4a"
+          ></audio>
+
+          <button
+            class="play"
+            type="button"
+            aria-label="Play Lifting me 2 teaser"
+          >Play</button>
+
+          <input
+            class="seek"
+            type="range"
+            min="0"
+            max="40"
+            value="0"
+            step="0.1"
+            aria-label="Lifting me 2 teaser progress"
+          >
+
+          <span class="time">0:00 / 0:40</span>
+        </div>
+
+        <div class="status" aria-live="polite"></div>
+      </section>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- EXISTING ARCHIVE RELEASES -->
+
 <section class="release">
-
   <p class="release-title">X</p>
-
   <p class="release-year">2025</p>
 
   <div class="release-links">
-
     <a
       href="https://henryhues.bandcamp.com/album/x"
       target="_blank"
       rel="noopener"
-    >
-      Bandcamp
-    </a>
+    >Bandcamp</a>
 
     <a
       href="https://music.apple.com/us/album/x/1791656243"
       target="_blank"
       rel="noopener"
-    >
-      Apple
-    </a>
-
+    >Apple</a>
   </div>
-
 </section>
 
 <section class="release">
-
-  <p class="release-title">
-    The World Is A Miracle
-  </p>
-
+  <p class="release-title">The World Is A Miracle</p>
   <p class="release-year">2024</p>
 
   <div class="release-links">
-
     <a
       href="https://henryhues.bandcamp.com/album/the-world-is-a-miracle"
       target="_blank"
       rel="noopener"
-    >
-      Bandcamp
-    </a>
+    >Bandcamp</a>
 
     <a
       href="https://music.apple.com/us/album/the-world-is-a-miracle/1767165106"
       target="_blank"
       rel="noopener"
-    >
-      Apple
-    </a>
-
+    >Apple</a>
   </div>
-
 </section>
 
 <section class="release">
-
-  <p class="release-title">
-    Rory Express
-  </p>
-
+  <p class="release-title">Rory Express</p>
   <p class="release-year">2024</p>
 
   <div class="release-links">
-
     <a
       href="https://henryhues.bandcamp.com/album/rory-express"
       target="_blank"
       rel="noopener"
-    >
-      Bandcamp
-    </a>
+    >Bandcamp</a>
 
     <a
       href="https://music.apple.com/us/album/rory-express-single/1736688223"
       target="_blank"
       rel="noopener"
-    >
-      Apple
-    </a>
-
+    >Apple</a>
   </div>
-
 </section>
 
 <section class="release">
-
-  <p class="release-title">
-    Sweetheart
-  </p>
-
-  <p class="release-year">
-    2024
-  </p>
+  <p class="release-title">Sweetheart</p>
+  <p class="release-year">2024</p>
 
   <div class="release-links">
-
     <a
       href="https://music.apple.com/us/album/sweetheart/6792327995"
       target="_blank"
       rel="noopener"
-    >
-      Apple
-    </a>
+    >Apple</a>
 
     <a
       href="https://open.spotify.com/album/6ea9wrEzdKFj8ZQRpT3aLj"
       target="_blank"
       rel="noopener"
-    >
-      Spotify
-    </a>
-
+    >Spotify</a>
   </div>
-
 </section>
 
 </div>
-
 </main>
 
 <footer>
@@ -375,42 +745,47 @@ body.dark {
   <span>Paris · New York</span>
 </footer>
 
+<!-- SETTINGS -->
+
 <aside class="settings" id="settings" aria-hidden="true">
 
-<div class="settings-head">
-  <span>Settings</span>
-  <button class="square" id="settingsClose" type="button">Close</button>
-</div>
-
-<div class="setting-row">
-  <span>Text size</span>
-
-  <div class="setting-actions">
-    <button class="square" data-size="10" type="button">A−</button>
-    <button class="square" data-size="10.5" type="button">A</button>
-    <button class="square" data-size="12.5" type="button">A+</button>
+  <div class="settings-head">
+    <span>Settings</span>
+    <button class="square" id="settingsClose" type="button">
+      Close
+    </button>
   </div>
-</div>
 
-<div class="setting-row">
-  <span>Theme</span>
+  <div class="setting-row">
+    <span>Text size</span>
 
-  <div class="setting-actions">
-    <button class="square" id="lightBtn" type="button">Light</button>
-    <button class="square" id="darkBtn" type="button">Dark</button>
+    <div class="setting-actions">
+      <button class="square" data-size="10" type="button">A−</button>
+      <button class="square" data-size="10.5" type="button">A</button>
+      <button class="square" data-size="12.5" type="button">A+</button>
+    </div>
   </div>
-</div>
 
-<div class="setting-row">
-  <span>Reset</span>
-  <button class="square" id="resetBtn" type="button">Reset</button>
-</div>
+  <div class="setting-row">
+    <span>Theme</span>
+
+    <div class="setting-actions">
+      <button class="square" id="lightBtn" type="button">Light</button>
+      <button class="square" id="darkBtn" type="button">Dark</button>
+    </div>
+  </div>
+
+  <div class="setting-row">
+    <span>Reset</span>
+    <button class="square" id="resetBtn" type="button">Reset</button>
+  </div>
 
 </aside>
 
+<!-- SETTINGS JAVASCRIPT -->
+
 <script>
 (() => {
-
   const root = document.documentElement;
   const body = document.body;
 
@@ -421,7 +796,7 @@ body.dark {
   const darkBtn = document.getElementById('darkBtn');
   const resetBtn = document.getElementById('resetBtn');
 
-  const setPanel = (open) => {
+  const setPanel = open => {
     panel.classList.toggle('open', open);
     panel.setAttribute('aria-hidden', String(!open));
   };
@@ -432,14 +807,13 @@ body.dark {
   const savedSize = localStorage.getItem('hh-size');
 
   if (savedSize) {
-    root.style.setProperty('--ui', `${savedSize}px`);
+    root.style.setProperty('--ui', savedSize + 'px');
   }
 
-  document.querySelectorAll('[data-size]').forEach((button) => {
+  document.querySelectorAll('[data-size]').forEach(button => {
     button.addEventListener('click', () => {
       const size = button.dataset.size;
-
-      root.style.setProperty('--ui', `${size}px`);
+      root.style.setProperty('--ui', size + 'px');
       localStorage.setItem('hh-size', size);
     });
   });
@@ -461,14 +835,176 @@ body.dark {
   resetBtn.addEventListener('click', () => {
     localStorage.removeItem('hh-size');
     localStorage.removeItem('hh-theme');
-
     root.style.setProperty('--ui', '10.5px');
     body.classList.remove('dark');
   });
+})();
+</script>
 
+<!-- CELINE EXPANSION AND AUDIO -->
+
+<script>
+(() => {
+  const expand = document.querySelector('.celine-expand');
+  const story = document.getElementById('celine-story');
+
+  expand.addEventListener('click', () => {
+    const open = expand.getAttribute('aria-expanded') !== 'true';
+
+    expand.setAttribute('aria-expanded', String(open));
+    expand.setAttribute(
+      'aria-label',
+      open ? 'Collapse Celine editorial' : 'Expand Celine editorial'
+    );
+
+    expand.textContent = open ? '−' : '+';
+    story.classList.toggle('collapsed', !open);
+  });
+
+  const trackButton = document.querySelector('.track-toggle');
+  const tracklist = document.getElementById('celine-tracklist');
+
+  trackButton.addEventListener('click', () => {
+    const open = tracklist.hidden;
+
+    tracklist.hidden = !open;
+    trackButton.textContent = open
+      ? 'Track listing −'
+      : 'Track listing +';
+
+    trackButton.setAttribute('aria-expanded', String(open));
+  });
+
+  const formatTime = seconds => {
+    const safe = Math.max(0, Math.floor(seconds || 0));
+
+    return Math.floor(safe / 60) + ':' +
+      String(safe % 60).padStart(2, '0');
+  };
+
+  const players = [...document.querySelectorAll('.celine-release .player')];
+
+  players.forEach(player => {
+    const audio = player.querySelector('audio');
+    const button = player.querySelector('.play');
+    const seek = player.querySelector('.seek');
+    const time = player.querySelector('.time');
+    const status = player.closest('.teaser').querySelector('.status');
+
+    const start = Number(player.dataset.previewStart || 0);
+    const duration = Number(player.dataset.previewDuration || 40);
+    const end = start + duration;
+
+    const display = elapsed => {
+      const value = Math.max(0, Math.min(elapsed, duration));
+      seek.value = String(value);
+
+      time.textContent =
+        formatTime(value) + ' / ' + formatTime(duration);
+    };
+
+    const reset = () => {
+      audio.pause();
+
+      try {
+        audio.currentTime = start;
+      } catch (error) {}
+
+      button.textContent = 'Play';
+      display(0);
+    };
+
+    audio.addEventListener('loadedmetadata', () => {
+      try {
+        audio.currentTime = start;
+      } catch (error) {}
+
+      display(0);
+      status.textContent = '';
+    });
+
+    audio.addEventListener('error', () => {
+      button.textContent = 'Play';
+      status.textContent = 'Audio unavailable.';
+    });
+
+    button.addEventListener('click', async () => {
+      if (!audio.paused) {
+        audio.pause();
+        button.textContent = 'Play';
+        return;
+      }
+
+      players.forEach(other => {
+        if (other === player) return;
+
+        const otherAudio = other.querySelector('audio');
+        const otherButton = other.querySelector('.play');
+
+        otherAudio.pause();
+        otherButton.textContent = 'Play';
+      });
+
+      if (
+        !Number.isFinite(audio.currentTime) ||
+        audio.currentTime < start ||
+        audio.currentTime >= end
+      ) {
+        try {
+          audio.currentTime = start;
+        } catch (error) {}
+      }
+
+      try {
+        await audio.play();
+        button.textContent = 'Pause';
+        status.textContent = '';
+      } catch (error) {
+        button.textContent = 'Play';
+        status.textContent = 'Tap Play again to start audio.';
+      }
+    });
+
+    seek.addEventListener('input', () => {
+      const elapsed = Math.max(
+        0,
+        Math.min(Number(seek.value), duration)
+      );
+
+      try {
+        audio.currentTime = start + elapsed;
+      } catch (error) {}
+
+      display(elapsed);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.currentTime >= end) {
+        audio.pause();
+
+        try {
+          audio.currentTime = end;
+        } catch (error) {}
+
+        display(duration);
+        button.textContent = 'Play';
+        return;
+      }
+
+      if (audio.currentTime < start) {
+        try {
+          audio.currentTime = start;
+        } catch (error) {}
+        return;
+      }
+
+      display(audio.currentTime - start);
+    });
+
+    audio.addEventListener('ended', reset);
+  });
 })();
 </script>
 
 </body>
 </html>
- 
