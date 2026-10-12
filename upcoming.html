@@ -1,4 +1,5 @@
-  <!DOCTYPE html>
+  
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -91,17 +92,15 @@ button {
   max-width: 920px;
 }
 
-.entry + .entry {
-  margin-top: 110px;
-}
-
 /* =========================================
    SHARED PROJECT SYSTEM
 ========================================= */
 
 .project-grid {
   display: grid;
-  grid-template-columns: minmax(220px,390px) minmax(220px,1fr);
+  grid-template-columns:
+    minmax(220px,390px)
+    minmax(220px,1fr);
   gap: 36px;
   align-items: start;
 }
@@ -219,104 +218,6 @@ button {
 }
 
 /* =========================================
-   CELINE EDITORIAL
-========================================= */
-
-.celine-editorial {
-  width: min(100%,500px);
-}
-
-.celine-heading {
-  font-size: var(--project-title);
-  line-height: 1.3;
-  font-weight: 400;
-  margin: 0 0 12px;
-  color: var(--grey);
-}
-
-.celine-date {
-  display: inline-block;
-  font-size: 10px;
-  margin: 0 0 32px;
-  border-bottom: 1px solid currentColor;
-}
-
-.celine-copy p {
-  margin: 0 0 20px;
-  font-size: var(--ui);
-  line-height: 1.58;
-  font-weight: 400;
-}
-
-.celine-copy .opening-note {
-  margin-bottom: 30px;
-}
-
-.celine-copy em {
-  font-style: italic;
-}
-
-.theater-image {
-  width: 100%;
-  margin: 34px 0 18px;
-}
-
-.theater-image img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-.image-follow {
-  margin-top: 0 !important;
-}
-
-.video-note {
-  margin-top: 34px !important;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-  color: var(--grey2);
-  font-size: 9px !important;
-}
-
-/* =========================================
-   CELINE RELEASE
-========================================= */
-
-.celine-project {
-  margin-top: 54px;
-  width: min(100%,650px);
-}
-
-.celine-cover {
-  width: min(100%,390px);
-}
-
-.celine-project-info {
-  margin-top: 16px;
-}
-
-.celine-project-info .project-title {
-  margin-bottom: 12px;
-}
-
-.celine-project-date {
-  font-size: 9px;
-  color: var(--grey2);
-  margin-left: 4px;
-}
-
-.celine-project .tracklist {
-  max-width: 390px;
-}
-
-.celine-players {
-  margin-top: 38px;
-}
-
-/* =========================================
    FOOTER
 ========================================= */
 
@@ -328,7 +229,10 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 14px 24px 16px;
-  background: linear-gradient(transparent,var(--sand) 38%);
+  background: linear-gradient(
+    transparent,
+    var(--sand) 38%
+  );
   font-size: 9px;
 }
 
@@ -413,10 +317,6 @@ body.dark {
     margin-bottom: 36px;
   }
 
-  .entry + .entry {
-    margin-top: 78px;
-  }
-
   .project-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -445,49 +345,19 @@ body.dark {
     margin-top: -6px;
   }
 
-  .celine-editorial {
-    width: 100%;
-  }
-
-  .celine-date {
-    margin-bottom: 28px;
-  }
-
-  .celine-copy p {
-    line-height: 1.58;
-  }
-
-  .theater-image {
-    width: 100%;
-    margin: 30px 0 16px;
-  }
-
-  .theater-image img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .celine-project {
-    margin-top: 46px;
-    width: 100%;
-  }
-
-  .celine-cover {
-    width: 100%;
-    max-width: 420px;
-  }
-
   footer {
     padding: 12px 14px 14px;
   }
 }
+
 </style>
 </head>
 
-
 <body>
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
 <header class="topbar">
 
@@ -497,339 +367,19 @@ body.dark {
   <a href="archive.html">Archive</a>
   <a href="upcoming.html">Upcoming</a>
   <a href="contact.html">Contact</a>
-    <a href="video-archive.html">Video Archive</a>
+  <a href="video-archive.html">Video Archive</a>
   <button id="settingsOpen" type="button">Settings</button>
 </nav>
 
 </header>
 
+<!-- =========================================
+     UPCOMING
+========================================= -->
 
 <main class="page">
 
 <h1>Upcoming</h1>
-
-
-<!-- =========================================
-     CELINE 2000-2006
-========================================= -->
-
-<article class="entry">
-
-<section class="celine-editorial">
-
-<header>
-
-<h2 class="celine-heading">
-  CELINE 2000-2006
-</h2>
-
-<p class="celine-date">
-  October 12
-</p>
-
-</header>
-
-
-<div class="celine-copy">
-
-<p class="opening-note">
-  <em>The title, for the record, has nothing to do with the fashion house.</em>
-</p>
-
-<p>
-  There is a small cinema in Paris’s 5th arrondissement where Issa Bukasa went to see Lars von Trier’s <em>Dancer in the Dark</em>. At some point during the film, he took three photographs of the screen. Somehow.
-</p>
-
-<p>
-  They are mostly photographs of darkness. A little blue light. Björk’s face suspended inside it.
-</p>
-
-
-<figure class="theater-image">
-  <img
-    src="assets/images/celine-theater-01.jpg"
-    alt="Cinema screen photographed during Dancer in the Dark"
-  >
-</figure>
-
-
-<p class="image-follow">
-  Maybe that is where this record began.
-</p>
-
-
-<p>
-  Selma Ježková, the film’s central character, is slowly losing her sight. She works at a factory, raises her son alone and quietly saves what she can for an operation that might spare him the same fate. The circumstances surrounding her become increasingly cruel. Still, Selma hears music everywhere. Machines keep time. Factory floors become stages. When ordinary life becomes difficult to bear, she listens for another rhythm inside it.
-</p>
-
-
-<figure class="theater-image">
-  <img
-    src="assets/images/celine-theater-02.jpg"
-    alt="Blue-lit cinema screen photographed during Dancer in the Dark"
-  >
-</figure>
-
-
-<p class="image-follow">
-  Bukasa understood that.
-</p>
-
-
-<p>
-  <em>Celine 2000-2006</em> collects seven songs from a period when his own relationship with music had become uncertain. They come from daily diaries, passing emotions and the recurring thought that perhaps making something did not always require sharing it. Sometimes he wanted to stop altogether.
-</p>
-
-<p>
-  The film complicated that thought.
-</p>
-
-<p>
-  On “Sage,” saving becomes its own kind of tenderness. Selma has her small reserve of money, guarded because it belongs to a future she can still imagine. Bukasa has music. The song circles a similar instinct: keeping something warm when the rest of life has gone cold. Not happiness, exactly. More like an ember.
-</p>
-
-<p>
-  Then things begin to turn.
-</p>
-
-<p>
-  “Grizz Lee” carries the unease of discovering danger in something once mistaken for safety. Selma learns this through betrayal. Bukasa puts it another way: <em>tread slow, you’re in the wild now.</em> The grizzlies, he says, were thought to be teddies.
-</p>
-
-<p>
-  Across the record, that tension keeps returning. “Alms” arrives and disappears in barely more than a minute. “Brother -chorus (c-em)” lingers much longer, almost suspended. “zxy” moves differently again. The songs do not resolve one another so much as remember different temperatures of the same life.
-</p>
-
-<p>
-  Which makes “Lifting me 2” feel less like an ending than an answer.
-</p>
-
-
-<figure class="theater-image">
-  <img
-    src="assets/images/celine-theater-03.jpg"
-    alt="Cinema screen photographed during Dancer in the Dark"
-  >
-</figure>
-
-
-<p class="image-follow">
-  Near the end of <em>Dancer in the Dark</em>, Selma has almost nothing left. Even standing becomes difficult. Brenda reminds her of something seemingly useless under the circumstances: dancing. Music. Joy. And somehow Selma moves again.
-</p>
-
-<p>
-  It stayed with Bukasa after leaving the theater.
-</p>
-
-<p>
-  Not because Selma’s story suggests that music makes suffering disappear. It doesn’t. Perhaps the stranger possibility is that something beautiful can accompany a life without correcting it. A song can exist beside disappointment. Rhythm beside fear. Warmth beside cold.
-</p>
-
-<p>
-  And sometimes that is enough movement for another step.
-</p>
-
-<p>
-  <em>Celine 2000-2006</em> came from Bukasa wondering whether he still wanted to make music at all. Seven songs later, there is no grand conclusion.
-</p>
-
-<p>
-  Only that he kept going.
-</p>
-
-<p class="video-note">
-  Two videos will be released alongside the project.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================================
-     CELINE COVER + TRACKLIST
-========================================= -->
-
-<section class="celine-project">
-
-<figure class="cover celine-cover">
-
-<img
-  src="assets/images/celine-2000-2006-cover.jpg"
-  alt="Celine 2000-2006 artwork"
->
-
-</figure>
-
-
-<div class="celine-project-info">
-
-<h2 class="project-title">
-  Celine 2000-2006
-  <span class="celine-project-date">
-    — October 12.
-  </span>
-</h2>
-
-
-<button
-  class="track-toggle"
-  type="button"
-  aria-expanded="false"
-  aria-controls="celine-tracklist"
->
-  Track listing +
-</button>
-
-
-<ol
-  class="tracklist"
-  id="celine-tracklist"
-  hidden
->
-  <li>Celine 2000-2006</li>
-  <li>Sage</li>
-  <li>Alms</li>
-  <li>Brother -chorus (c-em)</li>
-  <li>zxy</li>
-  <li>Grizz Lee</li>
-  <li>Lifting me 2</li>
-</ol>
-
-</div>
-
-
-<!-- =========================================
-     CELINE TEASERS
-========================================= -->
-
-<div class="players celine-players">
-
-
-<section class="teaser">
-
-<h2>
-  CELINE 2000-2006 — TEASER
-</h2>
-
-<p class="meta">
-  0:00–0:40 · 40 SEC PREVIEW
-</p>
-
-
-<div
-  class="player"
-  data-preview-start="0"
-  data-preview-duration="40"
->
-
-<audio
-  preload="metadata"
-  src="assets/audio/celine-preview.m4a"
-></audio>
-
-
-<button
-  class="play"
-  type="button"
-  aria-label="Play Celine 2000-2006 teaser"
->
-  Play
-</button>
-
-
-<input
-  class="seek"
-  type="range"
-  min="0"
-  max="40"
-  value="0"
-  step="0.1"
-  aria-label="Celine 2000-2006 teaser progress"
->
-
-
-<span class="time">
-  0:00 / 0:40
-</span>
-
-</div>
-
-
-<div
-  class="status"
-  aria-live="polite"
-></div>
-
-</section>
-
-
-<!-- LIFTING ME 2 -->
-
-<section class="teaser">
-
-<h2>
-  LIFTING ME 2 — TEASER
-</h2>
-
-<p class="meta">
-  0:29–1:09 · 40 SEC PREVIEW
-</p>
-
-
-<div
-  class="player"
-  data-preview-start="29"
-  data-preview-duration="40"
->
-
-<audio
-  preload="metadata"
-  src="assets/audio/Lifting-me-2-preview.m4a"
-></audio>
-
-
-<button
-  class="play"
-  type="button"
-  aria-label="Play Lifting me 2 teaser"
->
-  Play
-</button>
-
-
-<input
-  class="seek"
-  type="range"
-  min="0"
-  max="40"
-  value="0"
-  step="0.1"
-  aria-label="Lifting me 2 teaser progress"
->
-
-
-<span class="time">
-  0:00 / 0:40
-</span>
-
-</div>
-
-
-<div
-  class="status"
-  aria-live="polite"
-></div>
-
-</section>
-
-
-</div>
-
-</section>
-
-</article>
-
 
 <!-- =========================================
      ARK
@@ -848,13 +398,11 @@ body.dark {
 
 </figure>
 
-
 <div>
 
 <h2 class="project-title">
   ARK
 </h2>
-
 
 <button
   class="track-toggle"
@@ -864,7 +412,6 @@ body.dark {
 >
   Track listing +
 </button>
-
 
 <ol
   class="tracklist"
@@ -893,13 +440,13 @@ body.dark {
 
 </div>
 
-
 <!-- =========================================
      ARK TEASERS
 ========================================= -->
 
 <div class="players">
 
+<!-- BREEZE -->
 
 <section class="teaser">
 
@@ -910,7 +457,6 @@ body.dark {
 <p class="meta">
   1:26–2:06 · 40 SEC PREVIEW
 </p>
-
 
 <div
   class="player"
@@ -923,7 +469,6 @@ body.dark {
   src="assets/audio/breeze-preview-v2.m4a"
 ></audio>
 
-
 <button
   class="play"
   type="button"
@@ -931,7 +476,6 @@ body.dark {
 >
   Play
 </button>
-
 
 <input
   class="seek"
@@ -943,13 +487,11 @@ body.dark {
   aria-label="Breeze teaser progress"
 >
 
-
 <span class="time">
   0:00 / 0:40
 </span>
 
 </div>
-
 
 <div
   class="status"
@@ -958,6 +500,7 @@ body.dark {
 
 </section>
 
+<!-- SHREE GUCCI -->
 
 <section class="teaser">
 
@@ -968,7 +511,6 @@ body.dark {
 <p class="meta">
   0:00–0:40 · 40 SEC PREVIEW
 </p>
-
 
 <div
   class="player"
@@ -981,7 +523,6 @@ body.dark {
   src="assets/audio/shree-gucci-teaser.m4a"
 ></audio>
 
-
 <button
   class="play"
   type="button"
@@ -989,7 +530,6 @@ body.dark {
 >
   Play
 </button>
-
 
 <input
   class="seek"
@@ -1001,13 +541,11 @@ body.dark {
   aria-label="Shree Gucci teaser progress"
 >
 
-
 <span class="time">
   0:00 / 0:40
 </span>
 
 </div>
-
 
 <div
   class="status"
@@ -1016,19 +554,20 @@ body.dark {
 
 </section>
 
-
 </div>
 
 </article>
 
 </main>
 
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer>
-<span>Henry Hues © 2026</span>
-<span>Paris · New York</span>
+  <span>Henry Hues © 2026</span>
+  <span>Paris · New York</span>
 </footer>
-
 
 <!-- =========================================
      SETTINGS
@@ -1053,7 +592,6 @@ body.dark {
 </button>
 
 </div>
-
 
 <div class="setting-row">
 
@@ -1089,7 +627,6 @@ body.dark {
 
 </div>
 
-
 <div class="setting-row">
 
 <span>Theme</span>
@@ -1116,7 +653,6 @@ body.dark {
 
 </div>
 
-
 <div class="setting-row">
 
 <span>Reset</span>
@@ -1132,7 +668,6 @@ body.dark {
 </div>
 
 </aside>
-
 
 <!-- =========================================
      SETTINGS JAVASCRIPT
@@ -1162,47 +697,33 @@ body.dark {
   const resetBtn =
     document.getElementById('resetBtn');
 
-
   const setPanel = (open) => {
-
-    panel.classList.toggle(
-      'open',
-      open
-    );
-
+    panel.classList.toggle('open', open);
     panel.setAttribute(
       'aria-hidden',
       String(!open)
     );
-
   };
-
 
   openBtn.addEventListener(
     'click',
     () => setPanel(true)
   );
 
-
   closeBtn.addEventListener(
     'click',
     () => setPanel(false)
   );
 
-
   const savedSize =
     localStorage.getItem('hh-size');
 
-
   if (savedSize) {
-
     root.style.setProperty(
       '--ui',
       `${savedSize}px`
     );
-
   }
-
 
   document
     .querySelectorAll('[data-size]')
@@ -1230,58 +751,41 @@ body.dark {
 
     });
 
-
   if (
     localStorage.getItem('hh-theme') ===
     'dark'
   ) {
-
     body.classList.add('dark');
-
   }
-
 
   darkBtn.addEventListener(
     'click',
     () => {
-
       body.classList.add('dark');
-
       localStorage.setItem(
         'hh-theme',
         'dark'
       );
-
     }
   );
-
 
   lightBtn.addEventListener(
     'click',
     () => {
-
       body.classList.remove('dark');
-
       localStorage.setItem(
         'hh-theme',
         'light'
       );
-
     }
   );
-
 
   resetBtn.addEventListener(
     'click',
     () => {
 
-      localStorage.removeItem(
-        'hh-size'
-      );
-
-      localStorage.removeItem(
-        'hh-theme'
-      );
+      localStorage.removeItem('hh-size');
+      localStorage.removeItem('hh-theme');
 
       root.style.setProperty(
         '--ui',
@@ -1296,7 +800,6 @@ body.dark {
 })();
 </script>
 
-
 <!-- =========================================
      TRACKLIST + AUDIO JAVASCRIPT
 ========================================= -->
@@ -1304,27 +807,19 @@ body.dark {
 <script>
 (() => {
 
-  /* TRACKLISTS */
+  /* TRACKLIST */
 
   document
     .querySelectorAll('.track-toggle')
     .forEach((button) => {
 
       const listId =
-        button.getAttribute(
-          'aria-controls'
-        );
+        button.getAttribute('aria-controls');
 
       const tracklist =
-        document.getElementById(
-          listId
-        );
+        document.getElementById(listId);
 
-
-      if (!tracklist) {
-        return;
-      }
-
+      if (!tracklist) return;
 
       button.addEventListener(
         'click',
@@ -1333,8 +828,7 @@ body.dark {
           const shouldOpen =
             tracklist.hidden;
 
-          tracklist.hidden =
-            !shouldOpen;
+          tracklist.hidden = !shouldOpen;
 
           button.textContent =
             shouldOpen
@@ -1351,35 +845,23 @@ body.dark {
 
     });
 
-
-  /* =========================================
-     AUDIO PREVIEW SYSTEM
-
-     Each player has its own source start.
-     The visible scrubber always represents
-     the 40-second preview itself.
-  ========================================= */
+  /* AUDIO PREVIEW SYSTEM */
 
   const formatTime = (seconds) => {
 
-    const safe =
-      Math.max(
-        0,
-        Math.floor(seconds || 0)
-      );
+    const safe = Math.max(
+      0,
+      Math.floor(seconds || 0)
+    );
 
-    return `${Math.floor(
-      safe / 60
-    )}:${String(
+    return `${Math.floor(safe / 60)}:${String(
       safe % 60
-    ).padStart(2,'0')}`;
+    ).padStart(2, '0')}`;
 
   };
 
-
   const players =
     document.querySelectorAll('.player');
-
 
   players.forEach((player) => {
 
@@ -1396,88 +878,59 @@ body.dark {
       player.querySelector('.time');
 
     const status =
-      player.parentElement
-        .querySelector('.status');
+      player.parentElement.querySelector(
+        '.status'
+      );
 
-
-    if (
-      !audio ||
-      !button ||
-      !seek ||
-      !time
-    ) {
+    if (!audio || !button || !seek || !time) {
       return;
     }
 
+    const previewStart = Number(
+      player.dataset.previewStart || 0
+    );
 
-    const previewStart =
-      Number(
-        player.dataset.previewStart || 0
-      );
-
-
-    const previewDuration =
-      Number(
-        player.dataset.previewDuration || 40
-      );
-
+    const previewDuration = Number(
+      player.dataset.previewDuration || 40
+    );
 
     const previewEnd =
       previewStart + previewDuration;
 
-
     seek.min = '0';
-    seek.max =
-      String(previewDuration);
-
+    seek.max = String(previewDuration);
 
     const setDisplay = (elapsed) => {
 
-      const safeElapsed =
-        Math.max(
-          0,
-          Math.min(
-            elapsed,
-            previewDuration
-          )
-        );
+      const safeElapsed = Math.max(
+        0,
+        Math.min(elapsed, previewDuration)
+      );
 
-      seek.value =
-        String(safeElapsed);
+      seek.value = String(safeElapsed);
 
       time.textContent =
-        `${formatTime(
-          safeElapsed
-        )} / ${formatTime(
-          previewDuration
-        )}`;
+        `${formatTime(safeElapsed)} / ${formatTime(previewDuration)}`;
 
     };
-
 
     const moveToStart = () => {
 
       try {
-        audio.currentTime =
-          previewStart;
+        audio.currentTime = previewStart;
       } catch (error) {}
 
       setDisplay(0);
 
     };
 
-
     const resetPlayer = () => {
 
       audio.pause();
-
       moveToStart();
-
-      button.textContent =
-        'Play';
+      button.textContent = 'Play';
 
     };
-
 
     audio.addEventListener(
       'loadedmetadata',
@@ -1492,7 +945,6 @@ body.dark {
       }
     );
 
-
     audio.addEventListener(
       'error',
       () => {
@@ -1502,12 +954,10 @@ body.dark {
             'Audio unavailable.';
         }
 
-        button.textContent =
-          'Play';
+        button.textContent = 'Play';
 
       }
     );
-
 
     button.addEventListener(
       'click',
@@ -1515,71 +965,46 @@ body.dark {
 
         if (audio.paused) {
 
-          /* Pause all other teasers */
+          players.forEach((otherPlayer) => {
 
-          players.forEach(
-            (otherPlayer) => {
+            if (otherPlayer === player) {
+              return;
+            }
 
-              if (
-                otherPlayer === player
-              ) {
-                return;
-              }
+            const otherAudio =
+              otherPlayer.querySelector('audio');
 
+            const otherButton =
+              otherPlayer.querySelector('.play');
 
-              const otherAudio =
-                otherPlayer.querySelector(
-                  'audio'
-                );
+            if (
+              otherAudio &&
+              !otherAudio.paused
+            ) {
 
-              const otherButton =
-                otherPlayer.querySelector(
-                  '.play'
-                );
+              otherAudio.pause();
 
-
-              if (
-                otherAudio &&
-                !otherAudio.paused
-              ) {
-
-                otherAudio.pause();
-
-                if (otherButton) {
-                  otherButton.textContent =
-                    'Play';
-                }
-
+              if (otherButton) {
+                otherButton.textContent = 'Play';
               }
 
             }
-          );
 
-
-          /*
-            Restart from the permitted beginning
-            if the player is outside its window.
-          */
+          });
 
           if (
             !Number.isFinite(audio.currentTime) ||
-            audio.currentTime <
-              previewStart ||
-            audio.currentTime >=
-              previewEnd
+            audio.currentTime < previewStart ||
+            audio.currentTime >= previewEnd
           ) {
-
             moveToStart();
-
           }
-
 
           try {
 
             await audio.play();
 
-            button.textContent =
-              'Pause';
+            button.textContent = 'Pause';
 
             if (status) {
               status.textContent = '';
@@ -1587,8 +1012,7 @@ body.dark {
 
           } catch (error) {
 
-            button.textContent =
-              'Play';
+            button.textContent = 'Play';
 
             if (status) {
               status.textContent =
@@ -1600,87 +1024,57 @@ body.dark {
         } else {
 
           audio.pause();
-
-          button.textContent =
-            'Play';
+          button.textContent = 'Play';
 
         }
 
       }
     );
 
-
     seek.addEventListener(
       'input',
       () => {
 
-        const elapsed =
-          Math.max(
-            0,
-            Math.min(
-              Number(seek.value),
-              previewDuration
-            )
-          );
-
-
-        const requestedTime =
-          previewStart + elapsed;
-
+        const elapsed = Math.max(
+          0,
+          Math.min(
+            Number(seek.value),
+            previewDuration
+          )
+        );
 
         try {
           audio.currentTime =
-            requestedTime;
+            previewStart + elapsed;
         } catch (error) {}
-
 
         setDisplay(elapsed);
 
       }
     );
 
-
     audio.addEventListener(
       'timeupdate',
       () => {
 
-        /*
-          Hard stop after exactly
-          40 seconds of permitted playback.
-        */
-
         if (
-          audio.currentTime >=
-          previewEnd
+          audio.currentTime >= previewEnd
         ) {
 
           audio.pause();
 
           try {
-            audio.currentTime =
-              previewEnd;
+            audio.currentTime = previewEnd;
           } catch (error) {}
 
-          setDisplay(
-            previewDuration
-          );
-
-          button.textContent =
-            'Play';
+          setDisplay(previewDuration);
+          button.textContent = 'Play';
 
           return;
-
         }
 
-
-        /*
-          Guard against playback before
-          the configured preview start.
-        */
-
         if (
-          audio.currentTime <
-          previewStart
+          audio.currentTime < previewStart
         ) {
 
           moveToStart();
@@ -1688,17 +1082,12 @@ body.dark {
 
         }
 
-
-        const elapsed =
-          audio.currentTime -
-          previewStart;
-
-
-        setDisplay(elapsed);
+        setDisplay(
+          audio.currentTime - previewStart
+        );
 
       }
     );
-
 
     audio.addEventListener(
       'ended',
